@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Con Jorge Luis - Estrategia H2H para Negocios Sostenibles</title>
+    <meta name="description" content="Transformando B2B y B2C en H2H: Human to Human. Estrategia, operación y finanzas centradas en las personas">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #af4c0f;
+            --secondary: #ff6d4d;
+            --accent1: #ffbd59;
+            --accent2: #ffde59;
+            --dark: #545454;
+            --light: #d9d9d9;
+            --white: #ffffff;
+            --text-dark: #212529;
+            --text-light: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header y Navegación */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(175, 76, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent2);
+        }
+
+        .nav-links li a.cta-button {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .nav-links li a.cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 109, 77, 0.4);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 150px 0 80px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            border: 5px solid var(--accent2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--white);
+        }
+
+        .tagline {
+            font-style: italic;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent2);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0 10px 10px 0;
+            text-align: left;
+            max-width: 700px;
+            margin: 2rem auto;
+            color: var(--white);
+        }
+
+        .h2h-badge {
+            display: inline-block;
+            background: var(--accent2);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(175, 76, 15, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--accent1) 0%, var(--accent2) 100%);
+            color: var(--dark);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .philosophy-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .philosophy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .philosophy-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .philosophy-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .philosophy-card p {
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Content Section */
+        .content {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .content-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(175, 76, 15, 0.1);
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(175, 76, 15, 0.15);
+        }
+
+        .content-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .content-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .content-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .content-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .content-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .content-features li i {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--accent1);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-method i {
+            color: var(--accent2);
+            font-size: 1.2rem;
+            width: 24px;
+        }
+
+        .contact-method div {
+            color: var(--white);
+        }
+
+        .form-container {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .microsoft-form {
+            width: 100%;
+            min-height: 400px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #3a2a1e;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent2);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent2);
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--white);
+        }
+
+        .footer-social-links a:hover {
+            background: var(--accent2);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .philosophy-grid, .content-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <div class="logo-text">Con Jorge Luis</div>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#filosofia">Filosofía H2H</a></li>
+                <li><a href="#contenido">Contenido</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto" class="cta-button">Conversemos</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <img src="https://i.imgur.com/1ykIOZ2.jpeg" alt="Jorge Luis González" class="profile-image">
+            <div class="h2h-badge">#HumanToHuman</div>
+            <h1>Transformando B2B y B2C en <span style="color: #ffde59;">H2H</span></h1>
+            <p class="subtitle">Estrategia, operación y finanzas centradas en las personas para crear negocios sostenibles y rentabilidad por encima del promedio</p>
+            
+            <div class="tagline">
+                <p>"Si un hombre no está agradecido por lo que tiene, es probable que no sea agradecido por lo que tendrá." - Frank A. Clark</p>
+            </div>
+            
+            <div class="hero-buttons">
+                <a href="#contenido" class="btn-primary">
+                    <i class="fas fa-book-open"></i>
+                    Ver Publicaciones
+                </a>
+                <a href="#contacto" class="btn-secondary">Agendar Llamada</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="acerca">
+        <div class="container">
+            <div class="section-header">
+                <h2>Mi Enfoque</h2>
+                <p>Integrando estrategia, operación y finanzas con las personas en el centro</p>
+            </div>
+            
+            <div class="about-content">
+                <p>Con más de 20 años de experiencia en mercados B2B, B2C y ahora H2H (Human to Human), he descubierto que el verdadero éxito empresarial viene de poner a las personas en el centro de cada decisión.</p>
+                
+                <p>Mi metodología combina el rigor analítico con la calidez humana, creando estrategias que no solo son efectivas sino también éticas y sostenibles. Creo firmemente que la rentabilidad y el propósito pueden coexistir cuando se diseñan modelos de negocio centrados en el ser humano.</p>
+                
+                <p>A través de mi trabajo como consultor de estrategia de negocio y Life & Business Coach, he acompañado a numerosos emprendedores y empresas familiares en su proceso de transformación hacia modelos más humanos y rentables.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy" id="filosofia">
+        <div class="container">
+            <div class="section-header">
+                <h2>Filosofía H2H</h2>
+                <p>Human to Human: Donde las estrategias de negocio encuentran el corazón humano</p>
+            </div>
+            
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Personas Primero</h3>
+                    <p>Las empresas existen para servir a las personas, no al revés. Cada estrategia comienza entendiendo las necesidades humanas detrás de los datos.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Relaciones Auténticas</h3>
+                    <p>Construyo conexiones genuinas basadas en transparencia, confianza y valor mutuo. Los mejores negocios surgen de las mejores relaciones.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Crecimiento Sostenible</h3>
+                    <p>Busco la rentabilidad por encima del promedio a través de modelos de negocio que benefician a todos: clientes, colaboradores, accionistas y comunidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content" id="contenido">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contenido y Publicaciones</h2>
+                <p>Compartiendo conocimiento y experiencias para tu crecimiento empresarial</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="content-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Estrategias H2H</h3>
+                    <p>Artículos y reflexiones sobre cómo implementar enfoques Human to Human en tu organización.</p>
+                    <ul class="content-features">
+                        <li><i class="fas fa-check"></i> Casos de estudio reales</li>
+                        <li><i class="fas fa-check"></i> Framework práctico H2H</li>
+                        <li><i class="fas fa-check"></i> Cómo medir el impacto</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <div class="content-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Finanzas Centradas en Personas</h3>
+                    <p>Cómo alinear tus números con tus valores sin sacrificar rentabilidad.</p>
+                    <ul class="content-features">
+                        <li><i class="fas fa-check"></i> Modelos financieros éticos</li>
+                        <li><i class="fas fa-check"></i> ROI de las iniciativas H2H</li>
+                        <li><i class="fas fa-check"></i> Presupuestos con propósito</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <div class="content-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Liderazgo con Propósito</h3>
+                    <p>Desarrollando habilidades directivas que inspiren y transformen equipos.</p>
+                    <ul class="content-features">
+                        <li><i class="fas fa-check"></i> Comunicación efectiva</li>
+                        <li><i class="fas fa-check"></i> Toma de decisiones éticas</li>
+                        <li><i class="fas fa-check"></i> Creación de cultura organizacional</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-header">
+                <h2>Lo Que Dicen</h2>
+                <p>Experiencias de clientes y colaboradores</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Jorge Luis transformó nuestra manera de hacer negocios. Su enfoque H2H nos ayudó a conectar auténticamente con nuestros clientes mientras aumentábamos nuestra rentabilidad.</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>María Fernández</h4>
+                            <p>CEO, Empresa Familiar</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Su capacidad para integrar estrategia, operación y finanzas con un enfoque humano es extraordinaria. He implementado sus consejos con resultados medibles.</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Carlos Rodríguez</h4>
+                            <p>Director Comercial</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Las sesiones de coaching con Jorge Luis fueron transformadoras. No solo mejoró mi negocio, sino también mi perspectiva sobre el liderazgo y el propósito.</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Ana Martínez</h4>
+                            <p>Emprendedora</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-header">
+                <h2>Conversemos</h2>
+                <p>¿Listo para transformar tu negocio con un enfoque H2H?</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Hablemos de tu proyecto</h2>
+                    <p>Cuéntame sobre tus desafíos y objetivos. Juntos podemos crear una estrategia personalizada que ponga a las personas en el centro mientras impulsamos tu rentabilidad.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>jorge@conjorgeluis.com</div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <div>+502 1234 5678</div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>Ciudad de Guatemala, Guatemala</div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-clock"></i>
+                            <div>Lunes a Viernes: 9:00 - 18:00</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-container">
+                    <h3>Agenda una consulta gratuita</h3>
+                    <iframe src="https://forms.office.com/Pages/ResponsePage.aspx?id=TU_DIRECCIÓN_DE_FORMULARIO&embed=true" 
+                            frameborder="0" 
+                            marginwidth="0" 
+                            marginheight="0" 
+                            class="microsoft-form" 
+                            allowtransparency="true">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Con Jorge Luis</h3>
+                    <p>Transformando B2B y B2C en H2H: Human to Human. Estrategia, operación y finanzas centradas en las personas.</p>
+                    <div class="footer-social-links">
+                        <a href="https://www.linkedin.com/in/jorgegonzalezgua" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <a href="#filosofia">Filosofía H2H</a>
+                    <a href="#contenido">Publicaciones</a>
+                    <a href="#testimonios">Testimonios</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <a href="#">Consultoría Estratégica</a>
+                    <a href="#">Coaching Ejecutivo</a>
+                    <a href="#">Conferencias</a>
+                    <a href="#">Talleres H2H</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>jorge@conjorgeluis.com</p>
+                    <p>+502 1234 5678</p>
+                    <p>Ciudad de Guatemala</p>
+                    <a href="#contacto" class="btn-primary">Agendar consulta</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Con Jorge Luis. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle del menú móvil
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Efecto de cambio de navbar al hacer scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(175, 76, 15, 0.98)';
+                navbar.style.padding = '0.7rem 0';
+            } else {
+                navbar.style.background = 'rgba(175, 76, 15, 0.95)';
+                navbar.style.padding = '1rem 0';
+            }
+        });
+    </script>
+</body>
+</html>
