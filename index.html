@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El despacho de Jorge Luis - Estrategia H2H para Negocios Sostenibles</title>
-    <meta name="description" content="Transformando B2B y B2C en H2H: Human to Human. Estrategia, operación y finanzas centradas en las personas">
+    <title>Jorge Luis González - Estrategia Comercial H2H</title>
+    <meta name="description" content="Consultor de estrategia comercial y Business Coach especializado en enfoque Human to Human (H2H) para negocios sostenibles">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -314,19 +314,19 @@
             line-height: 1.6;
         }
 
-        /* Content Section */
-        .content {
+        /* Services Section */
+        .services {
             padding: 80px 0;
             background: var(--white);
         }
 
-        .content-grid {
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
 
-        .content-card {
+        .service-card {
             background: var(--white);
             border-radius: 20px;
             padding: 2rem;
@@ -337,7 +337,7 @@
             border: 1px solid rgba(175, 76, 15, 0.1);
         }
 
-        .content-card::before {
+        .service-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -347,12 +347,12 @@
             background: linear-gradient(135deg, var(--secondary), var(--primary));
         }
 
-        .content-card:hover {
+        .service-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(175, 76, 15, 0.15);
         }
 
-        .content-icon {
+        .service-icon {
             width: 60px;
             height: 60px;
             background: linear-gradient(135deg, var(--secondary), var(--primary));
@@ -363,30 +363,30 @@
             margin-bottom: 1.5rem;
         }
 
-        .content-icon i {
+        .service-icon i {
             font-size: 1.5rem;
             color: white;
         }
 
-        .content-card h3 {
+        .service-card h3 {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--primary);
         }
 
-        .content-card p {
+        .service-card p {
             color: var(--text-light);
             margin-bottom: 1.5rem;
             line-height: 1.6;
         }
 
-        .content-features {
+        .service-features {
             list-style: none;
             margin-bottom: 2rem;
         }
 
-        .content-features li {
+        .service-features li {
             padding: 0.5rem 0;
             display: flex;
             align-items: center;
@@ -394,7 +394,7 @@
             color: var(--text-dark);
         }
 
-        .content-features li i {
+        .service-features li i {
             color: var(--secondary);
             font-size: 0.9rem;
         }
@@ -537,11 +537,51 @@
             color: var(--primary);
         }
 
-        .microsoft-form {
-            width: 100%;
-            min-height: 400px;
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid var(--light);
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
             border: none;
-            border-radius: 10px;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 109, 77, 0.4);
         }
 
         /* Footer */
@@ -642,7 +682,7 @@
                 gap: 2rem;
             }
 
-            .philosophy-grid, .content-grid, .testimonial-grid {
+            .philosophy-grid, .services-grid, .testimonial-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -668,12 +708,12 @@
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <div class="logo-text">Con Jorge Luis</div>
+                <div class="logo-text">Jorge Luis González</div>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#filosofia">Filosofía H2H</a></li>
-                <li><a href="#contenido">Contenido</a></li>
+                <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#testimonios">Testimonios</a></li>
                 <li><a href="#contacto" class="cta-button">Conversemos</a></li>
             </ul>
@@ -689,16 +729,16 @@
             <img src="https://i.imgur.com/1ykIOZ2.jpeg" alt="Jorge Luis González" class="profile-image">
             <div class="h2h-badge">#HumanToHuman</div>
             <h1>Transformando B2B y B2C en <span style="color: #ffde59;">H2H</span></h1>
-            <p class="subtitle">Estrategia, operación y finanzas centradas en las personas para crear negocios sostenibles y rentabilidad por encima del promedio</p>
+            <p class="subtitle">Estrategia comercial centrada en las personas para negocios sostenibles y rentables</p>
             
             <div class="tagline">
                 <p>"Si un hombre no está agradecido por lo que tiene, es probable que no sea agradecido por lo que tendrá." - Frank A. Clark</p>
             </div>
             
             <div class="hero-buttons">
-                <a href="#contenido" class="btn-primary">
-                    <i class="fas fa-book-open"></i>
-                    Ver Publicaciones
+                <a href="#servicios" class="btn-primary">
+                    <i class="fas fa-concierge-bell"></i>
+                    Mis Servicios
                 </a>
                 <a href="#contacto" class="btn-secondary">Agendar Llamada</a>
             </div>
@@ -718,7 +758,7 @@
                 
                 <p>Mi metodología combina el rigor analítico con la calidez humana, creando estrategias que no solo son efectivas sino también éticas y sostenibles. Creo firmemente que la rentabilidad y el propósito pueden coexistir cuando se diseñan modelos de negocio centrados en el ser humano.</p>
                 
-                <p>A través de mi trabajo como consultor de estrategia de negocio y Life & Business Coach, he acompañado a numerosos emprendedores y empresas familiares en su proceso de transformación hacia modelos más humanos y rentables.</p>
+                <p>A través de mi trabajo como consultor de estrategia comercial y Business Coach, he acompañado a numerosos emprendedores y empresas familiares en su proceso de transformación hacia modelos más humanos y rentables.</p>
             </div>
         </div>
     </section>
@@ -759,52 +799,58 @@
         </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="content" id="contenido">
+    <!-- Services Section -->
+    <section class="services" id="servicios">
         <div class="container">
             <div class="section-header">
-                <h2>Contenido y Publicaciones</h2>
-                <p>Compartiendo conocimiento y experiencias para tu crecimiento empresarial</p>
+                <h2>Servicios</h2>
+                <p>Soluciones personalizadas para tu negocio</p>
             </div>
             
-            <div class="content-grid">
-                <div class="content-card">
-                    <div class="content-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Estrategias H2H</h3>
-                    <p>Artículos y reflexiones sobre cómo implementar enfoques Human to Human en tu organización.</p>
-                    <ul class="content-features">
-                        <li><i class="fas fa-check"></i> Casos de estudio reales</li>
-                        <li><i class="fas fa-check"></i> Framework práctico H2H</li>
-                        <li><i class="fas fa-check"></i> Cómo medir el impacto</li>
-                    </ul>
-                </div>
-                
-                <div class="content-card">
-                    <div class="content-icon">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Finanzas Centradas en Personas</h3>
-                    <p>Cómo alinear tus números con tus valores sin sacrificar rentabilidad.</p>
-                    <ul class="content-features">
-                        <li><i class="fas fa-check"></i> Modelos financieros éticos</li>
-                        <li><i class="fas fa-check"></i> ROI de las iniciativas H2H</li>
-                        <li><i class="fas fa-check"></i> Presupuestos con propósito</li>
+                    <h3>Consultoría Estratégica H2H</h3>
+                    <p>Desarrollo de estrategias comerciales centradas en las personas para tu negocio.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Diagnóstico de modelo de negocio</li>
+                        <li><i class="fas fa-check"></i> Estrategias de crecimiento centradas en personas</li>
+                        <li><i class="fas fa-check"></i> Planes de acción con KPIs humanos</li>
+                        <li><i class="fas fa-check"></i> Segmentación de clientes con enfoque H2H</li>
                     </ul>
+                    <a href="#contacto" class="btn-primary">Más información</a>
                 </div>
                 
-                <div class="content-card">
-                    <div class="content-icon">
+                <div class="service-card">
+                    <div class="service-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Liderazgo con Propósito</h3>
-                    <p>Desarrollando habilidades directivas que inspiren y transformen equipos.</p>
-                    <ul class="content-features">
-                        <li><i class="fas fa-check"></i> Comunicación efectiva</li>
-                        <li><i class="fas fa-check"></i> Toma de decisiones éticas</li>
-                        <li><i class="fas fa-check"></i> Creación de cultura organizacional</li>
+                    <h3>Coaching Ejecutivo y Empresarial</h3>
+                    <p>Acompañamiento personalizado para líderes y equipos.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Sesiones individuales y grupales</li>
+                        <li><i class="fas fa-check"></i> Desarrollo de habilidades blandas</li>
+                        <li><i class="fas fa-check"></i> Liderazgo con propósito</li>
+                        <li><i class="fas fa-check"></i> Transformación cultural organizacional</li>
                     </ul>
+                    <a href="#contacto" class="btn-primary">Más información</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Estrategias de Marketing con Enfoque Humano</h3>
+                    <p>Conexión auténtica con tu audiencia a través de estrategias humanizadas.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Auditoría de marca y comunicación</li>
+                        <li><i class="fas fa-check"></i> Estrategias de marketing con propósito</li>
+                        <li><i class="fas fa-check"></i> Storytelling auténtico</li>
+                        <li><i class="fas fa-check"></i> Campañas orientadas a conexión humana</li>
+                    </ul>
+                    <a href="#contacto" class="btn-primary">Más información</a>
                 </div>
             </div>
         </div>
@@ -814,8 +860,8 @@
     <section class="testimonials" id="testimonios">
         <div class="container">
             <div class="section-header">
-                <h2>Lo Que Dicen</h2>
-                <p>Experiencias de clientes y colaboradores</p>
+                <h2>Testimonios</h2>
+                <p>Lo que dicen quienes han trabajado conmigo</p>
             </div>
             
             <div class="testimonial-grid">
@@ -868,7 +914,7 @@
                     <div class="contact-methods">
                         <div class="contact-method">
                             <i class="fas fa-envelope"></i>
-                            <div>jorge@conjorgeluis.com</div>
+                            <div>jorge@jorgeluisconsultor.com</div>
                         </div>
                         <div class="contact-method">
                             <i class="fas fa-phone"></i>
@@ -887,13 +933,25 @@
                 
                 <div class="form-container">
                     <h3>Agenda una consulta gratuita</h3>
-                    <iframe src="https://forms.office.com/Pages/ResponsePage.aspx?id=TU_DIRECCIÓN_DE_FORMULARIO&embed=true" 
-                            frameborder="0" 
-                            marginwidth="0" 
-                            marginheight="0" 
-                            class="microsoft-form" 
-                            allowtransparency="true">
-                    </iframe>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">¿En qué puedo ayudarte?</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar mensaje</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -904,8 +962,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Con Jorge Luis</h3>
-                    <p>Transformando B2B y B2C en H2H: Human to Human. Estrategia, operación y finanzas centradas en las personas.</p>
+                    <h3>Jorge Luis González</h3>
+                    <p>Consultor de estrategia comercial y Business Coach especializado en enfoque Human to Human (H2H) para negocios sostenibles.</p>
                     <div class="footer-social-links">
                         <a href="https://www.linkedin.com/in/jorgegonzalezgua" target="_blank"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -917,22 +975,21 @@
                 <div class="footer-section">
                     <h3>Enlaces Rápidos</h3>
                     <a href="#filosofia">Filosofía H2H</a>
-                    <a href="#contenido">Publicaciones</a>
+                    <a href="#servicios">Servicios</a>
                     <a href="#testimonios">Testimonios</a>
                     <a href="#contacto">Contacto</a>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Servicios</h3>
-                    <a href="#">Consultoría Estratégica</a>
-                    <a href="#">Coaching Ejecutivo</a>
-                    <a href="#">Conferencias</a>
-                    <a href="#">Talleres H2H</a>
+                    <a href="#servicios">Consultoría Estratégica H2H</a>
+                    <a href="#servicios">Coaching Ejecutivo</a>
+                    <a href="#servicios">Estrategias de Marketing</a>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Contacto</h3>
-                    <p>jorge@conjorgeluis.com</p>
+                    <p>jorge@jorgeluisconsultor.com</p>
                     <p>+502 1234 5678</p>
                     <p>Ciudad de Guatemala</p>
                     <a href="#contacto" class="btn-primary">Agendar consulta</a>
@@ -940,7 +997,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 Con Jorge Luis. Todos los derechos reservados.</p>
+                <p>&copy; 2023 Jorge Luis González. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -994,6 +1051,16 @@
                 navbar.style.padding = '1rem 0';
             }
         });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.');
+                contactForm.reset();
+            });
+        }
     </script>
 </body>
 </html>
