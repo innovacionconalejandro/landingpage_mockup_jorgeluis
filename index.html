@@ -171,7 +171,7 @@
           <!-- Pilar 2 -->
           <div class="card rounded-xl border border-[var(--gray-200)] bg-[var(--gray-50)] p-6">
             <div class="flex items-center gap-3">
-              <span class="text-2xl" aria-hidden="true">🤝</span>
+              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-3.33 0-10 1.67-10 5v1h20v-1c0-3.33-6.67-5-10-5z"/></svg>
               <h4 class="text-lg font-semibold text-slate-900">Relaciones Auténticas</h4>
             </div>
             <p class="mt-3 text-slate-700">
@@ -234,7 +234,7 @@
           <!-- Marketing con Enfoque Humano -->
           <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 flex flex-col">
             <div class="flex items-center gap-3">
-              <span class="text-2xl" aria-hidden="true">🌱</span>
+              <svg class="w-6 h-6 text-slate-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 017 7v1h1a3 3 0 110 6h-1v1a7 7 0 11-14 0v-1H5a3 3 0 110-6h1V9a7 7 0 017-7z"/></svg>
               <h4 class="text-lg font-semibold text-slate-900">Estrategias de Marketing con Enfoque Humano</h4>
             </div>
             <ul class="mt-4 space-y-2 text-slate-700">
@@ -282,10 +282,10 @@
               <svg class="w-5 h-5 text-white/90" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg>
               Leer ahora
             </button>
-            <button id="btnTemasFuturos" class="transition-base border border-slate-300 text-slate-800 px-4 py-2 rounded-lg hover:bg-[var(--gray-100)] inline-flex items-center gap-2">
-              <svg class="w-5 h-5 text-slate-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.88L18.18 22 12 18.54 5.82 22 7 14.15l-5-4.88 6.91-1.01L12 2z"/></svg>
+            <a id="btnTemasFuturos" href="#temas" class="transition-base border border-slate-300 text-slate-800 px-4 py-2 rounded-lg hover:bg-[var(--gray-100)] inline-flex items-center gap-2">
+              <svg class="w-5 h-5 text-slate-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h8v2H8zm0 4h8v2H8zm0 4h8v2H8z"/></svg>
               Ver temas futuros
-            </button>
+            </a>
           </div>
         </div>
 
@@ -423,30 +423,31 @@
     </div>
   </div>
 
-  <!-- Modal: Temas Futuros (standalone list) -->
-  <div id="modal-temas" class="fixed inset-0 z-50 hidden">
-    <div class="absolute inset-0 bg-black/40 backdrop-show"></div>
-    <div class="relative max-w-2xl mx-auto my-10 md:my-16 bg-white rounded-2xl shadow-xl modal-pop">
-      <div class="flex items-center justify-between px-6 py-4 border-b border-[var(--gray-200)]">
-        <h4 class="text-lg font-semibold text-slate-900">Temas futuros</h4>
-        <button class="transition-base px-3 py-1 rounded-lg hover:bg-[var(--gray-100)]" data-close="modal-temas">Cerrar ✕</button>
+  <!-- Sección Temas Futuros: página interna simulada -->
+  <section id="temas" class="bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Temas futuros</h3>
+        <a href="#experiencias" class="transition-base text-sky hover:underline inline-flex items-center gap-2">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          Volver a experiencias
+        </a>
       </div>
-      <div class="px-6 py-6 max-h-[70vh] overflow-y-auto no-scrollbar">
-        <ul class="grid sm:grid-cols-2 gap-3 text-slate-800">
-          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">Cómo liderar sin perder el alma</li>
-          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">El arte de escuchar en entornos de alta presión</li>
-          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">Estrategia H2H: más allá del marketing</li>
-          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">Cuando el equipo es familia</li>
-          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">Finanzas con propósito: ¿es posible?</li>
-          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">El silencio como herramienta de liderazgo</li>
-          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">Cómo construir confianza en procesos de cambio</li>
-          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">Coaching en culturas conservadoras</li>
-          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">Lo que aprendí de mis errores como consultor</li>
-          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">El valor de la pausa en la toma de decisiones</li>
-        </ul>
-      </div>
+      <p class="mt-2 text-slate-700">Explora los temas que iré desarrollando. Puedes abrir cualquiera; por ahora te llevará al inicio mientras preparamos los contenidos completos.</p>
+      <ul class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">Cómo liderar sin perder el alma</a></li>
+        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">El arte de escuchar en entornos de alta presión</a></li>
+        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">Estrategia H2H: más allá del marketing</a></li>
+        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">Cuando el equipo es familia</a></li>
+        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">Finanzas con propósito: ¿es posible?</a></li>
+        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">El silencio como herramienta de liderazgo</a></li>
+        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">Cómo construir confianza en procesos de cambio</a></li>
+        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">Coaching en culturas conservadoras</a></li>
+        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">Lo que aprendí de mis errores como consultor</a></li>
+        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">El valor de la pausa en la toma de decisiones</a></li>
+      </ul>
     </div>
-  </div>
+  </section>
 
   <script>
     // Year in footer
@@ -517,5 +518,5 @@
       }
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e4275be7cb31d8',t:'MTc1NzcyOTkwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e438bb631ccc72',t:'MTc1NzczMDYxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
