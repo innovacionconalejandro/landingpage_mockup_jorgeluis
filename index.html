@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>El despacho de Jorge – Jorge Luis González</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360a5fa'/%3E%3Cstop offset='1' stop-color='%23ff9f66'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='%231f2937'/%3E%3Ctext x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Montserrat, Arial, sans-serif' font-size='28' fill='url(%23g)' font-weight='700'%3EJLG%3C/text%3E%3C/svg%3E" />
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <meta name="description" content="El despacho de Jorge: Consultoría Estratégica H2H, Coaching Ejecutivo y Empresarial, y Marketing con enfoque humano por Jorge Luis González."/>
@@ -58,14 +59,13 @@
   <!-- Page Wrapper -->
   <div class="min-h-screen flex flex-col">
     <!-- Header -->
-    <header class="w-full bg-[var(--gray-50)] border-b border-[var(--gray-200)] sticky top-0 z-40">
+    <header class="w-full bg-[var(--gray-50)] border-b border-[var(--gray-200)]">
       <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
         <!-- Left: Brand -->
         <div class="flex items-center gap-4">
           <!-- Avatar / Photo Placeholder -->
-          <div class="relative w-12 h-12 rounded-full bg-[var(--gray-200)] overflow-hidden flex items-center justify-center ring-2 ring-white shadow">
-            <!-- If a real photo is provided, replace this background with an <img> per image_rules -->
-            <span class="font-semibold text-slate-700">JLG</span>
+          <div class="relative w-12 h-12 rounded-full overflow-hidden ring-2 ring-white shadow">
+            <img src="https://i.imgur.com/sfPEROs.png" alt="Fotografía profesional de Jorge Luis González" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
           </div>
           <div>
             <h1 class="text-xl font-bold text-slate-900 leading-tight">El despacho de Jorge</h1>
@@ -105,10 +105,12 @@
         <div class="relative">
           <div class="rounded-2xl bg-sky text-white p-8 md:p-10 shadow-lg">
             <p class="text-lg md:text-xl leading-relaxed">
-              "La estrategia sin humanidad es solo una hoja de cálculo. Con el enfoque H2H, las relaciones y los resultados crecen juntos."
+              “La estrategia sin humanidad es solo una hoja de cálculo. Con el enfoque H2H, las relaciones y los resultados crecen juntos.”
             </p>
             <div class="mt-6 flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">🤝</div>
+              <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center" aria-hidden="true">
+                <svg class="w-6 h-6 text-white/90" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5c-3.86 0-7 3.14-7 7a7 7 0 009.9 6.32l2.83.68-.68-2.83A7 7 0 0019 12c0-3.86-3.14-7-7-7zm-3 7h6v2H9v-2z"/></svg>
+              </div>
               <span class="text-sm opacity-90">H2H: Human to Human</span>
             </div>
           </div>
@@ -142,9 +144,10 @@
             <div class="rounded-2xl border border-[var(--gray-200)] bg-white p-4 shadow-sm flex items-center justify-center">
               <!-- Placeholder Portrait -->
               <div class="w-full aspect-[4/3] rounded-xl bg-[var(--gray-100)] flex items-center justify-center text-slate-500">
-                <img src="https://i.imgur.com/1ykIOZ2.jpeg" alt="Jorge Luis González" class="w-full h-full object-cover rounded-xl">
+                📸 Fotografía Profesional
               </div>
             </div>
+            <p class="mt-3 text-sm text-slate-500">Si se prefiere, usar avatar con “JLG” (fondo gris claro, tipografía sobria).</p>
           </div>
         </div>
       </div>
@@ -215,7 +218,7 @@
           <!-- Coaching Ejecutivo y Empresarial -->
           <article class="card rounded-xl border border-[var(--gray-200)] bg-sky text-white p-6 flex flex-col">
             <div class="flex items-center gap-3">
-              <span class="text-2xl" aria-hidden="true">🤝</span>
+              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-3.33 0-10 1.67-10 5v1h20v-1c0-3.33-6.67-5-10-5z"/></svg>
               <h4 class="text-lg font-semibold">Coaching Ejecutivo y Empresarial</h4>
             </div>
             <ul class="mt-4 space-y-2 text-white/90">
@@ -254,15 +257,15 @@
         <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Testimonios</h3>
         <div class="mt-8 grid md:grid-cols-3 gap-6">
           <blockquote class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 serif">
-            <p class="text-slate-900">"Transformó nuestra manera de hacer negocios. Conectamos auténticamente con nuestros clientes mientras aumentábamos la rentabilidad."</p>
+            <p class="text-slate-900">“Transformó nuestra manera de hacer negocios. Conectamos auténticamente con nuestros clientes mientras aumentábamos la rentabilidad.”</p>
             <footer class="mt-4 text-slate-600 text-sm">— María Fernández, CEO</footer>
           </blockquote>
           <blockquote class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 serif">
-            <p class="text-slate-900">"Integra estrategia, operación y finanzas con enfoque humano. Implementamos sus consejos con resultados medibles."</p>
+            <p class="text-slate-900">“Integra estrategia, operación y finanzas con enfoque humano. Implementamos sus consejos con resultados medibles.”</p>
             <footer class="mt-4 text-slate-600 text-sm">— Carlos Rodríguez, Director Comercial</footer>
           </blockquote>
           <blockquote class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 serif">
-            <p class="text-slate-900">"Las sesiones de coaching fueron transformadoras. Mejoró mi negocio y mi liderazgo."</p>
+            <p class="text-slate-900">“Las sesiones de coaching fueron transformadoras. Mejoró mi negocio y mi liderazgo.”</p>
             <footer class="mt-4 text-slate-600 text-sm">— Ana Martínez, Emprendedora</footer>
           </blockquote>
         </div>
@@ -275,22 +278,28 @@
         <div class="flex items-center justify-between flex-wrap gap-4">
           <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Mis Experiencias y Reflexiones</h3>
           <div class="flex gap-3">
-            <button id="btnOpenModal" class="transition-base bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-dark">Leer ahora</button>
-            <button id="btnTemasFuturos" class="transition-base border border-slate-300 text-slate-800 px-4 py-2 rounded-lg hover:bg-[var(--gray-100)]">Ver temas futuros</button>
+            <button id="btnOpenModal" class="transition-base bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-dark inline-flex items-center gap-2">
+              <svg class="w-5 h-5 text-white/90" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg>
+              Leer ahora
+            </button>
+            <button id="btnTemasFuturos" class="transition-base border border-slate-300 text-slate-800 px-4 py-2 rounded-lg hover:bg-[var(--gray-100)] inline-flex items-center gap-2">
+              <svg class="w-5 h-5 text-slate-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.88L18.18 22 12 18.54 5.82 22 7 14.15l-5-4.88 6.91-1.01L12 2z"/></svg>
+              Ver temas futuros
+            </button>
           </div>
         </div>
 
         <!-- Previews -->
         <div class="mt-8 grid md:grid-cols-2 gap-6">
           <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6">
-            <h4 class="text-lg font-semibold text-slate-900">"20 años, 20 aprendizajes"</h4>
+            <h4 class="text-lg font-semibold text-slate-900">“20 años, 20 aprendizajes”</h4>
             <p class="mt-2 text-slate-700">Después de dos décadas, aprendí que la estrategia sin humanidad es solo una hoja de cálculo.</p>
             <div class="mt-4">
               <button class="transition-base text-sky hover:underline" data-open="modal-reflexiones">Seguir leyendo</button>
             </div>
           </article>
           <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6">
-            <h4 class="text-lg font-semibold text-slate-900">"El poder de los pequeños detalles en empresas familiares"</h4>
+            <h4 class="text-lg font-semibold text-slate-900">“El poder de los pequeños detalles en empresas familiares”</h4>
             <p class="mt-2 text-slate-700">Una taza de café servida con intención puede cambiar el clima de una reunión.</p>
             <div class="mt-4">
               <button class="transition-base text-sky hover:underline" data-open="modal-reflexiones">Seguir leyendo</button>
@@ -308,15 +317,16 @@
             <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Contacto</h3>
             <p class="mt-2 text-slate-700">Conversemos sobre tus objetivos y cómo el enfoque H2H puede potenciar tus resultados.</p>
             <div class="mt-6 space-y-3 text-slate-700">
-              <div class="flex items-center gap-3"><span class="text-sky">📧</span> <a href="mailto:jorge@despachodejorge.com" class="hover:underline" id="emailLink">jorge@despachodejorge.com</a></div>
-              <div class="flex items-center gap-3"><span class="text-sky">💬</span> <a href="https://wa.me/50212345678" class="hover:underline" id="waLink">Enviar mensaje por WhatsApp</a></div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="#" class="hover:underline" id="emailLink">correo@ejemplo.com</a>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.58a1 1 0 00-.98.21l-2.2 1.8a15.05 15.05 0 01-6.6-6.6l1.8-2.2a1 1 0 00.21-.98A11.53 11.53 0 018.5 4 1.5 1.5 0 007 2.5H4A2 2 0 002 4c0 9.39 7.61 17 17 17a2 2 0 002-2v-3a1.5 1.5 0 00-1.5-1.5z"/></svg>
+                <a href="#" class="hover:underline" id="waLink">WhatsApp</a>
+              </div>
             </div>
-            <p class="mt-6 text-slate-700">O agenda una consultoría gratuita:</p>
-            <div class="mt-4">
-              <a href="https://calendar.app.google/xFV7qxcPdYt76N8J7" class="transition-base inline-flex items-center gap-2 bg-sky text-white px-4 py-2 rounded-lg hover:bg-sky-dark">
-                <span>Agendar cita en Google Calendar</span>
-              </a>
-            </div>
+            <p class="mt-3 text-xs text-slate-500">Nota: Este formulario es una demo segura para fines de diseño.</p>
           </div>
           <div>
             <!-- Demo form (no envía correo real; muestra confirmación en página) -->
@@ -356,12 +366,12 @@
           <h4 class="font-semibold">Redes y contacto</h4>
           <ul class="mt-2 space-y-2 text-white/80">
             <li><a href="#contacto" class="hover:underline">Contacto</a></li>
-            <li><span class="text-sky">🔗</span> Parte del ecosistema Ant/Ara</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.9 12a5 5 0 017.07 0l.71.71.71-.71a5 5 0 017.07 7.07l-3 3a5 5 0 01-7.07-7.07l.71-.71-.71-.71A5 5 0 003.9 12zm6.36 6.36a3 3 0 004.24 0l3-3a3 3 0 10-4.24-4.24l-1.41 1.41-1.41-1.41a3 3 0 10-4.24 4.24l3 3z"/></svg> Parte del ecosistema Ant-Ara</li>
           </ul>
         </div>
         <div>
           <h4 class="font-semibold">Identidad</h4>
-          <p class="mt-2 text-white/80">Coherencia narrativa con Innovar con Alejandro y Ant/Ara, sin replicar estilos.</p>
+          <p class="mt-2 text-white/80">Coherencia narrativa con Innovar con Alejandro y Ant-Ara, sin replicar estilos.</p>
         </div>
       </div>
       <div class="border-t border-white/10">
@@ -383,13 +393,13 @@
       </div>
       <div class="px-6 py-6 space-y-6 max-h-[70vh] overflow-y-auto no-scrollbar">
         <article>
-          <h5 class="font-semibold text-slate-900">"20 años, 20 aprendizajes"</h5>
+          <h5 class="font-semibold text-slate-900">“20 años, 20 aprendizajes”</h5>
           <p class="mt-2 text-slate-700">
             Después de dos décadas, aprendí que la estrategia sin humanidad es solo una hoja de cálculo.
           </p>
         </article>
         <article>
-          <h5 class="font-semibold text-slate-900">"El poder de los pequeños detalles en empresas familiares"</h5>
+          <h5 class="font-semibold text-slate-900">“El poder de los pequeños detalles en empresas familiares”</h5>
           <p class="mt-2 text-slate-700">
             Una taza de café servida con intención puede cambiar el clima de una reunión.
           </p>
@@ -441,6 +451,12 @@
   <script>
     // Year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Safe demo contact actions (replace with real links later)
+    const emailLink = document.getElementById('emailLink');
+    const waLink = document.getElementById('waLink');
+    emailLink.addEventListener('click', (e)=>{ e.preventDefault(); alert('Demo: agrega tu correo final aquí.'); });
+    waLink.addEventListener('click', (e)=>{ e.preventDefault(); alert('Demo: agrega tu enlace de WhatsApp aquí.'); });
 
     // Form demo submission: shows a friendly confirmation
     const form = document.getElementById('demoForm');
@@ -501,5 +517,5 @@
       }
     });
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e4275be7cb31d8',t:'MTc1NzcyOTkwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
