@@ -1,1066 +1,505 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Luis González - Estrategia Comercial H2H</title>
-    <meta name="description" content="Consultor de estrategia comercial y Business Coach especializado en enfoque Human to Human (H2H) para negocios sostenibles">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #af4c0f;
-            --secondary: #ff6d4d;
-            --accent1: #ffbd59;
-            --accent2: #ffde59;
-            --dark: #545454;
-            --light: #d9d9d9;
-            --white: #ffffff;
-            --text-dark: #212529;
-            --text-light: #6c757d;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-            background-color: var(--white);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Header y Navegación */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(175, 76, 15, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo img {
-            height: 40px;
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links li a {
-            text-decoration: none;
-            color: var(--white);
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links li a:hover {
-            color: var(--accent2);
-        }
-
-        .nav-links li a.cta-button {
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-        }
-
-        .nav-links li a.cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 109, 77, 0.4);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--white);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: var(--white);
-            padding: 150px 0 80px;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .profile-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 2rem;
-            border: 5px solid var(--accent2);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--white);
-        }
-
-        .tagline {
-            font-style: italic;
-            margin: 2rem 0;
-            padding: 1.5rem;
-            border-left: 4px solid var(--accent2);
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 0 10px 10px 0;
-            text-align: left;
-            max-width: 700px;
-            margin: 2rem auto;
-            color: var(--white);
-        }
-
-        .h2h-badge {
-            display: inline-block;
-            background: var(--accent2);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(175, 76, 15, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 1rem 2rem;
-            border: 2px solid white;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .about-content {
-            background: var(--light);
-            border-radius: 20px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .about-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
-
-        /* Philosophy Section */
-        .philosophy {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--accent1) 0%, var(--accent2) 100%);
-            color: var(--dark);
-        }
-
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .philosophy-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .philosophy-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .philosophy-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: white;
-            font-size: 2rem;
-        }
-
-        .philosophy-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .philosophy-card p {
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(175, 76, 15, 0.1);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(175, 76, 15, 0.15);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-icon i {
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .service-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .service-features li {
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .service-features li i {
-            color: var(--secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 80px 0;
-            background: var(--light);
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            font-size: 5rem;
-            color: var(--accent1);
-            opacity: 0.2;
-            font-family: Georgia, serif;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-            line-height: 1.7;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.2rem;
-        }
-
-        .author-info p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .contact-info h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-        }
-
-        .contact-info p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-method:hover {
-            transform: translateX(10px);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .contact-method i {
-            color: var(--accent2);
-            font-size: 1.2rem;
-            width: 24px;
-        }
-
-        .contact-method div {
-            color: var(--white);
-        }
-
-        .form-container {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-container h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .form-group label {
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            padding: 0.8rem;
-            border: 1px solid var(--light);
-            border-radius: 8px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 109, 77, 0.4);
-        }
-
-        /* Footer */
-        .footer {
-            background: #3a2a1e;
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--accent2);
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            line-height: 1.8;
-        }
-
-        .footer-section a:hover {
-            color: var(--accent2);
-        }
-
-        .footer-social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .footer-social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            color: var(--white);
-        }
-
-        .footer-social-links a:hover {
-            background: var(--accent2);
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1rem;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--primary);
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .philosophy-grid, .services-grid, .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-            
-            .container {
-                padding: 0 1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>El despacho de Jorge – Jorge Luis González</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="El despacho de Jorge: Consultoría Estratégica H2H, Coaching Ejecutivo y Empresarial, y Marketing con enfoque humano por Jorge Luis González."/>
+  <style>
+    /* Tailwind config: custom colors for consistency via CSS variables */
+    :root{
+      --sky:#60a5fa;           /* sky blue primary */
+      --sky-dark:#3b82f6;      /* darker variant */
+      --gray-50:#f5f7fb;       /* very soft gray background */
+      --gray-100:#eef1f6;
+      --gray-200:#e2e8f0;
+      --gray-700:#334155;
+      --gray-800:#1f2937;
+      --gray-900:#0f172a;
+      --accent:#ff9f66;        /* gentle orange accent (not saturated/heavy) */
+      --accent-dark:#ff8740;
+    }
+    .bg-sky     { background-color: var(--sky); }
+    .text-sky   { color: var(--sky); }
+    .bg-accent  { background-color: var(--accent); }
+    .text-accent{ color: var(--accent); }
+    .hover\:bg-accent-dark:hover { background-color: var(--accent-dark); }
+    .hover\:bg-sky-dark:hover { background-color: var(--sky-dark); }
+
+    /* Smooth transitions and subtle motion */
+    .transition-base { transition: all .25s ease; }
+
+    /* Serif for testimonios to add human contrast */
+    .serif { font-family: 'Georgia', 'Times New Roman', serif; }
+
+    /* Nice shadow for cards */
+    .card { box-shadow: 0 8px 30px rgba(2,12,27,0.06); }
+
+    /* Prevent content flash during selective updates */
+    [data-hidden="true"]{ display:none; }
+
+    /* Modal backdrop animation */
+    .backdrop-show { animation: fadeIn .2s ease forwards; }
+    .modal-pop { animation: popIn .2s ease forwards; }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+    @keyframes popIn { from{transform:translateY(6px) scale(.98); opacity:0} to{transform:translateY(0) scale(1); opacity:1} }
+
+    /* Prevent image/text overlap and ensure spacing in all cards */
+    .prose-max p{ margin-bottom:.6rem; }
+
+    /* Hide scrollbar inside modal list for cleaner look */
+    .no-scrollbar::-webkit-scrollbar{ display:none; }
+    .no-scrollbar{ -ms-overflow-style:none; scrollbar-width:none; }
+  </style>
 </head>
+<body class="bg-white text-slate-800 antialiased">
+  <!-- Page Wrapper -->
+  <div class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="w-full bg-[var(--gray-50)] border-b border-[var(--gray-200)] sticky top-0 z-40">
+      <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+        <!-- Left: Brand -->
+        <div class="flex items-center gap-4">
+          <!-- Avatar / Photo Placeholder -->
+          <div class="relative w-12 h-12 rounded-full bg-[var(--gray-200)] overflow-hidden flex items-center justify-center ring-2 ring-white shadow">
+            <!-- If a real photo is provided, replace this background with an <img> per image_rules -->
+            <span class="font-semibold text-slate-700">JLG</span>
+          </div>
+          <div>
+            <h1 class="text-xl font-bold text-slate-900 leading-tight">El despacho de Jorge</h1>
+            <p class="text-sm text-slate-600">Jorge Luis González · Consultor de estrategia comercial y Life & Business Coach</p>
+          </div>
+        </div>
+        <!-- Right: CTA -->
+        <div class="flex items-center gap-3">
+          <a href="#contacto" class="transition-base inline-flex items-center gap-2 bg-sky text-white px-4 py-2 rounded-lg hover:bg-sky-dark shadow-sm">
+            <span>Agendar conversación</span>
+          </a>
+        </div>
+      </div>
+    </header>
 
-<body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <div class="logo-text">Jorge Luis González</div>
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-sky/10"></div>
+      <div class="relative max-w-6xl mx-auto px-6 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+            Estrategia con propósito humano
+          </h2>
+          <p class="mt-4 text-lg text-slate-700">
+            Transformar negocios poniendo a las personas en el centro: claridad, conexión y crecimiento sostenible.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#servicios" class="transition-base bg-accent text-white px-5 py-3 rounded-lg hover:bg-accent-dark shadow">
+              Conocer servicios
+            </a>
+            <a href="#experiencias" class="transition-base text-slate-800 border border-slate-300 px-5 py-3 rounded-lg hover:bg-[var(--gray-100)]">
+              Experiencias y reflexiones
+            </a>
+          </div>
+        </div>
+        <!-- Visual Accent -->
+        <div class="relative">
+          <div class="rounded-2xl bg-sky text-white p-8 md:p-10 shadow-lg">
+            <p class="text-lg md:text-xl leading-relaxed">
+              "La estrategia sin humanidad es solo una hoja de cálculo. Con el enfoque H2H, las relaciones y los resultados crecen juntos."
+            </p>
+            <div class="mt-6 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">🤝</div>
+              <span class="text-sm opacity-90">H2H: Human to Human</span>
             </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#filosofia">Filosofía H2H</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#testimonios">Testimonios</a></li>
-                <li><a href="#contacto" class="cta-button">Conversemos</a></li>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quién soy -->
+    <section id="quien-soy" class="bg-[var(--gray-50)]">
+      <div class="max-w-6xl mx-auto px-6 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
+        <div class="order-2 md:order-1">
+          <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Quién soy</h3>
+          <div class="mt-4 text-slate-700 prose-max">
+            <p>
+              Jorge Luis González es consultor de estrategia comercial y Life & Business Coach con más de 20 años de experiencia en mercados B2B, B2C y H2H (Human to Human). Ha transformado la visión de negocios hacia modelos centrados en las personas, garantizando rentabilidad y crecimiento sostenible.
+            </p>
+            <p>
+              Su enfoque integra estrategia, operación y finanzas con propósito humano, acompañando a líderes, emprendedores y empresas familiares en procesos de transformación comercial, cultural y organizacional.
+            </p>
+          </div>
+          <div class="mt-6">
+            <a href="#contacto" class="transition-base inline-flex items-center gap-2 text-white bg-sky px-4 py-2 rounded-lg hover:bg-sky-dark">
+              Conversemos
+            </a>
+          </div>
+        </div>
+        <div class="order-1 md:order-2">
+          <!-- Photo Frame with subtle accent corner -->
+          <div class="relative">
+            <div class="absolute -top-4 -left-4 w-24 h-24 bg-accent/20 rounded-xl -z-10"></div>
+            <div class="rounded-2xl border border-[var(--gray-200)] bg-white p-4 shadow-sm flex items-center justify-center">
+              <!-- Placeholder Portrait -->
+              <div class="w-full aspect-[4/3] rounded-xl bg-[var(--gray-100)] flex items-center justify-center text-slate-500">
+                <img src="https://i.imgur.com/1ykIOZ2.jpeg" alt="Jorge Luis González" class="w-full h-full object-cover rounded-xl">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filosofía H2H -->
+    <section id="filosofia" class="bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
+        <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Filosofía H2H – Tres pilares</h3>
+        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Pilar 1 -->
+          <div class="card rounded-xl border border-[var(--gray-200)] bg-[var(--gray-50)] p-6">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl" aria-hidden="true">❤️</span>
+              <h4 class="text-lg font-semibold text-slate-900">Personas Primero</h4>
+            </div>
+            <p class="mt-3 text-slate-700">
+              Las empresas existen para servir a las personas. Cada estrategia comienza entendiendo las necesidades humanas detrás de los datos.
+            </p>
+          </div>
+          <!-- Pilar 2 -->
+          <div class="card rounded-xl border border-[var(--gray-200)] bg-[var(--gray-50)] p-6">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl" aria-hidden="true">🤝</span>
+              <h4 class="text-lg font-semibold text-slate-900">Relaciones Auténticas</h4>
+            </div>
+            <p class="mt-3 text-slate-700">
+              Conexiones genuinas basadas en transparencia, confianza y valor mutuo.
+            </p>
+          </div>
+          <!-- Pilar 3 -->
+          <div class="card rounded-xl border border-[var(--gray-200)] bg-[var(--gray-50)] p-6">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl" aria-hidden="true">🌱</span>
+              <h4 class="text-lg font-semibold text-slate-900">Crecimiento Sostenible</h4>
+            </div>
+            <p class="mt-3 text-slate-700">
+              Rentabilidad por encima del promedio a través de modelos que benefician a clientes, colaboradores, accionistas y comunidad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="bg-[var(--gray-50)]">
+      <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Servicios</h3>
+        </div>
+        <div class="mt-8 grid md:grid-cols-3 gap-6">
+          <!-- Consultoría Estratégica H2H -->
+          <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 flex flex-col">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl" aria-hidden="true">📊</span>
+              <h4 class="text-lg font-semibold text-slate-900">Consultoría Estratégica H2H</h4>
+            </div>
+            <ul class="mt-4 space-y-2 text-slate-700">
+              <li>Diagnóstico de modelo de negocio</li>
+              <li>Estrategias de crecimiento centradas en personas</li>
+              <li>KPIs humanos</li>
+              <li>Segmentación con enfoque H2H</li>
             </ul>
-            <button class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="container hero-content">
-            <img src="https://i.imgur.com/1ykIOZ2.jpeg" alt="Jorge Luis González" class="profile-image">
-            <div class="h2h-badge">#HumanToHuman</div>
-            <h1>Transformando B2B y B2C en <span style="color: #ffde59;">H2H</span></h1>
-            <p class="subtitle">Estrategia comercial centrada en las personas para negocios sostenibles y rentables</p>
-            
-            <div class="tagline">
-                <p>"Si un hombre no está agradecido por lo que tiene, es probable que no sea agradecido por lo que tendrá." - Frank A. Clark</p>
+            <div class="mt-6 pt-4 border-t border-[var(--gray-200)] flex justify-end">
+              <a href="#contacto" class="transition-base text-sky hover:underline">Solicitar diagnóstico</a>
             </div>
-            
-            <div class="hero-buttons">
-                <a href="#servicios" class="btn-primary">
-                    <i class="fas fa-concierge-bell"></i>
-                    Mis Servicios
-                </a>
-                <a href="#contacto" class="btn-secondary">Agendar Llamada</a>
+          </article>
+          <!-- Coaching Ejecutivo y Empresarial -->
+          <article class="card rounded-xl border border-[var(--gray-200)] bg-sky text-white p-6 flex flex-col">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl" aria-hidden="true">🤝</span>
+              <h4 class="text-lg font-semibold">Coaching Ejecutivo y Empresarial</h4>
             </div>
+            <ul class="mt-4 space-y-2 text-white/90">
+              <li>Sesiones individuales y grupales</li>
+              <li>Desarrollo de habilidades blandas</li>
+              <li>Liderazgo con propósito</li>
+              <li>Transformación cultural organizacional</li>
+            </ul>
+            <div class="mt-6 pt-4 border-t border-white/20 flex justify-end">
+              <a href="#contacto" class="transition-base text-white hover:opacity-90">Conocer agenda</a>
+            </div>
+          </article>
+          <!-- Marketing con Enfoque Humano -->
+          <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 flex flex-col">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl" aria-hidden="true">🌱</span>
+              <h4 class="text-lg font-semibold text-slate-900">Estrategias de Marketing con Enfoque Humano</h4>
+            </div>
+            <ul class="mt-4 space-y-2 text-slate-700">
+              <li>Auditoría de marca y comunicación</li>
+              <li>Storytelling auténtico</li>
+              <li>Campañas orientadas a conexión humana</li>
+              <li>Marketing con propósito</li>
+            </ul>
+            <div class="mt-6 pt-4 border-t border-[var(--gray-200)] flex justify-end">
+              <a href="#contacto" class="transition-base text-accent hover:underline">Explorar opciones</a>
+            </div>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="acerca">
-        <div class="container">
-            <div class="section-header">
-                <h2>Mi Enfoque</h2>
-                <p>Integrando estrategia, operación y finanzas con las personas en el centro</p>
-            </div>
-            
-            <div class="about-content">
-                <p>Con más de 20 años de experiencia en mercados B2B, B2C y ahora H2H (Human to Human), he descubierto que el verdadero éxito empresarial viene de poner a las personas en el centro de cada decisión.</p>
-                
-                <p>Mi metodología combina el rigor analítico con la calidez humana, creando estrategias que no solo son efectivas sino también éticas y sostenibles. Creo firmemente que la rentabilidad y el propósito pueden coexistir cuando se diseñan modelos de negocio centrados en el ser humano.</p>
-                
-                <p>A través de mi trabajo como consultor de estrategia comercial y Business Coach, he acompañado a numerosos emprendedores y empresas familiares en su proceso de transformación hacia modelos más humanos y rentables.</p>
-            </div>
+    <!-- Testimonios -->
+    <section id="testimonios" class="bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
+        <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Testimonios</h3>
+        <div class="mt-8 grid md:grid-cols-3 gap-6">
+          <blockquote class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 serif">
+            <p class="text-slate-900">"Transformó nuestra manera de hacer negocios. Conectamos auténticamente con nuestros clientes mientras aumentábamos la rentabilidad."</p>
+            <footer class="mt-4 text-slate-600 text-sm">— María Fernández, CEO</footer>
+          </blockquote>
+          <blockquote class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 serif">
+            <p class="text-slate-900">"Integra estrategia, operación y finanzas con enfoque humano. Implementamos sus consejos con resultados medibles."</p>
+            <footer class="mt-4 text-slate-600 text-sm">— Carlos Rodríguez, Director Comercial</footer>
+          </blockquote>
+          <blockquote class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 serif">
+            <p class="text-slate-900">"Las sesiones de coaching fueron transformadoras. Mejoró mi negocio y mi liderazgo."</p>
+            <footer class="mt-4 text-slate-600 text-sm">— Ana Martínez, Emprendedora</footer>
+          </blockquote>
         </div>
+      </div>
     </section>
 
-    <!-- Philosophy Section -->
-    <section class="philosophy" id="filosofia">
-        <div class="container">
-            <div class="section-header">
-                <h2>Filosofía H2H</h2>
-                <p>Human to Human: Donde las estrategias de negocio encuentran el corazón humano</p>
-            </div>
-            
-            <div class="philosophy-grid">
-                <div class="philosophy-card">
-                    <div class="philosophy-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Personas Primero</h3>
-                    <p>Las empresas existen para servir a las personas, no al revés. Cada estrategia comienza entendiendo las necesidades humanas detrás de los datos.</p>
-                </div>
-                
-                <div class="philosophy-card">
-                    <div class="philosophy-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Relaciones Auténticas</h3>
-                    <p>Construyo conexiones genuinas basadas en transparencia, confianza y valor mutuo. Los mejores negocios surgen de las mejores relaciones.</p>
-                </div>
-                
-                <div class="philosophy-card">
-                    <div class="philosophy-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3>Crecimiento Sostenible</h3>
-                    <p>Busco la rentabilidad por encima del promedio a través de modelos de negocio que benefician a todos: clientes, colaboradores, accionistas y comunidad.</p>
-                </div>
-            </div>
+    <!-- Mis Experiencias y Reflexiones -->
+    <section id="experiencias" class="bg-[var(--gray-50)]">
+      <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Mis Experiencias y Reflexiones</h3>
+          <div class="flex gap-3">
+            <button id="btnOpenModal" class="transition-base bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-dark">Leer ahora</button>
+            <button id="btnTemasFuturos" class="transition-base border border-slate-300 text-slate-800 px-4 py-2 rounded-lg hover:bg-[var(--gray-100)]">Ver temas futuros</button>
+          </div>
         </div>
+
+        <!-- Previews -->
+        <div class="mt-8 grid md:grid-cols-2 gap-6">
+          <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6">
+            <h4 class="text-lg font-semibold text-slate-900">"20 años, 20 aprendizajes"</h4>
+            <p class="mt-2 text-slate-700">Después de dos décadas, aprendí que la estrategia sin humanidad es solo una hoja de cálculo.</p>
+            <div class="mt-4">
+              <button class="transition-base text-sky hover:underline" data-open="modal-reflexiones">Seguir leyendo</button>
+            </div>
+          </article>
+          <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6">
+            <h4 class="text-lg font-semibold text-slate-900">"El poder de los pequeños detalles en empresas familiares"</h4>
+            <p class="mt-2 text-slate-700">Una taza de café servida con intención puede cambiar el clima de una reunión.</p>
+            <div class="mt-4">
+              <button class="transition-base text-sky hover:underline" data-open="modal-reflexiones">Seguir leyendo</button>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="servicios">
-        <div class="container">
-            <div class="section-header">
-                <h2>Servicios</h2>
-                <p>Soluciones personalizadas para tu negocio</p>
+    <!-- Contacto -->
+    <section id="contacto" class="bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
+        <div class="grid md:grid-cols-2 gap-10">
+          <div>
+            <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Contacto</h3>
+            <p class="mt-2 text-slate-700">Conversemos sobre tus objetivos y cómo el enfoque H2H puede potenciar tus resultados.</p>
+            <div class="mt-6 space-y-3 text-slate-700">
+              <div class="flex items-center gap-3"><span class="text-sky">📧</span> <a href="mailto:jorge@despachodejorge.com" class="hover:underline" id="emailLink">jorge@despachodejorge.com</a></div>
+              <div class="flex items-center gap-3"><span class="text-sky">💬</span> <a href="https://wa.me/50212345678" class="hover:underline" id="waLink">Enviar mensaje por WhatsApp</a></div>
             </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Consultoría Estratégica H2H</h3>
-                    <p>Desarrollo de estrategias comerciales centradas en las personas para tu negocio.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Diagnóstico de modelo de negocio</li>
-                        <li><i class="fas fa-check"></i> Estrategias de crecimiento centradas en personas</li>
-                        <li><i class="fas fa-check"></i> Planes de acción con KPIs humanos</li>
-                        <li><i class="fas fa-check"></i> Segmentación de clientes con enfoque H2H</li>
-                    </ul>
-                    <a href="#contacto" class="btn-primary">Más información</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Coaching Ejecutivo y Empresarial</h3>
-                    <p>Acompañamiento personalizado para líderes y equipos.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Sesiones individuales y grupales</li>
-                        <li><i class="fas fa-check"></i> Desarrollo de habilidades blandas</li>
-                        <li><i class="fas fa-check"></i> Liderazgo con propósito</li>
-                        <li><i class="fas fa-check"></i> Transformación cultural organizacional</li>
-                    </ul>
-                    <a href="#contacto" class="btn-primary">Más información</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3>Estrategias de Marketing con Enfoque Humano</h3>
-                    <p>Conexión auténtica con tu audiencia a través de estrategias humanizadas.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Auditoría de marca y comunicación</li>
-                        <li><i class="fas fa-check"></i> Estrategias de marketing con propósito</li>
-                        <li><i class="fas fa-check"></i> Storytelling auténtico</li>
-                        <li><i class="fas fa-check"></i> Campañas orientadas a conexión humana</li>
-                    </ul>
-                    <a href="#contacto" class="btn-primary">Más información</a>
-                </div>
+            <p class="mt-6 text-slate-700">O agenda una consultoría gratuita:</p>
+            <div class="mt-4">
+              <a href="https://calendar.app.google/xFV7qxcPdYt76N8J7" class="transition-base inline-flex items-center gap-2 bg-sky text-white px-4 py-2 rounded-lg hover:bg-sky-dark">
+                <span>Agendar cita en Google Calendar</span>
+              </a>
             </div>
+          </div>
+          <div>
+            <!-- Demo form (no envía correo real; muestra confirmación en página) -->
+            <form id="demoForm" class="card rounded-xl border border-[var(--gray-200)] bg-[var(--gray-50)] p-6">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm text-slate-700 mb-1">Nombre</label>
+                  <input type="text" required class="w-full rounded-lg border border-[var(--gray-200)] bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-sky" placeholder="Tu nombre">
+                </div>
+                <div>
+                  <label class="block text-sm text-slate-700 mb-1">Email</label>
+                  <input type="email" required class="w-full rounded-lg border border-[var(--gray-200)] bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-sky" placeholder="tu@email.com">
+                </div>
+              </div>
+              <div class="mt-4">
+                <label class="block text-sm text-slate-700 mb-1">Mensaje</label>
+                <textarea required rows="4" class="w-full rounded-lg border border-[var(--gray-200)] bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-sky" placeholder="¿En qué te puedo ayudar?"></textarea>
+              </div>
+              <div class="mt-6 flex items-center justify-between">
+                <button type="submit" class="transition-base bg-sky text-white px-4 py-2 rounded-lg hover:bg-sky-dark">Enviar</button>
+                <span id="formStatus" class="text-sm text-slate-600"></span>
+              </div>
+            </form>
+          </div>
         </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonios">
-        <div class="container">
-            <div class="section-header">
-                <h2>Testimonios</h2>
-                <p>Lo que dicen quienes han trabajado conmigo</p>
-            </div>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">Jorge Luis transformó nuestra manera de hacer negocios. Su enfoque H2H nos ayudó a conectar auténticamente con nuestros clientes mientras aumentábamos nuestra rentabilidad.</p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>María Fernández</h4>
-                            <p>CEO, Empresa Familiar</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">Su capacidad para integrar estrategia, operación y finanzas con un enfoque humano es extraordinaria. He implementado sus consejos con resultados medibles.</p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Carlos Rodríguez</h4>
-                            <p>Director Comercial</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">Las sesiones de coaching con Jorge Luis fueron transformadoras. No solo mejoró mi negocio, sino también mi perspectiva sobre el liderazgo y el propósito.</p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Ana Martínez</h4>
-                            <p>Emprendedora</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contacto">
-        <div class="container">
-            <div class="section-header">
-                <h2>Conversemos</h2>
-                <p>¿Listo para transformar tu negocio con un enfoque H2H?</p>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h2>Hablemos de tu proyecto</h2>
-                    <p>Cuéntame sobre tus desafíos y objetivos. Juntos podemos crear una estrategia personalizada que ponga a las personas en el centro mientras impulsamos tu rentabilidad.</p>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <i class="fas fa-envelope"></i>
-                            <div>jorge@jorgeluisconsultor.com</div>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-phone"></i>
-                            <div>+502 1234 5678</div>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>Ciudad de Guatemala, Guatemala</div>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-clock"></i>
-                            <div>Lunes a Viernes: 9:00 - 18:00</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-container">
-                    <h3>Agenda una consulta gratuita</h3>
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nombre completo</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Correo electrónico</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Teléfono</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">¿En qué puedo ayudarte?</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Enviar mensaje</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Jorge Luis González</h3>
-                    <p>Consultor de estrategia comercial y Business Coach especializado en enfoque Human to Human (H2H) para negocios sostenibles.</p>
-                    <div class="footer-social-links">
-                        <a href="https://www.linkedin.com/in/jorgegonzalezgua" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Enlaces Rápidos</h3>
-                    <a href="#filosofia">Filosofía H2H</a>
-                    <a href="#servicios">Servicios</a>
-                    <a href="#testimonios">Testimonios</a>
-                    <a href="#contacto">Contacto</a>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Servicios</h3>
-                    <a href="#servicios">Consultoría Estratégica H2H</a>
-                    <a href="#servicios">Coaching Ejecutivo</a>
-                    <a href="#servicios">Estrategias de Marketing</a>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <p>jorge@jorgeluisconsultor.com</p>
-                    <p>+502 1234 5678</p>
-                    <p>Ciudad de Guatemala</p>
-                    <a href="#contacto" class="btn-primary">Agendar consulta</a>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 Jorge Luis González. Todos los derechos reservados.</p>
-            </div>
+    <footer class="mt-auto bg-[var(--gray-900)] text-white">
+      <div class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
+        <div>
+          <h4 class="font-semibold">El despacho de Jorge</h4>
+          <p class="mt-2 text-white/80">Estrategia, coaching y marketing con enfoque humano.</p>
         </div>
+        <div>
+          <h4 class="font-semibold">Redes y contacto</h4>
+          <ul class="mt-2 space-y-2 text-white/80">
+            <li><a href="#contacto" class="hover:underline">Contacto</a></li>
+            <li><span class="text-sky">🔗</span> Parte del ecosistema Ant/Ara</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold">Identidad</h4>
+          <p class="mt-2 text-white/80">Coherencia narrativa con Innovar con Alejandro y Ant/Ara, sin replicar estilos.</p>
+        </div>
+      </div>
+      <div class="border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6 py-4 text-sm text-white/70 flex justify-between">
+          <span>© <span id="year"></span> Jorge Luis González</span>
+          <span class="text-sky">H2H</span>
+        </div>
+      </div>
     </footer>
+  </div>
 
-    <script>
-        // Toggle del menú móvil
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-        
-        // Navegación suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerOffset = 80;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Efecto de cambio de navbar al hacer scroll
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(175, 76, 15, 0.98)';
-                navbar.style.padding = '0.7rem 0';
-            } else {
-                navbar.style.background = 'rgba(175, 76, 15, 0.95)';
-                navbar.style.padding = '1rem 0';
-            }
-        });
+  <!-- Modal: Reflexiones -->
+  <div id="modal-reflexiones" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/40 backdrop-show"></div>
+    <div class="relative max-w-3xl mx-auto my-10 md:my-16 bg-white rounded-2xl shadow-xl modal-pop">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-[var(--gray-200)]">
+        <h4 class="text-lg font-semibold text-slate-900">Mis Experiencias y Reflexiones</h4>
+        <button class="transition-base px-3 py-1 rounded-lg hover:bg-[var(--gray-100)]" data-close="modal-reflexiones">Cerrar ✕</button>
+      </div>
+      <div class="px-6 py-6 space-y-6 max-h-[70vh] overflow-y-auto no-scrollbar">
+        <article>
+          <h5 class="font-semibold text-slate-900">"20 años, 20 aprendizajes"</h5>
+          <p class="mt-2 text-slate-700">
+            Después de dos décadas, aprendí que la estrategia sin humanidad es solo una hoja de cálculo.
+          </p>
+        </article>
+        <article>
+          <h5 class="font-semibold text-slate-900">"El poder de los pequeños detalles en empresas familiares"</h5>
+          <p class="mt-2 text-slate-700">
+            Una taza de café servida con intención puede cambiar el clima de una reunión.
+          </p>
+        </article>
+        <div class="pt-4 border-t border-[var(--gray-200)]">
+          <h6 class="font-semibold text-slate-900">Temas futuros</h6>
+          <ul class="mt-2 list-disc list-inside text-slate-700 space-y-1">
+            <li>Cómo liderar sin perder el alma</li>
+            <li>El arte de escuchar en entornos de alta presión</li>
+            <li>Estrategia H2H: más allá del marketing</li>
+            <li>Cuando el equipo es familia</li>
+            <li>Finanzas con propósito: ¿es posible?</li>
+            <li>El silencio como herramienta de liderazgo</li>
+            <li>Cómo construir confianza en procesos de cambio</li>
+            <li>Coaching en culturas conservadoras</li>
+            <li>Lo que aprendí de mis errores como consultor</li>
+            <li>El valor de la pausa en la toma de decisiones</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.');
-                contactForm.reset();
-            });
+  <!-- Modal: Temas Futuros (standalone list) -->
+  <div id="modal-temas" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/40 backdrop-show"></div>
+    <div class="relative max-w-2xl mx-auto my-10 md:my-16 bg-white rounded-2xl shadow-xl modal-pop">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-[var(--gray-200)]">
+        <h4 class="text-lg font-semibold text-slate-900">Temas futuros</h4>
+        <button class="transition-base px-3 py-1 rounded-lg hover:bg-[var(--gray-100)]" data-close="modal-temas">Cerrar ✕</button>
+      </div>
+      <div class="px-6 py-6 max-h-[70vh] overflow-y-auto no-scrollbar">
+        <ul class="grid sm:grid-cols-2 gap-3 text-slate-800">
+          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">Cómo liderar sin perder el alma</li>
+          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">El arte de escuchar en entornos de alta presión</li>
+          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">Estrategia H2H: más allá del marketing</li>
+          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">Cuando el equipo es familia</li>
+          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">Finanzas con propósito: ¿es posible?</li>
+          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">El silencio como herramienta de liderazgo</li>
+          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">Cómo construir confianza en procesos de cambio</li>
+          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">Coaching en culturas conservadoras</li>
+          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">Lo que aprendí de mis errores como consultor</li>
+          <li class="p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)]">El valor de la pausa en la toma de decisiones</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Form demo submission: shows a friendly confirmation
+    const form = document.getElementById('demoForm');
+    const statusEl = document.getElementById('formStatus');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      statusEl.textContent = '¡Gracias! Te contactaré muy pronto.';
+      form.reset();
+      setTimeout(()=> statusEl.textContent = '', 4000);
+    });
+
+    // Modal helpers
+    const openModal = (id)=> {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeModal = (id)=> {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.add('hidden');
+      document.body.style.overflow = '';
+    };
+
+    // Bind modal buttons
+    document.getElementById('btnOpenModal').addEventListener('click', ()=> openModal('modal-reflexiones'));
+    document.getElementById('btnTemasFuturos').addEventListener('click', ()=> openModal('modal-temas'));
+
+    // Open from preview links
+    document.querySelectorAll('[data-open="modal-reflexiones"]').forEach(btn=>{
+      btn.addEventListener('click', ()=> openModal('modal-reflexiones'));
+    });
+
+    // Close areas
+    document.querySelectorAll('[data-close]').forEach(btn=>{
+      btn.addEventListener('click', (e)=> {
+        const id = e.currentTarget.getAttribute('data-close');
+        closeModal(id);
+      });
+    });
+
+    // Close when clicking backdrop
+    ['modal-reflexiones','modal-temas'].forEach(id=>{
+      const modal = document.getElementById(id);
+      modal.addEventListener('click', (e)=>{
+        if (e.target === modal || e.target.classList.contains('bg-black/40')) {
+          closeModal(id);
         }
-    </script>
+      });
+    });
+
+    // Keyboard Esc to close
+    window.addEventListener('keydown', (e)=>{
+      if (e.key === 'Escape') {
+        closeModal('modal-reflexiones');
+        closeModal('modal-temas');
+      }
+    });
+  </script>
 </body>
 </html>
