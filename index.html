@@ -1,488 +1,1502 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>El despacho de Jorge – Jorge Luis González</title>
-
-  <!-- Favicon JL con efecto espejo dentro de círculo -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23171DE3'/%3E%3Cstop offset='1' stop-color='%2360a5fa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='%2316222f'/%3E%3Cg transform='translate(32,32)'%3E%3Ccircle r='22' fill='%231f2937'/%3E%3Cpath d='M-10 -14 L-4 -14 L-4 12 Q-4 16 -8 16 L-10 16 Z' fill='url(%23g)'/%3E%3Cpath d='M4 -14 L10 -14 L10 16 L2 16 Q-2 16 -2 12 L-2 8 L4 8 Z' fill='url(%23g)' transform='scale(-1,1)'/%3E%3C/g%3E%3C/svg%3E" />
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Fuentes: League Spartan (títulos) y Nunito (texto) -->
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700;800&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <meta name="description" content="El despacho de Jorge: Consultoría Estratégica H2H, Coaching Ejecutivo y Empresarial, y Marketing con enfoque humano por Jorge Luis González."/>
-
-  <style>
-    :root{
-      --blue-strong:#171DE3;     /* franja superior */
-      --sky:#60a5fa;             /* azul cielo primario */
-      --sky-dark:#3b82f6;
-      --gray-50:#eef2f7;         /* gris suave más oscuro que antes */
-      --gray-100:#e3e8ef;
-      --gray-200:#cfd6df;
-      --gray-700:#334155;
-      --gray-800:#1f2937;        /* gris muy oscuro de base */
-      --gray-900:#0f172a;
-      --accent:#ff9f66;          /* naranja suave */
-      --accent-dark:#ff8740;
-    }
-
-    /* Utilidades de color */
-    .bg-sky     { background-color: var(--sky); }
-    .text-sky   { color: var(--sky); }
-    .bg-accent  { background-color: var(--accent); }
-    .text-accent{ color: var(--accent); }
-    .hover\:bg-accent-dark:hover { background-color: var(--accent-dark); }
-    .hover\:bg-sky-dark:hover { background-color: var(--sky-dark); }
-
-    /* Tipografías */
-    body { font-family: 'Nunito', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-    .title-font { font-family: 'League Spartan', Arial, sans-serif; }
-
-    .transition-base { transition: all .25s ease; }
-    .serif { font-family: 'Georgia', 'Times New Roman', serif; }
-    .card { box-shadow: 0 8px 30px rgba(2,12,27,0.06); }
-    .prose-max p{ margin-bottom:.6rem; }
-
-    /* Animaciones modal */
-    .backdrop-show { animation: fadeIn .2s ease forwards; }
-    .modal-pop { animation: popIn .2s ease forwards; }
-    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
-    @keyframes popIn { from{transform:translateY(6px) scale(.98); opacity:0} to{transform:translateY(0) scale(1); opacity:1} }
-
-    .no-scrollbar::-webkit-scrollbar{ display:none; }
-    .no-scrollbar{ -ms-overflow-style:none; scrollbar-width:none; }
-  </style>
-</head>
-<body id="top" class="bg-white text-slate-800 antialiased">
-  <!-- Franja superior azul intensa -->
-  <div class="w-full h-1.5" style="background:#171DE3;"></div>
-
-  <!-- Page Wrapper -->
-  <div class="min-h-screen flex flex-col">
-    <!-- Header (mantiene fondo gris claro oscuro y contraste) -->
-    <header class="w-full bg-[var(--gray-50)] border-b border-[var(--gray-200)]">
-      <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-        <!-- Left: Brand -->
-        <div class="flex items-center gap-4">
-          <!-- Foto -->
-          <div class="relative w-12 h-12 rounded-full overflow-hidden ring-2 ring-white shadow">
-            <img src="https://i.imgur.com/sfPEROs.png" alt="Fotografía profesional de Jorge Luis González" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-          </div>
-          <div>
-            <h1 class="title-font text-xl font-extrabold text-slate-900 leading-tight">El despacho de Jorge</h1>
-            <p class="text-sm text-slate-600">Jorge Luis González · Consultor de estrategia comercial y Life & Business Coach</p>
-          </div>
-        </div>
-        <!-- Right: CTA -->
-        <div class="flex items-center gap-3">
-          <a href="#contacto" class="transition-base inline-flex items-center gap-2 bg-sky text-white px-4 py-2 rounded-lg hover:bg-sky-dark shadow-sm">
-            <span class="title-font font-semibold">Agendar conversación</span>
-          </a>
+<span class="text-xs text-gray-500">Hace 3 semanas</span>
+          <span class="text-xs text-jorge-orange font-medium">6 min</span>
         </div>
       </div>
-    </header>
 
-    <!-- Hero -->
-    <section class="relative overflow-hidden">
-      <div class="absolute inset-0 bg-sky/10"></div>
-      <div class="relative max-w-6xl mx-auto px-6 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h2 class="title-font text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
-            Estrategia con propósito humano
-          </h2>
-          <p class="mt-4 text-lg text-slate-700">
-            Transformar negocios poniendo a las personas en el centro: claridad, conexión y crecimiento sostenible.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#servicios" class="transition-base bg-accent text-white px-5 py-3 rounded-lg hover:bg-accent-dark shadow title-font">
-              Conocer servicios
-            </a>
-            <a href="#experiencias" class="transition-base text-slate-800 border border-slate-300 px-5 py-3 rounded-lg hover:bg-[var(--gray-100)] title-font">
-              Experiencias y reflexiones
-            </a>
-          </div>
-        </div>
-        <!-- Visual Accent -->
-        <div class="relative">
-          <div class="rounded-2xl bg-sky text-white p-8 md:p-10 shadow-lg">
-            <p class="text-lg md:text-xl leading-relaxed">
-              “La estrategia sin humanidad es solo una hoja de cálculo. Con el enfoque H2H, las relaciones y los resultados crecen juntos.”
-            </p>
-            <div class="mt-6 flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center" aria-hidden="true">
-                <!-- Icono vectorial profesional (comillas/diálogo) -->
-                <svg class="w-6 h-6 text-white/90" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M7 6h7a4 4 0 014 4v6a2 2 0 01-2 2H9l-4 3V10a4 4 0 014-4z"/>
-                </svg>
-              </div>
-              <span class="text-sm opacity-90">H2H: Human to Human</span>
-            </div>
-          </div>
+      <div class="card-shadow bg-white rounded-2xl p-6 cursor-pointer hover:bg-gray-50 transition-colors" onclick="openBlogPost('post5')">
+        <h4 class="title-font text-lg font-bold mb-2">Finanzas con propósito</h4>
+        <p class="text-gray-600 text-sm mb-3">¿Es posible ser rentable y humano al mismo tiempo?...</p>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-500">Hace 1 mes</span>
+          <span class="text-xs text-jorge-orange font-medium">7 min</span>
         </div>
       </div>
-    </section>
 
-    <!-- Quién soy (fondo gris más oscuro para contraste) -->
-    <section id="quien-soy" class="bg-[var(--gray-50)]">
-      <div class="max-w-6xl mx-auto px-6 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
-        <div class="order-2 md:order-1">
-          <h3 class="title-font text-2xl md:text-3xl font-bold text-slate-900">Quién soy</h3>
-          <div class="mt-4 text-slate-700 prose-max">
-            <p>
-              Jorge Luis González es consultor de estrategia comercial y Life & Business Coach con más de 20 años de experiencia en mercados B2B, B2C y H2H (Human to Human). Ha transformado la visión de negocios hacia modelos centrados en las personas, garantizando rentabilidad y crecimiento sostenible.
-            </p>
-            <p>
-              Su enfoque integra estrategia, operación y finanzas con propósito humano, acompañando a líderes, emprendedores y empresas familiares en procesos de transformación comercial, cultural y organizacional.
-            </p>
-          </div>
-          <div class="mt-6">
-            <a href="#contacto" class="transition-base inline-flex items-center gap-2 text-white bg-sky px-4 py-2 rounded-lg hover:bg-sky-dark title-font">
-              Conversemos
-            </a>
-          </div>
-        </div>
-        <div class="order-1 md:order-2">
-          <div class="relative">
-            <div class="absolute -top-4 -left-4 w-24 h-24 bg-accent/20 rounded-xl -z-10"></div>
-            <div class="rounded-2xl border border-[var(--gray-200)] bg-white p-4 shadow-sm flex items-center justify-center">
-              <div class="w-full aspect-[4/3] rounded-xl overflow-hidden">
-                <img src="https://i.imgur.com/sfPEROs.png" alt="Jorge Luis González" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
-              </div>
-            </div>
-          </div>
+      <div class="card-shadow bg-white rounded-2xl p-6 cursor-pointer hover:bg-gray-50 transition-colors" onclick="openBlogPost('post6')">
+        <h4 class="title-font text-lg font-bold mb-2">El arte de escuchar en alta presión</h4>
+        <p class="text-gray-600 text-sm mb-3">Cómo mantener la conexión humana en momentos críticos...</p>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-500">Hace 1 mes</span>
+          <span class="text-xs text-jorge-orange font-medium">5 min</span>
         </div>
       </div>
-    </section>
 
-    <!-- Filosofía H2H -->
-    <section id="filosofia" class="bg-white">
-      <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
-        <h3 class="title-font text-2xl md:text-3xl font-bold text-slate-900">Filosofía H2H – Tres pilares</h3>
-        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Pilar 1 -->
-          <div class="card rounded-xl border border-[var(--gray-200)] bg-[var(--gray-50)] p-6">
-            <div class="flex items-center gap-3">
-              <!-- Icono corazón minimal -->
-              <svg class="w-6 h-6 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.1 8.64l-.1.1-.11-.1C9.14 6 5 6.24 5 9.87c0 2.28 2.04 3.87 5.13 6.57.68.6 1.09.96 1.87 1.68.78-.72 1.19-1.08 1.87-1.68C16.96 13.74 19 12.15 19 9.87 19 6.24 14.86 6 12.1 8.64z"/></svg>
-              <h4 class="title-font text-lg font-semibold text-slate-900">Personas Primero</h4>
-            </div>
-            <p class="mt-3 text-slate-700">
-              Las empresas existen para servir a las personas. Cada estrategia comienza entendiendo las necesidades humanas detrás de los datos.
-            </p>
-          </div>
-          <!-- Pilar 2 -->
-          <div class="card rounded-xl border border-[var(--gray-200)] bg-[var(--gray-50)] p-6">
-            <div class="flex items-center gap-3">
-              <!-- Apretón de manos minimal -->
-              <svg class="w-6 h-6 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 12l4-4 5 5 5-5 4 4-9 9zM2 7h5v2H4v3H2zM22 7h-5v2h3v3h2z"/></svg>
-              <h4 class="title-font text-lg font-semibold text-slate-900">Relaciones Auténticas</h4>
-            </div>
-            <p class="mt-3 text-slate-700">
-              Conexiones genuinas basadas en transparencia, confianza y valor mutuo.
-            </p>
-          </div>
-          <!-- Pilar 3 -->
-          <div class="card rounded-xl border border-[var(--gray-200)] bg-[var(--gray-50)] p-6">
-            <div class="flex items-center gap-3">
-              <!-- Brote/crecimiento minimal -->
-              <svg class="w-6 h-6 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 017 7c0 3.87-3.13 7-7 7h-1v6H8v-6H7a5 5 0 01-5-5 7 7 0 017-7h3z"/></svg>
-              <h4 class="title-font text-lg font-semibold text-slate-900">Crecimiento Sostenible</h4>
-            </div>
-            <p class="mt-3 text-slate-700">
-              Rentabilidad por encima del promedio a través de modelos que benefician a clientes, colaboradores, accionistas y comunidad.
-            </p>
-          </div>
+      <div class="card-shadow bg-white rounded-2xl p-6 cursor-pointer hover:bg-gray-50 transition-colors" onclick="openBlogPost('post7')">
+        <h4 class="title-font text-lg font-bold mb-2">Coaching en culturas conservadoras</h4>
+        <p class="text-gray-600 text-sm mb-3">Adaptando metodologías modernas a entornos tradicionales...</p>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-500">Hace 2 meses</span>
+          <span class="text-xs text-jorge-orange font-medium">6 min</span>
         </div>
       </div>
-    </section>
 
-    <!-- Servicios -->
-    <section id="servicios" class="bg-[var(--gray-50)]">
-      <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
-        <div class="flex items-center justify-between flex-wrap gap-4">
-          <h3 class="title-font text-2xl md:text-3xl font-bold text-slate-900">Servicios</h3>
-        </div>
-        <div class="mt-8 grid md:grid-cols-3 gap-6">
-          <!-- Consultoría Estratégica H2H -->
-          <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 flex flex-col">
-            <div class="flex items-center gap-3">
-              <!-- Grafica minimal -->
-              <svg class="w-6 h-6 text-slate-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h2v18H3zM7 13h2v8H7zM11 9h2v12h-2zM15 5h2v16h-2zM19 3h2v18h-2z"/></svg>
-              <h4 class="title-font text-lg font-semibold text-slate-900">Consultoría Estratégica H2H</h4>
-            </div>
-            <ul class="mt-4 space-y-2 text-slate-700">
-              <li>Diagnóstico de modelo de negocio</li>
-              <li>Estrategias de crecimiento centradas en personas</li>
-              <li>KPIs humanos</li>
-              <li>Segmentación con enfoque H2H</li>
-            </ul>
-            <div class="mt-6 pt-4 border-t border-[var(--gray-200)] flex justify-end">
-              <a href="#contacto" class="transition-base text-sky hover:underline title-font">Solicitar diagnóstico</a>
-            </div>
-          </article>
-          <!-- Coaching Ejecutivo y Empresarial -->
-          <article class="card rounded-xl border border-[var(--gray-200)] bg-sky text-white p-6 flex flex-col">
-            <div class="flex items-center gap-3">
-              <!-- Usuario/coach minimal -->
-              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-8 2-8 5v1h16v-1c0-3-4-5-8-5z"/></svg>
-              <h4 class="title-font text-lg font-semibold">Coaching Ejecutivo y Empresarial</h4>
-            </div>
-            <ul class="mt-4 space-y-2 text-white/90">
-              <li>Sesiones individuales y grupales</li>
-              <li>Desarrollo de habilidades blandas</li>
-              <li>Liderazgo con propósito</li>
-              <li>Transformación cultural organizacional</li>
-            </ul>
-            <div class="mt-6 pt-4 border-t border-white/20 flex justify-end">
-              <a href="#contacto" class="transition-base text-white hover:opacity-90 title-font">Conocer agenda</a>
-            </div>
-          </article>
-          <!-- Marketing con Enfoque Humano -->
-          <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 flex flex-col">
-            <div class="flex items-center gap-3">
-              <!-- Corazón/cliente minimal -->
-              <svg class="w-6 h-6 text-slate-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-6-4.35-9-7.35C-1 8.65 3 3 8 6c1.6 1 2.4 2 4 2s2.4-1 4-2c5-3 9 2.65 5 7.65C18 16.65 12 21 12 21z"/></svg>
-              <h4 class="title-font text-lg font-semibold text-slate-900">Estrategias de Marketing con Enfoque Humano</h4>
-            </div>
-            <ul class="mt-4 space-y-2 text-slate-700">
-              <li>Auditoría de marca y comunicación</li>
-              <li>Storytelling auténtico</li>
-              <li>Campañas orientadas a conexión humana</li>
-              <li>Marketing con propósito</li>
-            </ul>
-            <div class="mt-6 pt-4 border-t border-[var(--gray-200)] flex justify-end">
-              <a href="#contacto" class="transition-base text-accent hover:underline title-font">Explorar opciones</a>
-            </div>
-          </article>
+      <div class="card-shadow bg-white rounded-2xl p-6 cursor-pointer hover:bg-gray-50 transition-colors" onclick="openBlogPost('post8')">
+        <h4 class="title-font text-lg font-bold mb-2">Lo que aprendí de mis errores</h4>
+        <p class="text-gray-600 text-sm mb-3">Las lecciones más valiosas vienen de los momentos difíciles...</p>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-500">Hace 2 meses</span>
+          <span class="text-xs text-jorge-orange font-medium">8 min</span>
         </div>
       </div>
-    </section>
 
-    <!-- Testimonios -->
-    <section id="testimonios" class="bg-white">
-      <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
-        <h3 class="title-font text-2xl md:text-3xl font-bold text-slate-900">Testimonios</h3>
-        <div class="mt-8 grid md:grid-cols-3 gap-6">
-          <blockquote class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 serif">
-            <p class="text-slate-900">“Transformó nuestra manera de hacer negocios. Conectamos auténticamente con nuestros clientes mientras aumentábamos la rentabilidad.”</p>
-            <footer class="mt-4 text-slate-600 text-sm">— María Fernández, CEO</footer>
-          </blockquote>
-          <blockquote class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 serif">
-            <p class="text-slate-900">“Integra estrategia, operación y finanzas con enfoque humano. Implementamos sus consejos con resultados medibles.”</p>
-            <footer class="mt-4 text-slate-600 text-sm">— Carlos Rodríguez, Director Comercial</footer>
-          </blockquote>
-          <blockquote class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 serif">
-            <p class="text-slate-900">“Las sesiones de coaching fueron transformadoras. Mejoró mi negocio y mi liderazgo.”</p>
-            <footer class="mt-4 text-slate-600 text-sm">— Ana Martínez, Emprendedora</footer>
-          </blockquote>
+      <div class="card-shadow bg-white rounded-2xl p-6 cursor-pointer hover:bg-gray-50 transition-colors" onclick="openBlogPost('post9')">
+        <h4 class="title-font text-lg font-bold mb-2">Construyendo confianza en el cambio</h4>
+        <p class="text-gray-600 text-sm mb-3">Herramientas para liderar transformaciones exitosas...</p>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-500">Hace 3 meses</span>
+          <span class="text-xs text-jorge-orange font-medium">9 min</span>
         </div>
-      </div>
-    </section>
-
-    <!-- Experiencias (blog corto con 2 temas) -->
-    <section id="experiencias" class="bg-[var(--gray-50)]">
-      <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
-        <div class="flex items-center justify-between flex-wrap gap-4">
-          <h3 class="title-font text-2xl md:text-3xl font-bold text-slate-900">Mis Experiencias y Reflexiones</h3>
-          <button id="btnTemasPop" class="transition-base border border-slate-300 text-slate-800 px-4 py-2 rounded-lg hover:bg-[var(--gray-100)] title-font">
-            Hablemos más
-          </button>
-        </div>
-
-        <!-- Previews de 2 temas -->
-        <div class="mt-8 grid md:grid-cols-2 gap-6">
-          <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6">
-            <h4 class="title-font text-lg font-semibold text-slate-900">“20 años, 20 aprendizajes”</h4>
-            <p class="mt-2 text-slate-700">Después de dos décadas, aprendí que la estrategia sin humanidad es solo una hoja de cálculo.</p>
-            <div class="mt-4">
-              <button class="transition-base text-sky hover:underline title-font" data-expand="ap1">Ver un poco más</button>
-              <p id="ap1" class="mt-2 text-slate-700 hidden">Una y otra vez comprobé que los equipos florecen cuando el número se convierte en historia y la historia en acción.</p>
-            </div>
-          </article>
-          <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6">
-            <h4 class="title-font text-lg font-semibold text-slate-900">“El poder de los pequeños detalles en empresas familiares”</h4>
-            <p class="mt-2 text-slate-700">Una taza de café servida con intención puede cambiar el clima de una reunión.</p>
-            <div class="mt-4">
-              <button class="transition-base text-sky hover:underline title-font" data-expand="ap2">Ver un poco más</button>
-              <p id="ap2" class="mt-2 text-slate-700 hidden">Los pequeños gestos abren conversaciones grandes: cuando el vínculo es genuino, la negociación se vuelve colaboración.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contacto" class="bg-white">
-      <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
-        <div class="grid md:grid-cols-2 gap-10">
-          <div>
-            <h3 class="title-font text-2xl md:text-3xl font-bold text-slate-900">Contacto</h3>
-            <p class="mt-2 text-slate-700">Conversemos sobre tus objetivos y cómo el enfoque H2H puede potenciar tus resultados.</p>
-            <div class="mt-6 space-y-3 text-slate-700">
-              <div class="flex items-center gap-3">
-                <!-- Email icon -->
-                <svg class="w-5 h-5 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5"/></svg>
-                <a href="#" class="hover:underline" id="emailLink">correo@ejemplo.com</a>
-              </div>
-              <div class="flex items-center gap-3">
-                <!-- Phone/WA icon -->
-                <svg class="w-5 h-5 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.94 14.56L2 22l5.6-1.06A10 10 0 1012 2z"/></svg>
-                <a href="#" class="hover:underline" id="waLink">WhatsApp</a>
-              </div>
-            </div>
-            <p class="mt-3 text-xs text-slate-500">Nota: Este formulario es una demo segura para fines de diseño.</p>
-          </div>
-          <div>
-            <form id="demoForm" class="card rounded-xl border border-[var(--gray-200)] bg-[var(--gray-50)] p-6">
-              <div class="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label class="block text-sm text-slate-700 mb-1">Nombre</label>
-                  <input type="text" required class="w-full rounded-lg border border-[var(--gray-200)] bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-sky" placeholder="Tu nombre">
-                </div>
-                <div>
-                  <label class="block text-sm text-slate-700 mb-1">Email</label>
-                  <input type="email" required class="w-full rounded-lg border border-[var(--gray-200)] bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-sky" placeholder="tu@email.com">
-                </div>
-              </div>
-              <div class="mt-4">
-                <label class="block text-sm text-slate-700 mb-1">Mensaje</label>
-                <textarea required rows="4" class="w-full rounded-lg border border-[var(--gray-200)] bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-sky" placeholder="¿En qué te puedo ayudar?"></textarea>
-              </div>
-              <div class="mt-6 flex items-center justify-between">
-                <button type="submit" class="transition-base bg-sky text-white px-4 py-2 rounded-lg hover:bg-sky-dark title-font">Enviar</button>
-                <span id="formStatus" class="text-sm text-slate-600"></span>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer (gris muy oscuro) -->
-    <footer class="mt-auto bg-[var(--gray-900)] text-white">
-      <div class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
-        <div>
-          <h4 class="title-font font-semibold">El despacho de Jorge</h4>
-          <p class="mt-2 text-white/80">Estrategia, coaching y marketing con enfoque humano.</p>
-        </div>
-        <div>
-          <h4 class="title-font font-semibold">Redes y contacto</h4>
-          <ul class="mt-2 space-y-2 text-white/80">
-            <li><a href="#contacto" class="hover:underline">Contacto</a></li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.88L18.18 22 12 18.54 5.82 22 7 14.15l-5-4.88 6.91-1.01z"/></svg>
-              Parte del ecosistema Ant-Ara
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="title-font font-semibold">Identidad</h4>
-          <p class="mt-2 text-white/80">Coherencia narrativa con Innovar con Alejandro y Ant-Ara, sin replicar estilos.</p>
-        </div>
-      </div>
-      <div class="border-t border-white/10">
-        <div class="max-w-6xl mx-auto px-6 py-4 text-sm text-white/70 flex justify-between">
-          <span>© <span id="year"></span> Jorge Luis González</span>
-          <span class="text-sky title-font">H2H</span>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <!-- Modal: Lista completa de 10 temas (Hablemos más) -->
-  <div id="modal-temas" class="fixed inset-0 z-50 hidden">
-    <div class="absolute inset-0 bg-black/40 backdrop-show"></div>
-    <div class="relative max-w-2xl mx-auto my-10 md:my-16 bg-white rounded-2xl shadow-xl modal-pop">
-      <div class="flex items-center justify-between px-6 py-4 border-b border-[var(--gray-200)]">
-        <h4 class="title-font text-lg font-semibold text-slate-900">Hablemos más</h4>
-        <button class="transition-base px-3 py-1 rounded-lg hover:bg-[var(--gray-100)]" data-close="modal-temas">Cerrar ✕</button>
-      </div>
-      <div class="px-6 py-6 max-h-[70vh] overflow-y-auto no-scrollbar">
-        <p class="text-slate-700">Te interesó esto, aquí hay más temas. Elige uno para conversar; por ahora te llevará al inicio.</p>
-        <ul class="mt-4 grid sm:grid-cols-2 gap-3 text-slate-800">
-          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">Cómo liderar sin perder el alma</a></li>
-          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">El arte de escuchar en entornos de alta presión</a></li>
-          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">Estrategia H2H: más allá del marketing</a></li>
-          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">Cuando el equipo es familia</a></li>
-          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">Finanzas con propósito: ¿es posible?</a></li>
-          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">El silencio como herramienta de liderazgo</a></li>
-          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">Cómo construir confianza en procesos de cambio</a></li>
-          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">Coaching en culturas conservadoras</a></li>
-          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">Lo que aprendí de mis errores como consultor</a></li>
-          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">El valor de la pausa en la toma de decisiones</a></li>
-        </ul>
       </div>
     </div>
   </div>
+</div>
 
-  <script>
-    // Año en footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+<script>
+// Animaciones al hacer scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
 
-    // Enlaces de demo contacto
-    const emailLink = document.getElementById('emailLink');
-    const waLink = document.getElementById('waLink');
-    emailLink.addEventListener('click', (e)=>{ e.preventDefault(); alert('Demo: agrega tu correo final aquí.'); });
-    waLink.addEventListener('click', (e)=>{ e.preventDefault(); alert('Demo: agrega tu enlace de WhatsApp aquí.'); });
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('fade-in');
+    }
+  });
+}, observerOptions);
 
-    // Form demo
-    const form = document.getElementById('demoForm');
-    const statusEl = document.getElementById('formStatus');
-    form.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      statusEl.textContent = '¡Gracias! Te contactaré muy pronto.';
-      form.reset();
-      setTimeout(()=> statusEl.textContent = '', 4000);
-    });
+document.querySelectorAll('.fade-in').forEach(el => {
+  observer.observe(el);
+});
 
-    // Expandir “ver un poco más” en los dos temas
-    document.querySelectorAll('[data-expand]').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        const id = btn.getAttribute('data-expand');
-        const target = document.getElementById(id);
-        if(!target) return;
-        target.classList.toggle('hidden');
-        btn.textContent = target.classList.contains('hidden') ? 'Ver un poco más' : 'Ver menos';
+// Manejo del formulario de contacto
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Simulación de envío
+  const button = this.querySelector('button[type="submit"]');
+  const originalText = button.textContent;
+  
+  button.textContent = 'Enviando...';
+  button.disabled = true;
+  
+  setTimeout(() => {
+    button.textContent = '¡Mensaje enviado!';
+    button.style.backgroundColor = 'var(--jorge-blue-dark)';
+    
+    // Mostrar mensaje de confirmación
+    const confirmation = document.createElement('div');
+    confirmation.className = 'mt-4 p-4 bg-green-50 border border-green-200 rounded-xl text-green-800';
+    confirmation.innerHTML = `
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span class="font-medium">¡Gracias por tu mensaje!</span>
+      </div>
+      <p class="mt-1 text-sm">Te contactaré en las próximas 24 horas para coordinar nuestra conversación.</p>
+    `;
+    
+    this.appendChild(confirmation);
+    
+    // Reset después de 5 segundos
+    setTimeout(() => {
+      this.reset();
+      button.textContent = originalText;
+      button.disabled = false;
+      button.style.backgroundColor = '';
+      confirmation.remove();
+    }, 5000);
+  }, 2000);
+});
+
+// Contenido de los blog posts
+const blogPosts = {
+  post1: {
+    title: "20 años, 20 aprendizajes: La evolución del liderazgo humano",
+    content: `
+      <div class="mb-6 text-sm text-gray-600 flex items-center gap-4">
+        <span>📅 Publicado hace 2 días</span>
+        <span>⏱️ 5 minutos de lectura</span>
+        <span>👤 Jorge Luis González</span>
+      </div>
+
+      <div class="mb-8">
+        <div class="bg-jorge-blue-dark/5 border-l-4 border-jorge-blue-dark p-6 rounded-r-xl mb-6">
+          <p class="text-lg italic text-gray-700">
+            "Después de dos décadas acompañando líderes, he aprendido que la estrategia sin humanidad es solo una hoja de cálculo."
+          </p>
+        </div>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Cuando comencé mi carrera como consultor, creía que los números lo eran todo. Pensaba que si podía optimizar procesos, reducir costos y aumentar eficiencias, habría cumplido mi trabajo. No estaba completamente equivocado, pero tampoco tenía razón.
+      </p>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        A lo largo de estos 20 años, he trabajado con más de 500 empresas, desde startups hasta corporaciones familiares consolidadas. He visto triunfos extraordinarios y fracasos devastadores. Y en cada experiencia, una verdad se ha vuelto más clara: <strong class="text-jorge-blue-dark">las empresas que ponen a las personas en el centro, prosperan de maneras que van más allá de lo financiero</strong>.
+      </p>
+
+      <h3 class="title-font text-2xl font-bold text-jorge-blue-dark mb-4">Los 5 aprendizajes que lo cambiaron todo</h3>
+
+      <div class="space-y-6">
+        <div class="border-l-4 border-jorge-orange/30 pl-6">
+          <h4 class="font-bold text-jorge-blue-dark mb-2">1. La vulnerabilidad es fortaleza</h4>
+          <p class="text-gray-700">Los líderes más efectivos que he conocido no son los que nunca se equivocan, sino los que admiten sus errores y aprenden de ellos públicamente.</p>
+        </div>
+
+        <div class="border-l-4 border-jorge-blue/30 pl-6">
+          <h4 class="font-bold text-jorge-blue-dark mb-2">2. Las conversaciones difíciles son las más valiosas</h4>
+          <p class="text-gray-700">He visto empresas transformarse completamente después de una sola conversación honesta que llevaban años posponiendo.</p>
+        </div>
+
+        <div class="border-l-4 border-jorge-orange/30 pl-6">
+          <h4 class="font-bold text-jorge-blue-dark mb-2">3. El propósito no es marketing, es supervivencia</h4>
+          <p class="text-gray-700">Las empresas sin propósito claro son como barcos sin brújula: pueden avanzar rápido, pero raramente llegan a donde necesitan estar.</p>
+        </div>
+
+        <div class="border-l-4 border-jorge-blue/30 pl-6">
+          <h4 class="font-bold text-jorge-blue-dark mb-2">4. Los pequeños gestos crean grandes culturas</h4>
+          <p class="text-gray-700">Una taza de café servida con intención puede cambiar el clima de una reunión. La atención a los detalles humanos marca la diferencia.</p>
+        </div>
+
+        <div class="border-l-4 border-jorge-orange/30 pl-6">
+          <h4 class="font-bold text-jorge-blue-dark mb-2">5. El silencio es una herramienta de liderazgo</h4>
+          <p class="text-gray-700">Aprender cuándo callar y escuchar ha sido más valioso que cualquier técnica de persuasión que haya estudiado.</p>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 rounded-xl p-6 my-8">
+        <h4 class="title-font text-lg font-bold text-jorge-blue-dark mb-3">Reflexión para líderes</h4>
+        <p class="text-gray-700 italic">
+          Si pudieras cambiar una sola cosa en tu estilo de liderazgo mañana, ¿qué sería? No busques la respuesta en un manual, búscala en una conversación honesta con tu equipo.
+        </p>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        El enfoque H2H no es una metodología más; es una manera de reconocer que detrás de cada decisión empresarial hay personas reales con sueños, miedos y aspiraciones. Cuando honramos esa humanidad, los resultados hablan por sí solos.
+      </p>
+
+      <div class="border-t pt-6 mt-8">
+        <p class="text-sm text-gray-600">
+          ¿Te resonó este artículo? Me encantaría conocer tu experiencia. 
+          <a href="#contacto" class="text-jorge-blue-dark hover:text-jorge-blue font-medium">Conversemos</a> sobre cómo aplicar estos aprendizajes en tu contexto.
+        </p>
+      </div>
+    `
+  },
+  post2: {
+    title: "El poder de los pequeños detalles en empresas familiares",
+    content: `
+      <div class="mb-6 text-sm text-gray-600 flex items-center gap-4">
+        <span>📅 Publicado hace 1 semana</span>
+        <span>⏱️ 3 minutos de lectura</span>
+        <span>👤 Jorge Luis González</span>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Era una reunión como cualquier otra en una empresa familiar que llevaba tres generaciones operando. El patriarca, don Carlos, llegó 10 minutos tarde y, antes de sentarse, se dirigió a la pequeña cocina de la oficina. 
+      </p>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Lo que pasó después cambió completamente la dinámica de esa sesión de coaching familiar que yo estaba facilitando.
+      </p>
+
+      <div class="bg-jorge-blue-dark/5 border-l-4 border-jorge-blue-dark p-6 rounded-r-xl mb-6">
+        <p class="text-lg italic text-gray-700">
+          "Don Carlos regresó con una bandeja. Había preparado café para cada uno de los presentes, recordando exactamente cómo le gustaba a cada persona: sin azúcar para su hijo mayor, con leche extra para su nuera, muy cargado para su hermano."
+        </p>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Ese gesto, que tomó apenas cinco minutos, transformó una reunión tensa sobre la sucesión empresarial en una conversación abierta y constructiva. ¿La razón? Los pequeños detalles comunican cuidado, y el cuidado genera confianza.
+      </p>
+
+      <h3 class="title-font text-2xl font-bold text-jorge-blue-dark mb-4">La magia está en los detalles</h3>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        En mi experiencia trabajando con empresas familiares, he observado que los conflictos raramente son sobre números o estrategias. Son sobre sentirse valorado, escuchado, respetado. Y estos sentimientos se construyen o destruyen en los detalles más pequeños.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6 my-8">
+        <div class="bg-white border border-jorge-orange/20 rounded-xl p-6">
+          <h4 class="font-bold text-jorge-orange mb-3">Detalles que construyen</h4>
+          <ul class="space-y-2 text-gray-700 text-sm">
+            <li>• Recordar fechas importantes familiares en el trabajo</li>
+            <li>• Usar el nombre preferido de cada miembro</li>
+            <li>• Reconocer logros pequeños públicamente</li>
+            <li>• Preguntar por temas personales con genuino interés</li>
+          </ul>
+        </div>
+
+        <div class="bg-white border border-jorge-blue/20 rounded-xl p-6">
+          <h4 class="font-bold text-jorge-blue mb-3">Detalles que destruyen</h4>
+          <ul class="space-y-2 text-gray-700 text-sm">
+            <li>• Interrumpir constantemente a ciertos miembros</li>
+            <li>• Comparaciones familiares en público</li>
+            <li>• Ignorar tradiciones familiares importantes</li>
+            <li>• No reconocer la historia emocional compartida</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Cuando el vínculo es genuino, la negociación se vuelve colaboración. Los pequeños gestos abren conversaciones grandes, y las conversaciones grandes resuelven problemas complejos.
+      </p>
+
+      <div class="bg-gray-50 rounded-xl p-6 my-8">
+        <h4 class="title-font text-lg font-bold text-jorge-blue-dark mb-3">Para reflexionar</h4>
+        <p class="text-gray-700 italic">
+          ¿Qué pequeño detalle podrías implementar esta semana que demuestre cuidado genuino por un miembro de tu equipo familiar?
+        </p>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Las empresas familiares tienen algo que las corporaciones tradicionales envidian: historia emocional compartida. El desafío está en honrar esa historia mientras se construye el futuro.
+      </p>
+    `
+  },
+  post3: {
+    title: "Cuando el equipo es familia: navegando emociones en el negocio",
+    content: `
+      <div class="mb-6 text-sm text-gray-600 flex items-center gap-4">
+        <span>📅 Publicado hace 2 semanas</span>
+        <span>⏱️ 4 minutos de lectura</span>
+        <span>👤 Jorge Luis González</span>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        "Jorge, en esta empresa no hay empleados, hay familia". Era la tercera vez en el día que escuchaba esa frase, y cada vez me generaba más inquietud. No porque fuera mentira, sino porque era demasiado cierta.
+      </p>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Las empresas familiares enfrentan un desafío único: cómo separar las emociones familiares de las decisiones empresariales sin perder la calidez humana que las hace especiales.
+      </p>
+
+      <h3 class="title-font text-2xl font-bold text-jorge-blue-dark mb-4">El doble vínculo emocional</h3>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        En una corporación tradicional, si tienes un conflicto con tu jefe, puedes irte a casa y desconectarte. En una empresa familiar, tu jefe puede ser tu hermano, y la cena familiar del domingo se convierte en una extensión no oficial de la junta directiva.
+      </p>
+
+      <div class="bg-jorge-blue-dark/5 border-l-4 border-jorge-blue-dark p-6 rounded-r-xl mb-6">
+        <p class="text-lg italic text-gray-700">
+          "El amor no siempre toma las mejores decisiones empresariales, pero la empresa sin amor raramente sobrevive generaciones."
+        </p>
+      </div>
+
+      <h4 class="title-font text-xl font-bold text-jorge-blue mb-4">Herramientas para el equilibrio</h4>
+
+      <div class="space-y-6 mb-8">
+        <div class="border-l-4 border-jorge-orange/30 pl-6">
+          <h5 class="font-bold text-jorge-blue-dark mb-2">1. Roles claros, contextos definidos</h5>
+          <p class="text-gray-700">Establecer cuándo estamos hablando como familia y cuándo como empresa. "Ahora necesito hablar contigo como Director de Ventas, no como tu hermano".</p>
+        </div>
+
+        <div class="border-l-4 border-jorge-blue/30 pl-6">
+          <h5 class="font-bold text-jorge-blue-dark mb-2">2. Espacios sagrados</h5>
+          <p class="text-gray-700">Proteger momentos familiares de conversaciones empresariales y viceversa. La mesa del comedor no es sala de juntas.</p>
+        </div>
+
+        <div class="border-l-4 border-jorge-orange/30 pl-6">
+          <h5 class="font-bold text-jorge-blue-dark mb-2">3. Mediación externa</h5>
+          <p class="text-gray-700">Tener una voz neutral que pueda facilitar conversaciones difíciles sin el peso emocional familiar.</p>
+        </div>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        He visto empresas familiares crear protocolos emocionales tan detallados como sus manuales de procedimientos. Y funciona. Porque reconoce que las emociones son parte del negocio, no un obstáculo para él.
+      </p>
+
+      <div class="bg-gray-50 rounded-xl p-6 my-8">
+        <h4 class="title-font text-lg font-bold text-jorge-blue-dark mb-3">Caso de éxito</h4>
+        <p class="text-gray-700">
+          Una empresa familiar implementó "reuniones de corazón" mensuales, separadas de las juntas directivas. Un espacio donde podían hablar de preocupaciones familiares que afectaban el negocio, sin agenda empresarial. Resultado: las decisiones empresariales se volvieron más claras y menos cargadas emocionalmente.
+        </p>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed">
+        La clave no es eliminar las emociones del negocio familiar, sino canalizarlas productivamente. Después de todo, la pasión familiar bien dirigida es el combustible más poderoso que puede tener una empresa.
+      </p>
+    `
+  },
+  post4: {
+    title: "El silencio como herramienta de liderazgo",
+    content: `
+      <div class="mb-6 text-sm text-gray-600 flex items-center gap-4">
+        <span>📅 Publicado hace 3 semanas</span>
+        <span>⏱️ 6 minutos de lectura</span>
+        <span>👤 Jorge Luis González</span>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        En una sesión de coaching grupal, el CEO había estado hablando sin parar durante 15 minutos. Su equipo lo escuchaba con esa mezcla de respeto y resignación que reconozco inmediatamente. Cuando finalmente hizo una pausa, esperando alguna respuesta, decidí no decir nada.
+      </p>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Los siguientes 30 segundos de silencio fueron incómodos. Pero lo que pasó después cambió la dinámica de todo el equipo.
+      </p>
+
+      <div class="bg-jorge-blue-dark/5 border-l-4 border-jorge-blue-dark p-6 rounded-r-xl mb-6">
+        <p class="text-lg italic text-gray-700">
+          "A veces, lo que no decimos comunica más que mil palabras. El silencio estratégico es el espacio donde las mejores ideas encuentran su voz."
+        </p>
+      </div>
+
+      <h3 class="title-font text-2xl font-bold text-jorge-blue-dark mb-4">Los diferentes tipos de silencio</h3>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        No todos los silencios son iguales. En mis años como coach, he aprendido a distinguir entre el silencio productivo y el silencio tóxico. La diferencia está en la intención y el contexto.
+      </p>
+
+      <div class="space-y-6 mb-8">
+        <div class="bg-white border border-jorge-blue/20 rounded-xl p-6">
+          <h4 class="font-bold text-jorge-blue mb-3">Silencio de reflexión</h4>
+          <p class="text-gray-700 mb-3">Pausa después de una pregunta poderosa para permitir que surjan respuestas genuinas.</p>
+          <div class="text-sm text-gray-600 italic">
+            "¿Qué es lo que realmente te preocupa de este proyecto?" [Pausa de 10-15 segundos]
+          </div>
+        </div>
+
+        <div class="bg-white border border-jorge-orange/20 rounded-xl p-6">
+          <h4 class="font-bold text-jorge-orange mb-3">Silencio de procesamiento</h4>
+          <p class="text-gray-700 mb-3">Espacio para que la información compleja sea asimilada antes de continuar.</p>
+          <div class="text-sm text-gray-600 italic">
+            Después de compartir datos importantes: permitir que el equipo procese antes de pasar al siguiente punto.
+          </div>
+        </div>
+
+        <div class="bg-white border border-jorge-blue-light/30 rounded-xl p-6">
+          <h4 class="font-bold text-jorge-blue-dark mb-3">Silencio de invitación</h4>
+          <p class="text-gray-700 mb-3">Crear espacio para que las voces más tímidas encuentren su momento de participar.</p>
+          <div class="text-sm text-gray-600 italic">
+            En reuniones con personalidades dominantes, usar pausas para equilibrar la participación.
+          </div>
+        </div>
+      </div>
+
+      <h4 class="title-font text-xl font-bold text-jorge-blue mb-4">La técnica de la pausa de 7 segundos</h4>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Cuando alguien comparte algo importante o emocional, resiste el impulso de responder inmediatamente. Cuenta hasta siete. En esos segundos, suelen suceder tres cosas mágicas:
+      </p>
+
+      <ol class="list-decimal list-inside space-y-3 mb-6 text-gray-700">
+        <li>La persona siente que realmente la escuchaste</li>
+        <li>Muchas veces agregan información más profunda o honesta</li>
+        <li>Tu respuesta, cuando llega, es más reflexiva y acertada</li>
+      </ol>
+
+      <div class="bg-gray-50 rounded-xl p-6 my-8">
+        <h4 class="title-font text-lg font-bold text-jorge-blue-dark mb-3">Historia real</h4>
+        <p class="text-gray-700 mb-4">
+          Un director comercial me dijo: "Creo que el problema es que no tenemos suficientes leads". En lugar de ofrecer soluciones inmediatamente, guardé silencio. 
+        </p>
+        <p class="text-gray-700 italic">
+          Después de unos segundos, él mismo agregó: "Aunque... tal vez el problema real es que no estamos convirtiendo los leads que ya tenemos". Esa pausa reveló el verdadero problema.
+        </p>
+      </div>
+
+      <h4 class="title-font text-xl font-bold text-jorge-blue mb-4">Cuándo NO usar el silencio</h4>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        El silencio puede ser contraproducente cuando:
+      </p>
+
+      <ul class="list-disc list-inside space-y-2 mb-6 text-gray-700">
+        <li>La persona está en crisis emocional y necesita contención inmediata</li>
+        <li>Se interpreta como desinterés o juicio</li>
+        <li>La cultura organizacional no está preparada para pausas reflexivas</li>
+        <li>Hay urgencia genuina que requiere acción inmediata</li>
+      </ul>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        El dominio del silencio estratégico ha transformado mi efectividad como coach y consultor. No porque hable menos, sino porque cuando hablo, mis palabras tienen más peso y precisión.
+      </p>
+
+      <div class="border-t pt-6 mt-8">
+        <p class="text-sm text-gray-600">
+          ¿Has experimentado el poder del silencio en tu liderazgo? Me encantaría escuchar tu experiencia. 
+          <a href="#contacto" class="text-jorge-blue-dark hover:text-jorge-blue font-medium">Hablemos</a> (o mejor dicho, hagamos algunas pausas estratégicas juntos).
+        </p>
+      </div>
+    `
+  }
+};
+
+// Funciones para manejar el blog
+function openBlogPost(postId) {
+  const modal = document.getElementById('blogModal');
+  const title = document.getElementById('modalTitle');
+  const content = document.getElementById('modalContent');
+  
+  if (blogPosts[postId]) {
+    title.textContent = blogPosts[postId].title;
+    content.innerHTML = blogPosts[postId].content;
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeBlogModal() {
+  const modal = document.getElementById('blogModal');
+  modal.classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function openAllPosts() {
+  const modal = document.getElementById('allPostsModal');
+  modal.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAllPostsModal() {
+  const modal = document.getElementById('allPostsModal');
+  modal.classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+// Cerrar modales con ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeBlogModal();
+    closeAllPostsModal();
+  }
+});
+
+// Cerrar modales clickeando fuera
+document.getElementById('blogModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeBlogModal();
+  }
+});
+
+document.getElementById('allPostsModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeAllPostsModal();
+  }
+});
+
+// Función para scroll suave al top
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+// Smooth scroll para navegación
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const headerHeight = 80;
+      const targetPosition = target.offsetTop - headerHeight;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
       });
-    });
+    }
+  });
+});
 
-    // Modal: Hablemos más
-    const openModal = (id)=> {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    };
-    const closeModal = (id)=> {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.classList.add('hidden');
-      document.body.style.overflow = '';
-    };
-    document.getElementById('btnTemasPop').addEventListener('click', ()=> openModal('modal-temas'));
-    document.querySelectorAll('[data-close]').forEach(btn=>{
-      btn.addEventListener('click', (e)=> closeModal(e.currentTarget.getAttribute('data-close')));
-    });
+// Mobile menu toggle
+document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+  // Implementar menú móvil si es necesario
+  console.log('Mobile menu clicked');
+});
 
-    // Cerrar modal al hacer clic en fondo
-    (function(){
-      const modal = document.getElementById('modal-temas');
-      modal.addEventListener('click', (e)=>{
-        if (e.target === modal || e.target.classList.contains('bg-black/40')) {
-          closeModal('modal-temas');
+console.log('🚀 El Despacho de Jorge - Website cargado con éxito!');
+console.log('🔵 Colores principales: Azul Oscuro #264495, Azul #3D38D3, Azul Claro #79AEDC');
+console.log('🧡 Color de acento: Naranja #F27C26');
+console.log('🌿 Conexión Ant-Ara: Verde #10b981');
+console.log('📝 Blog "Voz a Texto" integrado con modal system');
+</script>
+
+</body>
+</html>  </div>
+</section>
+
+<!-- Blog Section - "Voz a Texto" -->
+<section id="blog" class="section-padding bg-jorge-blue-dark text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-20 left-20 w-64 h-64 bg-jorge-blue-light rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-20 w-48 h-48 bg-jorge-orange rounded-full blur-3xl"></div>
+  </div>
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="text-center mb-16 fade-in">
+      <div class="inline-flex items-center gap-3 bg-white/10 rounded-full px-6 py-3 mb-6">
+        <svg class="w-6 h-6 text-jorge-orange" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 1a11 11 0 1 0 11 11A11.013 11.013 0 0 0 12 1zm0 20a9 9 0 1 1 9-9 9.01 9.01 0 0 1-9 9z"/>
+          <path d="M12 6a6 6 0 0 0-6 6 1 1 0 0 0 2 0 4 4 0 0 1 8 0v3a2 2 0 0 1-4 0 1 1 0 0 0-2 0 4 4 0 0 0 8 0v-3a6 6 0 0 0-6-6z"/>
+        </svg>
+        <span class="font-semibold">Voz a Texto</span>
+      </div>
+      <h3 class="title-font text-4xl font-bold mb-6">
+        Mis Reflexiones y <span class="text-jorge-orange">Experiencias</span>
+      </h3>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto">
+        Comparto mis aprendizajes de más de 20 años transformando negocios. Cada experiencia es una lección que puede inspirar tu camino.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8 mb-12">
+      <!-- Artículo destacado -->
+      <div class="fade-in stagger-1">
+        <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 h-full border border-white/20 hover:bg-white/15 transition-all duration-300 cursor-pointer" onclick="openBlogPost('post1')">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-jorge-orange/20 rounded-2xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-jorge-orange" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.88L18.18 22 12 18.54 5.82 22 7 14.15l-5-4.88 6.91-1.01z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-sm text-jorge-orange font-semibold">Artículo Destacado</span>
+              <p class="text-xs text-white/60">5 min de lectura</p>
+            </div>
+          </div>
+          <h4 class="title-font text-2xl font-bold mb-4">
+            "20 años, 20 aprendizajes: La evolución del liderazgo humano"
+          </h4>
+          <p class="text-white/80 leading-relaxed mb-6">
+            Después de dos décadas acompañando líderes, he aprendido que la estrategia sin humanidad es solo una hoja de cálculo. Descubre los 20 aprendizajes que han marcado mi camino y pueden transformar el tuyo.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-white/60">Hace 2 días</span>
+            <div class="flex items-center gap-2 text-jorge-orange">
+              <span class="text-sm font-medium">Leer más</span>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid de artículos -->
+      <div class="grid gap-6">
+        <div class="fade-in stagger-2 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all cursor-pointer" onclick="openBlogPost('post2')">
+          <h4 class="title-font text-lg font-bold mb-2">
+            "El poder de los pequeños detalles en empresas familiares"
+          </h4>
+          <p class="text-white/70 text-sm mb-3">
+            Una taza de café servida con intención puede cambiar el clima de una reunión...
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-white/50">Hace 1 semana</span>
+            <span class="text-xs text-jorge-orange font-medium">3 min</span>
+          </div>
+        </div>
+
+        <div class="fade-in stagger-3 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all cursor-pointer" onclick="openBlogPost('post3')">
+          <h4 class="title-font text-lg font-bold mb-2">
+            "Cuando el equipo es familia: navegando emociones en el negocio"
+          </h4>
+          <p class="text-white/70 text-sm mb-3">
+            Las empresas familiares tienen una dinámica única que requiere un enfoque especial...
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-white/50">Hace 2 semanas</span>
+            <span class="text-xs text-jorge-orange font-medium">4 min</span>
+          </div>
+        </div>
+
+        <div class="fade-in stagger-1 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all cursor-pointer" onclick="openBlogPost('post4')">
+          <h4 class="title-font text-lg font-bold mb-2">
+            "El silencio como herramienta de liderazgo"
+          </h4>
+          <p class="text-white/70 text-sm mb-3">
+            A veces, lo que no decimos comunica más que mil palabras...
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-white/50">Hace 3 semanas</span>
+            <span class="text-xs text-jorge-orange font-medium">6 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center fade-in">
+      <button class="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 backdrop-blur-sm" onclick="openAllPosts()">
+        Ver todos los artículos
+        <svg class="w-4 h-4 ml-2 inline" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonios -->
+<section class="section-padding bg-gray-50">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <h3 class="title-font text-4xl font-bold mb-6 text-gray-900">
+        Lo que dicen mis <span class="text-gradient">clientes</span>
+      </h3>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+        Testimonios reales de líderes y empresas que han transformado su negocio
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="fade-in stagger-1 card-shadow bg-white rounded-3xl p-8">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 bg-jorge-blue-dark rounded-full flex items-center justify-center text-white font-bold">
+            MF
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-900">María Fernández</h4>
+            <p class="text-sm text-gray-600">CEO, TechStart</p>
+          </div>
+        </div>
+        <blockquote class="text-gray-700 leading-relaxed">
+          "Jorge transformó nuestra manera de hacer negocios. Conectamos auténticamente con nuestros clientes mientras aumentábamos la rentabilidad un 40%."
+        </blockquote>
+        <div class="flex text-jorge-orange mt-4">
+          ★★★★★
+        </div>
+      </div>
+
+      <div class="fade-in stagger-2 card-shadow bg-white rounded-3xl p-8">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 bg-jorge-blue rounded-full flex items-center justify-center text-white font-bold">
+            CR
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-900">Carlos Rodríguez</h4>
+            <p class="text-sm text-gray-600">Director Comercial</p>
+          </div>
+        </div>
+        <blockquote class="text-gray-700 leading-relaxed">
+          "Su enfoque H2H integra estrategia, operación y finanzas con propósito humano. Los resultados fueron medibles desde el primer mes."
+        </blockquote>
+        <div class="flex text-jorge-orange mt-4">
+          ★★★★★
+        </div>
+      </div>
+
+      <div class="fade-in stagger-3 card-shadow bg-white rounded-3xl p-8">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 bg-jorge-blue-light rounded-full flex items-center justify-center text-white font-bold">
+            AM
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-900">Ana Martínez</h4>
+            <p class="text-sm text-gray-600">Emprendedora</p>
+          </div>
+        </div>
+        <blockquote class="text-gray-700 leading-relaxed">
+          "Las sesiones de coaching fueron transformadoras. No solo mejoró mi negocio, sino mi forma de liderar y vivir."
+        </blockquote>
+        <div class="flex text-jorge-orange mt-4">
+          ★★★★★
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="section-padding bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="fade-in">
+        <h3 class="title-font text-4xl font-bold mb-6 text-gray-900">
+          Conversemos sobre tu <span class="text-gradient">transformación</span>
+        </h3>
+        <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+          Cada negocio es único, cada líder tiene su historia. Hablemos sobre cómo el enfoque H2H puede potenciar tus resultados y crear un impacto genuino.
+        </p>
+        
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-jorge-blue-dark/10 rounded-2xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-jorge-blue-dark" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900">Email</h4>
+              <a href="mailto:jorge@despachodejorge.com" class="text-jorge-blue-dark hover:text-jorge-blue transition-colors">jorge@despachodejorge.com</a>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-jorge-blue/10 rounded-2xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-jorge-blue" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2a10 10 0 00-8.94 14.56L2 22l5.6-1.06A10 10 0 1012 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900">WhatsApp</h4>
+              <a href="https://wa.me/1234567890" class="text-jorge-blue-dark hover:text-jorge-blue transition-colors">Enviar mensaje</a>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-jorge-orange/10 rounded-2xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-jorge-orange" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.88L18.18 22 12 18.54 5.82 22 7 14.15l-5-4.88 6.91-1.01z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900">Sesión de consulta</h4>
+              <p class="text-gray-600">30 minutos gratuitos para conocernos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in stagger-2">
+        <form id="contactForm" class="card-shadow bg-white rounded-3xl p-8 border border-gray-100">
+          <h4 class="title-font text-2xl font-bold mb-6 text-gray-900">Agenda tu conversación</h4>
+          
+          <div class="grid sm:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Nombre *</label>
+              <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-jorge-blue focus:ring-2 focus:ring-jorge-blue/20 outline-none transition-colors" placeholder="Tu nombre">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+              <input type="email" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-jorge-blue focus:ring-2 focus:ring-jorge-blue/20 outline-none transition-colors" placeholder="tu@email.com">
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Empresa</label>
+            <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-jorge-blue focus:ring-2 focus:ring-jorge-blue/20 outline-none transition-colors" placeholder="Nombre de tu empresa">
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-sm font-medium text-gray-700 mb-2">¿En qué te puedo ayudar? *</label>
+            <textarea required rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-jorge-blue focus:ring-2 focus:ring-jorge-blue/20 outline-none transition-colors resize-none" placeholder="Cuéntame sobre tu desafío actual o lo que te gustaría lograr..."></textarea>
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-sm font-medium text-gray-700 mb-3">Tipo de consulta</label>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="consulta" value="estrategia" class="text-jorge-blue focus:ring-jorge-blue">
+                <span class="text-sm">Estrategia H2H</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="consulta" value="coaching" class="text-jorge-blue focus:ring-jorge-blue">
+                <span class="text-sm">Coaching</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="consulta" value="marketing" class="text-jorge-blue focus:ring-jorge-blue">
+                <span class="text-sm">Marketing Humano</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="consulta" value="general" class="text-jorge-blue focus:ring-jorge-blue">
+                <span class="text-sm">Consulta general</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary w-full">
+            Enviar mensaje y agendar
+          </button>
+
+          <p class="text-xs text-gray-500 mt-4 text-center">
+            Te responderé en menos de 24 horas para coordinar nuestra conversación
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-jorge-blue-dark text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-jorge-blue-light rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-jorge-orange rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="relative z-10">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid lg:grid-cols-4 gap-12">
+        <!-- Información principal -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-4 mb-6">
+            <img src="https://i.imgur.com/SCbvm64.png" alt="Jorge Luis González" class="w-16 h-16 rounded-full object-cover ring-4 ring-white/20">
+            <div>
+              <h4 class="title-font text-2xl font-bold">El Despacho de Jorge</h4>
+              <p class="text-white/80">Estrategia con propósito humano</p>
+            </div>
+          </div>
+          <p class="text-white/80 leading-relaxed mb-6">
+            Transformando negocios con el enfoque H2H: donde las personas, las relaciones auténticas y el crecimiento sostenible se encuentran para crear valor real y duradero.
+          </p>
+          <div class="flex items-center gap-4">
+            <span class="ecosystem-badge">Ecosistema Ant-Ara</span>
+            <div class="flex items-center gap-2">
+              <img src="https://i.imgur.com/kTSdMiT.png" alt="Ant-Ara" class="w-6 h-6">
+              <span class="text-sm text-white/60">Conectado con Ant-Ara</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enlaces rápidos -->
+        <div>
+          <h5 class="title-font text-lg font-bold mb-6">Servicios</h5>
+          <ul class="space-y-3">
+            <li><a href="#servicios" class="text-white/80 hover:text-jorge-orange transition-colors">Consultoría Estratégica H2H</a></li>
+            <li><a href="#servicios" class="text-white/80 hover:text-jorge-orange transition-colors">Coaching Ejecutivo</a></li>
+            <li><a href="#servicios" class="text-white/80 hover:text-jorge-orange transition-colors">Marketing Humano</a></li>
+            <li><a href="#filosofia" class="text-white/80 hover:text-jorge-orange transition-colors">Filosofía H2H</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacto y redes -->
+        <div>
+          <h5 class="title-font text-lg font-bold mb-6">Conecta conmigo</h5>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-jorge-orange" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5"/>
+              </svg>
+              <a href="mailto:jorge@despachodejorge.com" class="text-white/80 hover:text-white transition-colors">Email</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-jorge-orange" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2a10 10 0 00-8.94 14.56L2 22l5.6-1.06A10 10 0 1012 2z"/>
+              </svg>
+              <a href="#" class="text-white/80 hover:text-white transition-colors">WhatsApp</a>
+            </li>
+          </ul>
+
+          <!-- Enlaces del ecosistema -->
+          <div class="space-y-2">
+            <h6 class="text-sm font-semibold text-white/60 uppercase tracking-wide">Ecosistema</h6>
+            <div class="space-y-2">
+              <a href="https://ant-ara.com" target="_blank" class="block text-antara-mint hover:text-white transition-colors text-sm">🔗 Ant-Ara</a>
+              <a href="https://innovarconalejandro.com" target="_blank" class="block text-jorge-orange hover:text-white transition-colors text-sm">🔗 Innovar con Alejandro</a>
+              <a href="#" class="block text-jorge-blue-light hover:text-white transition-colors text-sm">🚀 Productividad con IA</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-6 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div class="flex items-center gap-6">
+            <p class="text-white/60 text-sm">© 2024 Jorge Luis González. Todos los derechos reservados.</p>
+            <div class="flex items-center gap-2">
+              <span class="text-jorge-orange">♦</span>
+              <span class="title-font text-sm font-bold">H2H</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-6">
+            <a href="#" class="text-white/60 hover:text-white text-sm transition-colors">Términos</a>
+            <a href="#" class="text-white/60 hover:text-white text-sm transition-colors">Privacidad</a>
+            <button onclick="scrollToTop()" class="bg-white/10 hover:bg-white/20 p-2 rounded-lg transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7 14l5-5 5 5z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal para Blog Posts -->
+<div id="blogModal" class="modal">
+  <div class="modal-content max-w-4xl">
+    <div class="flex items-center justify-between mb-6">
+      <h3 id="modalTitle" class="title-font text-2xl font-bold text-gray-900"></h3>
+      <button onclick="closeBlogModal()" class="text-gray-500 hover:text-gray-700 p-2 rounded-lg hover:bg-gray-100 transition-colors">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div id="modalContent" class="prose prose-lg max-w-none"></div>
+  </div>
+</div>
+
+<!-- Modal para Ver Todos los Posts -->
+<div id="allPostsModal" class="modal">
+  <div class="modal-content max-w-5xl">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="title-font text-2xl font-bold text-gray-900">Todos mis artículos</h3>
+      <button onclick="closeAllPostsModal()" class="text-gray-500 hover:text-gray-700 p-2 rounded-lg hover:bg-gray-100 transition-colors">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Lista completa de artículos del blog -->
+      <div class="card-shadow bg-white rounded-2xl p-6 cursor-pointer hover:bg-gray-50 transition-colors" onclick="openBlogPost('post1')">
+        <h4 class="title-font text-lg font-bold mb-2">20 años, 20 aprendizajes</h4>
+        <p class="text-gray-600 text-sm mb-3">La evolución del liderazgo humano a través de dos décadas de experiencia...</p>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-500">Hace 2 días</span>
+          <span class="text-xs text-jorge-orange font-medium">5 min</span>
+        </div>
+      </div>
+
+      <div class="card-shadow bg-white rounded-2xl p-6 cursor-pointer hover:bg-gray-50 transition-colors" onclick="openBlogPost('post2')">
+        <h4 class="title-font text-lg font-bold mb-2">El poder de los pequeños detalles</h4>
+        <p class="text-gray-600 text-sm mb-3">Cómo los gestos más simples pueden transformar la cultura empresarial...</p>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-500">Hace 1 semana</span>
+          <span class="text-xs text-jorge-orange font-medium">3 min</span>
+        </div>
+      </div>
+
+      <div class="card-shadow bg-white rounded-2xl p-6 cursor-pointer hover:bg-gray-50 transition-colors" onclick="openBlogPost('post3')">
+        <h4 class="title-font text-lg font-bold mb-2">Cuando el equipo es familia</h4>
+        <p class="text-gray-600 text-sm mb-3">Navegando las emociones en empresas familiares...</p>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-gray-500">Hace 2 semanas</span>
+          <span class="text-xs text-jorge-orange font-medium">4 min</span>
+        </div>
+      </div>
+
+      <div class="card-shadow bg-white rounded-2xl p-6 cursor-pointer hover:bg-gray-50 transition-colors" onclick="openBlogPost('post4')">
+        <h4 class="title-font text-lg font-bold mb-2">El silencio como herramienta</h4>
+        <p class="text-gray-600 text-sm mb-3">El poder de la pausa en el liderazgo efectivo...</p>
+        <div class="flex items-center justify-between">
+            </div>
+</section>
+
+<!-- Blog Section - "Voz a Texto" -->
+<section id="blog" class="section<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>El despacho de Jorge – Jorge Luis González</title>
+<!-- Favicon mejorado con los colores de Jorge Luis -->
+<link rel="icon" href="https://i.imgur.com/ObMZWAw.png" />
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'jorge-orange': '#F27C26',
+            'jorge-blue': '#3D38D3',
+            'jorge-blue-light': '#79AEDC',
+            'jorge-blue-dark': '#264495',
+            'jorge-gray': '#DCDDDE',
+            'antara-mint': '#10b981'
+          }
         }
-      });
-    })();
+      }
+    }
+</script>
+<!-- Fuentes -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="El despacho de Jorge: Consultoría Estratégica H2H, Coaching Ejecutivo y Empresarial, y Marketing con enfoque humano por Jorge Luis González."/>
+<style>
+:root{
+  --jorge-orange: #F27C26;
+  --jorge-blue: #3D38D3;
+  --jorge-blue-light: #79AEDC;
+  --jorge-blue-dark: #264495;
+  --jorge-gray: #DCDDDE;
+  --antara-mint: #10b981;
+  --white: #ffffff;
+  --black: #0a0a0a;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-900: #111827;
+}
 
-    // Tecla ESC para cerrar
-    window.addEventListener('keydown', (e)=>{
-      if (e.key === 'Escape') closeModal('modal-temas');
-    });
-  </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e46d4d66b1cc79',t:'MTc1NzczMjc2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+body { 
+  font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+  background: var(--white); 
+  color: var(--black);
+  line-height: 1.6;
+}
+
+.title-font { 
+  font-family: 'Space Grotesk', sans-serif; 
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.gradient-jorge {
+  background: linear-gradient(135deg, var(--jorge-blue) 0%, var(--jorge-blue-light) 50%, var(--jorge-orange) 100%);
+}
+
+.gradient-jorge-soft {
+  background: linear-gradient(135deg, rgba(61, 56, 211, 0.05) 0%, rgba(121, 174, 220, 0.05) 50%, rgba(242, 124, 38, 0.05) 100%);
+}
+
+.card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.card-shadow:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--jorge-orange);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #e06b1a;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(242, 124, 38, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--jorge-blue);
+  border: 2px solid var(--jorge-blue);
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--jorge-blue);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.section-padding {
+  padding: 5rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3rem 1rem;
+  }
+}
+
+.floating-card {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--jorge-blue), var(--jorge-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(61, 56, 211, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(242, 124, 38, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(121, 174, 220, 0.1) 0%, transparent 50%);
+}
+
+.antara-connection {
+  background: linear-gradient(135deg, var(--antara-mint), #059669);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.antara-connection:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background: white;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+}
+
+.ecosystem-badge {
+  background: linear-gradient(135deg, var(--jorge-blue), var(--antara-mint));
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+}
+</style>
+</head>
+<body>
+<!-- Header moderno con diseño limpio -->
+<header class="fixed w-full top-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <img src="https://i.imgur.com/SCbvm64.png" alt="Jorge Luis González" class="w-12 h-12 rounded-full object-cover ring-2 ring-jorge-orange/20">
+        <div>
+          <h1 class="title-font text-xl font-bold text-gray-900">El Despacho de Jorge</h1>
+          <p class="text-sm text-gray-600">Estrategia con propósito humano</p>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-6">
+        <nav class="flex items-center gap-6">
+          <a href="#servicios" class="text-gray-700 hover:text-jorge-blue transition-colors">Servicios</a>
+          <a href="#filosofia" class="text-gray-700 hover:text-jorge-blue transition-colors">Filosofía H2H</a>
+          <a href="#contacto" class="text-gray-700 hover:text-jorge-blue transition-colors">Contacto</a>
+        </nav>
+        <a href="#contacto" class="btn-primary text-white">Agendar conversación</a>
+      </div>
+      <button class="md:hidden p-2" id="mobile-menu-btn">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section mejorado -->
+<section class="hero-pattern pt-24 section-padding">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="fade-in">
+        <div class="ecosystem-badge mb-6">Parte del ecosistema Ant-Ara</div>
+        <h2 class="title-font text-5xl lg:text-6xl font-bold mb-6">
+          <span class="text-gradient">Estrategia</span><br>
+          con propósito <span class="text-jorge-orange">humano</span>
+        </h2>
+        <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+          Transformar negocios poniendo a las personas en el centro: claridad, conexión y crecimiento sostenible a través del enfoque H2H.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#servicios" class="btn-primary">Conocer servicios</a>
+          <a href="#filosofia" class="btn-secondary">Filosofía H2H</a>
+        </div>
+      </div>
+      <div class="fade-in stagger-2">
+        <div class="relative">
+          <div class="floating-card gradient-jorge rounded-3xl p-8 text-white shadow-2xl">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
+                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.88L18.18 22 12 18.54 5.82 22 7 14.15l-5-4.88 6.91-1.01z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="title-font text-2xl font-bold">H2H</h3>
+                <p class="text-white/80">Human to Human</p>
+              </div>
+            </div>
+            <blockquote class="text-lg leading-relaxed">
+              "La estrategia sin humanidad es solo una hoja de cálculo. Con el enfoque H2H, las relaciones y los resultados crecen juntos."
+            </blockquote>
+            <div class="mt-6 flex items-center gap-3">
+              <img src="https://i.imgur.com/SCbvm64.png" alt="Jorge Luis" class="w-10 h-10 rounded-full">
+              <div>
+                <p class="font-semibold">Jorge Luis González</p>
+                <p class="text-sm text-white/70">Consultor Estratégico & Coach</p>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -top-4 -right-4 w-24 h-24 bg-jorge-orange/10 rounded-full"></div>
+          <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-jorge-blue-light/10 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Conexión con Ant-Ara -->
+<section class="py-8 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <div class="flex flex-wrap justify-center items-center gap-8">
+      <div class="flex items-center gap-4">
+        <img src="https://i.imgur.com/kTSdMiT.png" alt="Ant-Ara" class="w-8 h-8">
+        <span class="text-gray-600">Conectado con</span>
+      </div>
+      <a href="https://ant-ara.com" target="_blank" class="antara-connection">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/>
+        </svg>
+        Ant-Ara Ecosystem
+      </a>
+      <a href="https://innovarconalejandro.com" target="_blank" class="text-jorge-blue hover:text-jorge-orange transition-colors font-medium">
+        Innovar con Alejandro
+      </a>
+      <a href="#" class="text-jorge-blue hover:text-jorge-orange transition-colors font-medium">
+        🚀 Aumenta tu Productividad con IA
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Quién soy - Mejorado -->
+<section id="quien-soy" class="section-padding bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="fade-in">
+        <div class="relative">
+          <img src="https://i.imgur.com/SCbvm64.png" alt="Jorge Luis González" class="w-full max-w-md mx-auto rounded-3xl shadow-2xl">
+          <div class="absolute -bottom-6 -right-6 bg-jorge-orange text-white p-6 rounded-2xl shadow-xl">
+            <div class="text-3xl font-bold">20+</div>
+            <div class="text-sm">años de experiencia</div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in stagger-2">
+        <h3 class="title-font text-4xl font-bold mb-6 text-gray-900">
+          Quién soy
+        </h3>
+        <div class="space-y-4 text-lg text-gray-700 leading-relaxed">
+          <p>
+            <strong class="text-jorge-blue">Jorge Luis González</strong> es consultor de estrategia comercial y Life & Business Coach con más de 20 años de experiencia transformando modelos de negocio hacia enfoques centrados en las personas.
+          </p>
+          <p>
+            Ha desarrollado el modelo <strong class="text-jorge-orange">H2H (Human to Human)</strong>, integrando estrategia, operación y finanzas con propósito humano, garantizando rentabilidad por encima del promedio y crecimiento sostenible.
+          </p>
+          <p>
+            Su experiencia abarca mercados B2B, B2C y H2H, acompañando a líderes, emprendedores y empresas familiares en procesos de transformación comercial, cultural y organizacional.
+          </p>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <div class="bg-jorge-gray/30 rounded-xl p-4 flex-1 min-w-[200px]">
+            <div class="text-2xl font-bold text-jorge-blue">500+</div>
+            <div class="text-sm text-gray-600">Empresas transformadas</div>
+          </div>
+          <div class="bg-jorge-gray/30 rounded-xl p-4 flex-1 min-w-[200px]">
+            <div class="text-2xl font-bold text-jorge-orange">98%</div>
+            <div class="text-sm text-gray-600">Satisfacción cliente</div>
+          </div>
+        </div>
+        <a href="#contacto" class="btn-primary mt-6 inline-block">Conversemos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filosofía H2H - Rediseñada -->
+<section id="filosofia" class="section-padding gradient-jorge-soft">
+  <div class="max-w-7xl mx-auto text-center">
+    <div class="fade-in mb-16">
+      <h3 class="title-font text-4xl font-bold mb-6">
+        <span class="text-gradient">Filosofía H2H</span>
+      </h3>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+        Tres pilares fundamentales que transforman la manera de hacer negocios
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="fade-in stagger-1 card-shadow bg-white rounded-3xl p-8 text-center">
+        <div class="service-icon bg-jorge-blue/10 mx-auto">
+          <svg class="w-8 h-8 text-jorge-blue" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.1 8.64l-.1.1-.11-.1C9.14 6 5 6.24 5 9.87c0 2.28 2.04 3.87 5.13 6.57.68.6 1.09.96 1.87 1.68.78-.72 1.19-1.08 1.87-1.68C16.96 13.74 19 12.15 19 9.87 19 6.24 14.86 6 12.1 8.64z"/>
+          </svg>
+        </div>
+        <h4 class="title-font text-xl font-bold mb-4 text-gray-900">Personas Primero</h4>
+        <p class="text-gray-600 leading-relaxed">
+          Las empresas existen para servir a las personas. Cada estrategia comienza entendiendo las necesidades humanas detrás de los datos.
+        </p>
+      </div>
+
+      <div class="fade-in stagger-2 card-shadow bg-white rounded-3xl p-8 text-center">
+        <div class="service-icon bg-jorge-orange/10 mx-auto">
+          <svg class="w-8 h-8 text-jorge-orange" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="m22 21-3-3m0 0a5.5 5.5 0 1 0-7.78-7.78 5.5 5.5 0 0 0 7.78 7.78Z"/>
+          </svg>
+        </div>
+        <h4 class="title-font text-xl font-bold mb-4 text-gray-900">Relaciones Auténticas</h4>
+        <p class="text-gray-600 leading-relaxed">
+          Construcción de conexiones genuinas basadas en transparencia, confianza y valor mutuo que perdura en el tiempo.
+        </p>
+      </div>
+
+      <div class="fade-in stagger-3 card-shadow bg-white rounded-3xl p-8 text-center">
+        <div class="service-icon bg-jorge-blue-light/10 mx-auto">
+          <svg class="w-8 h-8 text-jorge-blue-dark" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.88L18.18 22 12 18.54 5.82 22 7 14.15l-5-4.88 6.91-1.01z"/>
+          </svg>
+        </div>
+        <h4 class="title-font text-xl font-bold mb-4 text-gray-900">Crecimiento Sostenible</h4>
+        <p class="text-gray-600 leading-relaxed">
+          Rentabilidad por encima del promedio a través de modelos que benefician a todos los stakeholders del ecosistema.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Servicios - Completamente rediseñados -->
+<section id="servicios" class="section-padding bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <h3 class="title-font text-4xl font-bold mb-6">
+        Mis <span class="text-gradient">Servicios</span>
+      </h3>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+        Acompañamiento integral para transformar tu negocio con enfoque humano
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8">
+      <!-- Consultoría Estratégica -->
+      <div class="fade-in stagger-1 service-card card-shadow bg-white rounded-3xl p-8 border border-gray-100 hover:border-jorge-blue/20 transition-all duration-300">
+        <div class="service-icon gradient-jorge text-white mx-auto mb-6">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M3 3h2v18H3zM7 13h2v8H7zM11 9h2v12h-2zM15 5h2v16h-2zM19 3h2v18h-2z"/>
+          </svg>
+        </div>
+        <h4 class="title-font text-2xl font-bold mb-4 text-gray-900 text-center">Consultoría Estratégica H2H</h4>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-3">
+            <div class="w-2 h-2 bg-jorge-blue rounded-full mt-2 flex-shrink-0"></div>
+            <span class="text-gray-700">Diagnóstico integral de modelo de negocio</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-2 h-2 bg-jorge-blue rounded-full mt-2 flex-shrink-0"></div>
+            <span class="text-gray-700">Estrategias de crecimiento centradas en personas</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-2 h-2 bg-jorge-blue rounded-full mt-2 flex-shrink-0"></div>
+            <span class="text-gray-700">Implementación de KPIs humanos</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-2 h-2 bg-jorge-blue rounded-full mt-2 flex-shrink-0"></div>
+            <span class="text-gray-700">Segmentación con enfoque H2H</span>
+          </li>
+        </ul>
+        <a href="#contacto" class="btn-secondary w-full text-center block">Solicitar diagnóstico</a>
+      </div>
+
+      <!-- Coaching - Destacado -->
+      <div class="fade-in stagger-2 service-card card-shadow rounded-3xl p-8 gradient-jorge text-white relative overflow-hidden">
+        <div class="absolute top-4 right-4">
+          <span class="bg-white/20 text-white px-3 py-1 rounded-full text-sm font-semibold">Destacado</span>
+        </div>
+        <div class="service-icon bg-white/20 mx-auto mb-6">
+          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-8 2-8 5v1h16v-1c0-3-4-5-8-5z"/>
+          </svg>
+        </div>
+        <h4 class="title-font text-2xl font-bold mb-4 text-center">Coaching Ejecutivo y Empresarial</h4>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-3">
+            <div class="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+            <span>Sesiones individuales y grupales personalizadas</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+            <span>Desarrollo de habilidades de liderazgo</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+            <span>Liderazgo con propósito y vision</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+            <span>Transformación cultural organizacional</span>
+          </li>
+        </ul>
+        <a href="#contacto" class="bg-white text-jorge-blue font-semibold px-6 py-3 rounded-xl w-full text-center block hover:bg-gray-50 transition-colors">Conocer agenda</a>
+      </div>
+
+      <!-- Marketing Humano -->
+      <div class="fade-in stagger-3 service-card card-shadow bg-white rounded-3xl p-8 border border-gray-100 hover:border-jorge-orange/20 transition-all duration-300">
+        <div class="service-icon bg-jorge-orange/10 mx-auto mb-6">
+          <svg class="w-8 h-8 text-jorge-orange" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 21s-6-4.35-9-7.35C-1 8.65 3 3 8 6c1.6 1 2.4 2 4 2s2.4-1 4-2c5-3 9 2.65 5 7.65C18 16.65 12 21 12 21z"/>
+          </svg>
+        </div>
+        <h4 class="title-font text-2xl font-bold mb-4 text-gray-900 text-center">Marketing con Enfoque Humano</h4>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-3">
+            <div class="w-2 h-2 bg-jorge-orange rounded-full mt-2 flex-shrink-0"></div>
+            <span class="text-gray-700">Au
