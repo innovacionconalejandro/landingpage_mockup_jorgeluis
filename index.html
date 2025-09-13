@@ -4,24 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>El despacho de Jorge – Jorge Luis González</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360a5fa'/%3E%3Cstop offset='1' stop-color='%23ff9f66'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='%231f2937'/%3E%3Ctext x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Montserrat, Arial, sans-serif' font-size='28' fill='url(%23g)' font-weight='700'%3EJLG%3C/text%3E%3C/svg%3E" />
-  <!-- Tailwind CSS via CDN -->
+
+  <!-- Favicon JL con efecto espejo dentro de círculo -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23171DE3'/%3E%3Cstop offset='1' stop-color='%2360a5fa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='%2316222f'/%3E%3Cg transform='translate(32,32)'%3E%3Ccircle r='22' fill='%231f2937'/%3E%3Cpath d='M-10 -14 L-4 -14 L-4 12 Q-4 16 -8 16 L-10 16 Z' fill='url(%23g)'/%3E%3Cpath d='M4 -14 L10 -14 L10 16 L2 16 Q-2 16 -2 12 L-2 8 L4 8 Z' fill='url(%23g)' transform='scale(-1,1)'/%3E%3C/g%3E%3C/svg%3E" />
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes: League Spartan (títulos) y Nunito (texto) -->
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700;800&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <meta name="description" content="El despacho de Jorge: Consultoría Estratégica H2H, Coaching Ejecutivo y Empresarial, y Marketing con enfoque humano por Jorge Luis González."/>
+
   <style>
-    /* Tailwind config: custom colors for consistency via CSS variables */
     :root{
-      --sky:#60a5fa;           /* sky blue primary */
-      --sky-dark:#3b82f6;      /* darker variant */
-      --gray-50:#f5f7fb;       /* very soft gray background */
-      --gray-100:#eef1f6;
-      --gray-200:#e2e8f0;
+      --blue-strong:#171DE3;     /* franja superior */
+      --sky:#60a5fa;             /* azul cielo primario */
+      --sky-dark:#3b82f6;
+      --gray-50:#eef2f7;         /* gris suave más oscuro que antes */
+      --gray-100:#e3e8ef;
+      --gray-200:#cfd6df;
       --gray-700:#334155;
-      --gray-800:#1f2937;
+      --gray-800:#1f2937;        /* gris muy oscuro de base */
       --gray-900:#0f172a;
-      --accent:#ff9f66;        /* gentle orange accent (not saturated/heavy) */
+      --accent:#ff9f66;          /* naranja suave */
       --accent-dark:#ff8740;
     }
+
+    /* Utilidades de color */
     .bg-sky     { background-color: var(--sky); }
     .text-sky   { color: var(--sky); }
     .bg-accent  { background-color: var(--accent); }
@@ -29,53 +39,49 @@
     .hover\:bg-accent-dark:hover { background-color: var(--accent-dark); }
     .hover\:bg-sky-dark:hover { background-color: var(--sky-dark); }
 
-    /* Smooth transitions and subtle motion */
+    /* Tipografías */
+    body { font-family: 'Nunito', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    .title-font { font-family: 'League Spartan', Arial, sans-serif; }
+
     .transition-base { transition: all .25s ease; }
-
-    /* Serif for testimonios to add human contrast */
     .serif { font-family: 'Georgia', 'Times New Roman', serif; }
-
-    /* Nice shadow for cards */
     .card { box-shadow: 0 8px 30px rgba(2,12,27,0.06); }
+    .prose-max p{ margin-bottom:.6rem; }
 
-    /* Prevent content flash during selective updates */
-    [data-hidden="true"]{ display:none; }
-
-    /* Modal backdrop animation */
+    /* Animaciones modal */
     .backdrop-show { animation: fadeIn .2s ease forwards; }
     .modal-pop { animation: popIn .2s ease forwards; }
     @keyframes fadeIn { from{opacity:0} to{opacity:1} }
     @keyframes popIn { from{transform:translateY(6px) scale(.98); opacity:0} to{transform:translateY(0) scale(1); opacity:1} }
 
-    /* Prevent image/text overlap and ensure spacing in all cards */
-    .prose-max p{ margin-bottom:.6rem; }
-
-    /* Hide scrollbar inside modal list for cleaner look */
     .no-scrollbar::-webkit-scrollbar{ display:none; }
     .no-scrollbar{ -ms-overflow-style:none; scrollbar-width:none; }
   </style>
 </head>
-<body class="bg-white text-slate-800 antialiased">
+<body id="top" class="bg-white text-slate-800 antialiased">
+  <!-- Franja superior azul intensa -->
+  <div class="w-full h-1.5" style="background:#171DE3;"></div>
+
   <!-- Page Wrapper -->
   <div class="min-h-screen flex flex-col">
-    <!-- Header -->
+    <!-- Header (mantiene fondo gris claro oscuro y contraste) -->
     <header class="w-full bg-[var(--gray-50)] border-b border-[var(--gray-200)]">
       <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
         <!-- Left: Brand -->
         <div class="flex items-center gap-4">
-          <!-- Avatar / Photo Placeholder -->
+          <!-- Foto -->
           <div class="relative w-12 h-12 rounded-full overflow-hidden ring-2 ring-white shadow">
             <img src="https://i.imgur.com/sfPEROs.png" alt="Fotografía profesional de Jorge Luis González" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
           </div>
           <div>
-            <h1 class="text-xl font-bold text-slate-900 leading-tight">El despacho de Jorge</h1>
+            <h1 class="title-font text-xl font-extrabold text-slate-900 leading-tight">El despacho de Jorge</h1>
             <p class="text-sm text-slate-600">Jorge Luis González · Consultor de estrategia comercial y Life & Business Coach</p>
           </div>
         </div>
         <!-- Right: CTA -->
         <div class="flex items-center gap-3">
           <a href="#contacto" class="transition-base inline-flex items-center gap-2 bg-sky text-white px-4 py-2 rounded-lg hover:bg-sky-dark shadow-sm">
-            <span>Agendar conversación</span>
+            <span class="title-font font-semibold">Agendar conversación</span>
           </a>
         </div>
       </div>
@@ -86,17 +92,17 @@
       <div class="absolute inset-0 bg-sky/10"></div>
       <div class="relative max-w-6xl mx-auto px-6 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+          <h2 class="title-font text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
             Estrategia con propósito humano
           </h2>
           <p class="mt-4 text-lg text-slate-700">
             Transformar negocios poniendo a las personas en el centro: claridad, conexión y crecimiento sostenible.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#servicios" class="transition-base bg-accent text-white px-5 py-3 rounded-lg hover:bg-accent-dark shadow">
+            <a href="#servicios" class="transition-base bg-accent text-white px-5 py-3 rounded-lg hover:bg-accent-dark shadow title-font">
               Conocer servicios
             </a>
-            <a href="#experiencias" class="transition-base text-slate-800 border border-slate-300 px-5 py-3 rounded-lg hover:bg-[var(--gray-100)]">
+            <a href="#experiencias" class="transition-base text-slate-800 border border-slate-300 px-5 py-3 rounded-lg hover:bg-[var(--gray-100)] title-font">
               Experiencias y reflexiones
             </a>
           </div>
@@ -109,7 +115,10 @@
             </p>
             <div class="mt-6 flex items-center gap-3">
               <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center" aria-hidden="true">
-                <svg class="w-6 h-6 text-white/90" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5c-3.86 0-7 3.14-7 7a7 7 0 009.9 6.32l2.83.68-.68-2.83A7 7 0 0019 12c0-3.86-3.14-7-7-7zm-3 7h6v2H9v-2z"/></svg>
+                <!-- Icono vectorial profesional (comillas/diálogo) -->
+                <svg class="w-6 h-6 text-white/90" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M7 6h7a4 4 0 014 4v6a2 2 0 01-2 2H9l-4 3V10a4 4 0 014-4z"/>
+                </svg>
               </div>
               <span class="text-sm opacity-90">H2H: Human to Human</span>
             </div>
@@ -118,11 +127,11 @@
       </div>
     </section>
 
-    <!-- Quién soy -->
+    <!-- Quién soy (fondo gris más oscuro para contraste) -->
     <section id="quien-soy" class="bg-[var(--gray-50)]">
       <div class="max-w-6xl mx-auto px-6 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
         <div class="order-2 md:order-1">
-          <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Quién soy</h3>
+          <h3 class="title-font text-2xl md:text-3xl font-bold text-slate-900">Quién soy</h3>
           <div class="mt-4 text-slate-700 prose-max">
             <p>
               Jorge Luis González es consultor de estrategia comercial y Life & Business Coach con más de 20 años de experiencia en mercados B2B, B2C y H2H (Human to Human). Ha transformado la visión de negocios hacia modelos centrados en las personas, garantizando rentabilidad y crecimiento sostenible.
@@ -132,22 +141,19 @@
             </p>
           </div>
           <div class="mt-6">
-            <a href="#contacto" class="transition-base inline-flex items-center gap-2 text-white bg-sky px-4 py-2 rounded-lg hover:bg-sky-dark">
+            <a href="#contacto" class="transition-base inline-flex items-center gap-2 text-white bg-sky px-4 py-2 rounded-lg hover:bg-sky-dark title-font">
               Conversemos
             </a>
           </div>
         </div>
         <div class="order-1 md:order-2">
-          <!-- Photo Frame with subtle accent corner -->
           <div class="relative">
             <div class="absolute -top-4 -left-4 w-24 h-24 bg-accent/20 rounded-xl -z-10"></div>
             <div class="rounded-2xl border border-[var(--gray-200)] bg-white p-4 shadow-sm flex items-center justify-center">
-              <!-- Placeholder Portrait -->
-              <div class="w-full aspect-[4/3] rounded-xl bg-[var(--gray-100)] flex items-center justify-center text-slate-500">
-                📸 Fotografía Profesional
+              <div class="w-full aspect-[4/3] rounded-xl overflow-hidden">
+                <img src="https://i.imgur.com/sfPEROs.png" alt="Jorge Luis González" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
               </div>
             </div>
-            <p class="mt-3 text-sm text-slate-500">Si se prefiere, usar avatar con “JLG” (fondo gris claro, tipografía sobria).</p>
           </div>
         </div>
       </div>
@@ -156,13 +162,14 @@
     <!-- Filosofía H2H -->
     <section id="filosofia" class="bg-white">
       <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
-        <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Filosofía H2H – Tres pilares</h3>
+        <h3 class="title-font text-2xl md:text-3xl font-bold text-slate-900">Filosofía H2H – Tres pilares</h3>
         <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Pilar 1 -->
           <div class="card rounded-xl border border-[var(--gray-200)] bg-[var(--gray-50)] p-6">
             <div class="flex items-center gap-3">
-              <span class="text-2xl" aria-hidden="true">❤️</span>
-              <h4 class="text-lg font-semibold text-slate-900">Personas Primero</h4>
+              <!-- Icono corazón minimal -->
+              <svg class="w-6 h-6 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.1 8.64l-.1.1-.11-.1C9.14 6 5 6.24 5 9.87c0 2.28 2.04 3.87 5.13 6.57.68.6 1.09.96 1.87 1.68.78-.72 1.19-1.08 1.87-1.68C16.96 13.74 19 12.15 19 9.87 19 6.24 14.86 6 12.1 8.64z"/></svg>
+              <h4 class="title-font text-lg font-semibold text-slate-900">Personas Primero</h4>
             </div>
             <p class="mt-3 text-slate-700">
               Las empresas existen para servir a las personas. Cada estrategia comienza entendiendo las necesidades humanas detrás de los datos.
@@ -171,8 +178,9 @@
           <!-- Pilar 2 -->
           <div class="card rounded-xl border border-[var(--gray-200)] bg-[var(--gray-50)] p-6">
             <div class="flex items-center gap-3">
-              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-3.33 0-10 1.67-10 5v1h20v-1c0-3.33-6.67-5-10-5z"/></svg>
-              <h4 class="text-lg font-semibold text-slate-900">Relaciones Auténticas</h4>
+              <!-- Apretón de manos minimal -->
+              <svg class="w-6 h-6 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 12l4-4 5 5 5-5 4 4-9 9zM2 7h5v2H4v3H2zM22 7h-5v2h3v3h2z"/></svg>
+              <h4 class="title-font text-lg font-semibold text-slate-900">Relaciones Auténticas</h4>
             </div>
             <p class="mt-3 text-slate-700">
               Conexiones genuinas basadas en transparencia, confianza y valor mutuo.
@@ -181,8 +189,9 @@
           <!-- Pilar 3 -->
           <div class="card rounded-xl border border-[var(--gray-200)] bg-[var(--gray-50)] p-6">
             <div class="flex items-center gap-3">
-              <span class="text-2xl" aria-hidden="true">🌱</span>
-              <h4 class="text-lg font-semibold text-slate-900">Crecimiento Sostenible</h4>
+              <!-- Brote/crecimiento minimal -->
+              <svg class="w-6 h-6 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 017 7c0 3.87-3.13 7-7 7h-1v6H8v-6H7a5 5 0 01-5-5 7 7 0 017-7h3z"/></svg>
+              <h4 class="title-font text-lg font-semibold text-slate-900">Crecimiento Sostenible</h4>
             </div>
             <p class="mt-3 text-slate-700">
               Rentabilidad por encima del promedio a través de modelos que benefician a clientes, colaboradores, accionistas y comunidad.
@@ -196,14 +205,15 @@
     <section id="servicios" class="bg-[var(--gray-50)]">
       <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
         <div class="flex items-center justify-between flex-wrap gap-4">
-          <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Servicios</h3>
+          <h3 class="title-font text-2xl md:text-3xl font-bold text-slate-900">Servicios</h3>
         </div>
         <div class="mt-8 grid md:grid-cols-3 gap-6">
           <!-- Consultoría Estratégica H2H -->
           <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 flex flex-col">
             <div class="flex items-center gap-3">
-              <span class="text-2xl" aria-hidden="true">📊</span>
-              <h4 class="text-lg font-semibold text-slate-900">Consultoría Estratégica H2H</h4>
+              <!-- Grafica minimal -->
+              <svg class="w-6 h-6 text-slate-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h2v18H3zM7 13h2v8H7zM11 9h2v12h-2zM15 5h2v16h-2zM19 3h2v18h-2z"/></svg>
+              <h4 class="title-font text-lg font-semibold text-slate-900">Consultoría Estratégica H2H</h4>
             </div>
             <ul class="mt-4 space-y-2 text-slate-700">
               <li>Diagnóstico de modelo de negocio</li>
@@ -212,14 +222,15 @@
               <li>Segmentación con enfoque H2H</li>
             </ul>
             <div class="mt-6 pt-4 border-t border-[var(--gray-200)] flex justify-end">
-              <a href="#contacto" class="transition-base text-sky hover:underline">Solicitar diagnóstico</a>
+              <a href="#contacto" class="transition-base text-sky hover:underline title-font">Solicitar diagnóstico</a>
             </div>
           </article>
           <!-- Coaching Ejecutivo y Empresarial -->
           <article class="card rounded-xl border border-[var(--gray-200)] bg-sky text-white p-6 flex flex-col">
             <div class="flex items-center gap-3">
-              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-3.33 0-10 1.67-10 5v1h20v-1c0-3.33-6.67-5-10-5z"/></svg>
-              <h4 class="text-lg font-semibold">Coaching Ejecutivo y Empresarial</h4>
+              <!-- Usuario/coach minimal -->
+              <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-8 2-8 5v1h16v-1c0-3-4-5-8-5z"/></svg>
+              <h4 class="title-font text-lg font-semibold">Coaching Ejecutivo y Empresarial</h4>
             </div>
             <ul class="mt-4 space-y-2 text-white/90">
               <li>Sesiones individuales y grupales</li>
@@ -228,14 +239,15 @@
               <li>Transformación cultural organizacional</li>
             </ul>
             <div class="mt-6 pt-4 border-t border-white/20 flex justify-end">
-              <a href="#contacto" class="transition-base text-white hover:opacity-90">Conocer agenda</a>
+              <a href="#contacto" class="transition-base text-white hover:opacity-90 title-font">Conocer agenda</a>
             </div>
           </article>
           <!-- Marketing con Enfoque Humano -->
           <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 flex flex-col">
             <div class="flex items-center gap-3">
-              <svg class="w-6 h-6 text-slate-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 017 7v1h1a3 3 0 110 6h-1v1a7 7 0 11-14 0v-1H5a3 3 0 110-6h1V9a7 7 0 017-7z"/></svg>
-              <h4 class="text-lg font-semibold text-slate-900">Estrategias de Marketing con Enfoque Humano</h4>
+              <!-- Corazón/cliente minimal -->
+              <svg class="w-6 h-6 text-slate-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-6-4.35-9-7.35C-1 8.65 3 3 8 6c1.6 1 2.4 2 4 2s2.4-1 4-2c5-3 9 2.65 5 7.65C18 16.65 12 21 12 21z"/></svg>
+              <h4 class="title-font text-lg font-semibold text-slate-900">Estrategias de Marketing con Enfoque Humano</h4>
             </div>
             <ul class="mt-4 space-y-2 text-slate-700">
               <li>Auditoría de marca y comunicación</li>
@@ -244,7 +256,7 @@
               <li>Marketing con propósito</li>
             </ul>
             <div class="mt-6 pt-4 border-t border-[var(--gray-200)] flex justify-end">
-              <a href="#contacto" class="transition-base text-accent hover:underline">Explorar opciones</a>
+              <a href="#contacto" class="transition-base text-accent hover:underline title-font">Explorar opciones</a>
             </div>
           </article>
         </div>
@@ -254,7 +266,7 @@
     <!-- Testimonios -->
     <section id="testimonios" class="bg-white">
       <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
-        <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Testimonios</h3>
+        <h3 class="title-font text-2xl md:text-3xl font-bold text-slate-900">Testimonios</h3>
         <div class="mt-8 grid md:grid-cols-3 gap-6">
           <blockquote class="card rounded-xl border border-[var(--gray-200)] bg-white p-6 serif">
             <p class="text-slate-900">“Transformó nuestra manera de hacer negocios. Conectamos auténticamente con nuestros clientes mientras aumentábamos la rentabilidad.”</p>
@@ -272,37 +284,32 @@
       </div>
     </section>
 
-    <!-- Mis Experiencias y Reflexiones -->
+    <!-- Experiencias (blog corto con 2 temas) -->
     <section id="experiencias" class="bg-[var(--gray-50)]">
       <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
         <div class="flex items-center justify-between flex-wrap gap-4">
-          <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Mis Experiencias y Reflexiones</h3>
-          <div class="flex gap-3">
-            <button id="btnOpenModal" class="transition-base bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-dark inline-flex items-center gap-2">
-              <svg class="w-5 h-5 text-white/90" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg>
-              Leer ahora
-            </button>
-            <a id="btnTemasFuturos" href="#temas" class="transition-base border border-slate-300 text-slate-800 px-4 py-2 rounded-lg hover:bg-[var(--gray-100)] inline-flex items-center gap-2">
-              <svg class="w-5 h-5 text-slate-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h8v2H8zm0 4h8v2H8zm0 4h8v2H8z"/></svg>
-              Ver temas futuros
-            </a>
-          </div>
+          <h3 class="title-font text-2xl md:text-3xl font-bold text-slate-900">Mis Experiencias y Reflexiones</h3>
+          <button id="btnTemasPop" class="transition-base border border-slate-300 text-slate-800 px-4 py-2 rounded-lg hover:bg-[var(--gray-100)] title-font">
+            Hablemos más
+          </button>
         </div>
 
-        <!-- Previews -->
+        <!-- Previews de 2 temas -->
         <div class="mt-8 grid md:grid-cols-2 gap-6">
           <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6">
-            <h4 class="text-lg font-semibold text-slate-900">“20 años, 20 aprendizajes”</h4>
+            <h4 class="title-font text-lg font-semibold text-slate-900">“20 años, 20 aprendizajes”</h4>
             <p class="mt-2 text-slate-700">Después de dos décadas, aprendí que la estrategia sin humanidad es solo una hoja de cálculo.</p>
             <div class="mt-4">
-              <button class="transition-base text-sky hover:underline" data-open="modal-reflexiones">Seguir leyendo</button>
+              <button class="transition-base text-sky hover:underline title-font" data-expand="ap1">Ver un poco más</button>
+              <p id="ap1" class="mt-2 text-slate-700 hidden">Una y otra vez comprobé que los equipos florecen cuando el número se convierte en historia y la historia en acción.</p>
             </div>
           </article>
           <article class="card rounded-xl border border-[var(--gray-200)] bg-white p-6">
-            <h4 class="text-lg font-semibold text-slate-900">“El poder de los pequeños detalles en empresas familiares”</h4>
+            <h4 class="title-font text-lg font-semibold text-slate-900">“El poder de los pequeños detalles en empresas familiares”</h4>
             <p class="mt-2 text-slate-700">Una taza de café servida con intención puede cambiar el clima de una reunión.</p>
             <div class="mt-4">
-              <button class="transition-base text-sky hover:underline" data-open="modal-reflexiones">Seguir leyendo</button>
+              <button class="transition-base text-sky hover:underline title-font" data-expand="ap2">Ver un poco más</button>
+              <p id="ap2" class="mt-2 text-slate-700 hidden">Los pequeños gestos abren conversaciones grandes: cuando el vínculo es genuino, la negociación se vuelve colaboración.</p>
             </div>
           </article>
         </div>
@@ -314,22 +321,23 @@
       <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
         <div class="grid md:grid-cols-2 gap-10">
           <div>
-            <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Contacto</h3>
+            <h3 class="title-font text-2xl md:text-3xl font-bold text-slate-900">Contacto</h3>
             <p class="mt-2 text-slate-700">Conversemos sobre tus objetivos y cómo el enfoque H2H puede potenciar tus resultados.</p>
             <div class="mt-6 space-y-3 text-slate-700">
               <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <!-- Email icon -->
+                <svg class="w-5 h-5 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5"/></svg>
                 <a href="#" class="hover:underline" id="emailLink">correo@ejemplo.com</a>
               </div>
               <div class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.58a1 1 0 00-.98.21l-2.2 1.8a15.05 15.05 0 01-6.6-6.6l1.8-2.2a1 1 0 00.21-.98A11.53 11.53 0 018.5 4 1.5 1.5 0 007 2.5H4A2 2 0 002 4c0 9.39 7.61 17 17 17a2 2 0 002-2v-3a1.5 1.5 0 00-1.5-1.5z"/></svg>
+                <!-- Phone/WA icon -->
+                <svg class="w-5 h-5 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.94 14.56L2 22l5.6-1.06A10 10 0 1012 2z"/></svg>
                 <a href="#" class="hover:underline" id="waLink">WhatsApp</a>
               </div>
             </div>
             <p class="mt-3 text-xs text-slate-500">Nota: Este formulario es una demo segura para fines de diseño.</p>
           </div>
           <div>
-            <!-- Demo form (no envía correo real; muestra confirmación en página) -->
             <form id="demoForm" class="card rounded-xl border border-[var(--gray-200)] bg-[var(--gray-50)] p-6">
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -346,7 +354,7 @@
                 <textarea required rows="4" class="w-full rounded-lg border border-[var(--gray-200)] bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-sky" placeholder="¿En qué te puedo ayudar?"></textarea>
               </div>
               <div class="mt-6 flex items-center justify-between">
-                <button type="submit" class="transition-base bg-sky text-white px-4 py-2 rounded-lg hover:bg-sky-dark">Enviar</button>
+                <button type="submit" class="transition-base bg-sky text-white px-4 py-2 rounded-lg hover:bg-sky-dark title-font">Enviar</button>
                 <span id="formStatus" class="text-sm text-slate-600"></span>
               </div>
             </form>
@@ -355,111 +363,74 @@
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer (gris muy oscuro) -->
     <footer class="mt-auto bg-[var(--gray-900)] text-white">
       <div class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
         <div>
-          <h4 class="font-semibold">El despacho de Jorge</h4>
+          <h4 class="title-font font-semibold">El despacho de Jorge</h4>
           <p class="mt-2 text-white/80">Estrategia, coaching y marketing con enfoque humano.</p>
         </div>
         <div>
-          <h4 class="font-semibold">Redes y contacto</h4>
+          <h4 class="title-font font-semibold">Redes y contacto</h4>
           <ul class="mt-2 space-y-2 text-white/80">
             <li><a href="#contacto" class="hover:underline">Contacto</a></li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.9 12a5 5 0 017.07 0l.71.71.71-.71a5 5 0 017.07 7.07l-3 3a5 5 0 01-7.07-7.07l.71-.71-.71-.71A5 5 0 003.9 12zm6.36 6.36a3 3 0 004.24 0l3-3a3 3 0 10-4.24-4.24l-1.41 1.41-1.41-1.41a3 3 0 10-4.24 4.24l3 3z"/></svg> Parte del ecosistema Ant-Ara</li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-sky" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.88L18.18 22 12 18.54 5.82 22 7 14.15l-5-4.88 6.91-1.01z"/></svg>
+              Parte del ecosistema Ant-Ara
+            </li>
           </ul>
         </div>
         <div>
-          <h4 class="font-semibold">Identidad</h4>
+          <h4 class="title-font font-semibold">Identidad</h4>
           <p class="mt-2 text-white/80">Coherencia narrativa con Innovar con Alejandro y Ant-Ara, sin replicar estilos.</p>
         </div>
       </div>
       <div class="border-t border-white/10">
         <div class="max-w-6xl mx-auto px-6 py-4 text-sm text-white/70 flex justify-between">
           <span>© <span id="year"></span> Jorge Luis González</span>
-          <span class="text-sky">H2H</span>
+          <span class="text-sky title-font">H2H</span>
         </div>
       </div>
     </footer>
   </div>
 
-  <!-- Modal: Reflexiones -->
-  <div id="modal-reflexiones" class="fixed inset-0 z-50 hidden">
+  <!-- Modal: Lista completa de 10 temas (Hablemos más) -->
+  <div id="modal-temas" class="fixed inset-0 z-50 hidden">
     <div class="absolute inset-0 bg-black/40 backdrop-show"></div>
-    <div class="relative max-w-3xl mx-auto my-10 md:my-16 bg-white rounded-2xl shadow-xl modal-pop">
+    <div class="relative max-w-2xl mx-auto my-10 md:my-16 bg-white rounded-2xl shadow-xl modal-pop">
       <div class="flex items-center justify-between px-6 py-4 border-b border-[var(--gray-200)]">
-        <h4 class="text-lg font-semibold text-slate-900">Mis Experiencias y Reflexiones</h4>
-        <button class="transition-base px-3 py-1 rounded-lg hover:bg-[var(--gray-100)]" data-close="modal-reflexiones">Cerrar ✕</button>
+        <h4 class="title-font text-lg font-semibold text-slate-900">Hablemos más</h4>
+        <button class="transition-base px-3 py-1 rounded-lg hover:bg-[var(--gray-100)]" data-close="modal-temas">Cerrar ✕</button>
       </div>
-      <div class="px-6 py-6 space-y-6 max-h-[70vh] overflow-y-auto no-scrollbar">
-        <article>
-          <h5 class="font-semibold text-slate-900">“20 años, 20 aprendizajes”</h5>
-          <p class="mt-2 text-slate-700">
-            Después de dos décadas, aprendí que la estrategia sin humanidad es solo una hoja de cálculo.
-          </p>
-        </article>
-        <article>
-          <h5 class="font-semibold text-slate-900">“El poder de los pequeños detalles en empresas familiares”</h5>
-          <p class="mt-2 text-slate-700">
-            Una taza de café servida con intención puede cambiar el clima de una reunión.
-          </p>
-        </article>
-        <div class="pt-4 border-t border-[var(--gray-200)]">
-          <h6 class="font-semibold text-slate-900">Temas futuros</h6>
-          <ul class="mt-2 list-disc list-inside text-slate-700 space-y-1">
-            <li>Cómo liderar sin perder el alma</li>
-            <li>El arte de escuchar en entornos de alta presión</li>
-            <li>Estrategia H2H: más allá del marketing</li>
-            <li>Cuando el equipo es familia</li>
-            <li>Finanzas con propósito: ¿es posible?</li>
-            <li>El silencio como herramienta de liderazgo</li>
-            <li>Cómo construir confianza en procesos de cambio</li>
-            <li>Coaching en culturas conservadoras</li>
-            <li>Lo que aprendí de mis errores como consultor</li>
-            <li>El valor de la pausa en la toma de decisiones</li>
-          </ul>
-        </div>
+      <div class="px-6 py-6 max-h-[70vh] overflow-y-auto no-scrollbar">
+        <p class="text-slate-700">Te interesó esto, aquí hay más temas. Elige uno para conversar; por ahora te llevará al inicio.</p>
+        <ul class="mt-4 grid sm:grid-cols-2 gap-3 text-slate-800">
+          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">Cómo liderar sin perder el alma</a></li>
+          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">El arte de escuchar en entornos de alta presión</a></li>
+          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">Estrategia H2H: más allá del marketing</a></li>
+          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">Cuando el equipo es familia</a></li>
+          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">Finanzas con propósito: ¿es posible?</a></li>
+          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">El silencio como herramienta de liderazgo</a></li>
+          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">Cómo construir confianza en procesos de cambio</a></li>
+          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">Coaching en culturas conservadoras</a></li>
+          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">Lo que aprendí de mis errores como consultor</a></li>
+          <li><a href="#top" class="block p-3 rounded-lg bg-[var(--gray-50)] border border-[var(--gray-200)] hover:bg-[var(--gray-100)] transition-base">El valor de la pausa en la toma de decisiones</a></li>
+        </ul>
       </div>
     </div>
   </div>
 
-  <!-- Sección Temas Futuros: página interna simulada -->
-  <section id="temas" class="bg-white">
-    <div class="max-w-6xl mx-auto px-6 py-14 md:py-20">
-      <div class="flex items-center justify-between flex-wrap gap-4">
-        <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Temas futuros</h3>
-        <a href="#experiencias" class="transition-base text-sky hover:underline inline-flex items-center gap-2">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-          Volver a experiencias
-        </a>
-      </div>
-      <p class="mt-2 text-slate-700">Explora los temas que iré desarrollando. Puedes abrir cualquiera; por ahora te llevará al inicio mientras preparamos los contenidos completos.</p>
-      <ul class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">Cómo liderar sin perder el alma</a></li>
-        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">El arte de escuchar en entornos de alta presión</a></li>
-        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">Estrategia H2H: más allá del marketing</a></li>
-        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">Cuando el equipo es familia</a></li>
-        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">Finanzas con propósito: ¿es posible?</a></li>
-        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">El silencio como herramienta de liderazgo</a></li>
-        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">Cómo construir confianza en procesos de cambio</a></li>
-        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">Coaching en culturas conservadoras</a></li>
-        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">Lo que aprendí de mis errores como consultor</a></li>
-        <li><a href="#top" class="block p-4 rounded-lg border border-[var(--gray-200)] hover:bg-[var(--gray-50)] transition-base">El valor de la pausa en la toma de decisiones</a></li>
-      </ul>
-    </div>
-  </section>
-
   <script>
-    // Year in footer
+    // Año en footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Safe demo contact actions (replace with real links later)
+    // Enlaces de demo contacto
     const emailLink = document.getElementById('emailLink');
     const waLink = document.getElementById('waLink');
     emailLink.addEventListener('click', (e)=>{ e.preventDefault(); alert('Demo: agrega tu correo final aquí.'); });
     waLink.addEventListener('click', (e)=>{ e.preventDefault(); alert('Demo: agrega tu enlace de WhatsApp aquí.'); });
 
-    // Form demo submission: shows a friendly confirmation
+    // Form demo
     const form = document.getElementById('demoForm');
     const statusEl = document.getElementById('formStatus');
     form.addEventListener('submit', (e)=>{
@@ -469,7 +440,18 @@
       setTimeout(()=> statusEl.textContent = '', 4000);
     });
 
-    // Modal helpers
+    // Expandir “ver un poco más” en los dos temas
+    document.querySelectorAll('[data-expand]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const id = btn.getAttribute('data-expand');
+        const target = document.getElementById(id);
+        if(!target) return;
+        target.classList.toggle('hidden');
+        btn.textContent = target.classList.contains('hidden') ? 'Ver un poco más' : 'Ver menos';
+      });
+    });
+
+    // Modal: Hablemos más
     const openModal = (id)=> {
       const el = document.getElementById(id);
       if (!el) return;
@@ -482,41 +464,25 @@
       el.classList.add('hidden');
       document.body.style.overflow = '';
     };
-
-    // Bind modal buttons
-    document.getElementById('btnOpenModal').addEventListener('click', ()=> openModal('modal-reflexiones'));
-    document.getElementById('btnTemasFuturos').addEventListener('click', ()=> openModal('modal-temas'));
-
-    // Open from preview links
-    document.querySelectorAll('[data-open="modal-reflexiones"]').forEach(btn=>{
-      btn.addEventListener('click', ()=> openModal('modal-reflexiones'));
-    });
-
-    // Close areas
+    document.getElementById('btnTemasPop').addEventListener('click', ()=> openModal('modal-temas'));
     document.querySelectorAll('[data-close]').forEach(btn=>{
-      btn.addEventListener('click', (e)=> {
-        const id = e.currentTarget.getAttribute('data-close');
-        closeModal(id);
-      });
+      btn.addEventListener('click', (e)=> closeModal(e.currentTarget.getAttribute('data-close')));
     });
 
-    // Close when clicking backdrop
-    ['modal-reflexiones','modal-temas'].forEach(id=>{
-      const modal = document.getElementById(id);
+    // Cerrar modal al hacer clic en fondo
+    (function(){
+      const modal = document.getElementById('modal-temas');
       modal.addEventListener('click', (e)=>{
         if (e.target === modal || e.target.classList.contains('bg-black/40')) {
-          closeModal(id);
+          closeModal('modal-temas');
         }
       });
-    });
+    })();
 
-    // Keyboard Esc to close
+    // Tecla ESC para cerrar
     window.addEventListener('keydown', (e)=>{
-      if (e.key === 'Escape') {
-        closeModal('modal-reflexiones');
-        closeModal('modal-temas');
-      }
+      if (e.key === 'Escape') closeModal('modal-temas');
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e438bb631ccc72',t:'MTc1NzczMDYxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e46d4d66b1cc79',t:'MTc1NzczMjc2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
