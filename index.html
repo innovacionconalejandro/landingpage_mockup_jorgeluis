@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Luis González - Renderizado en Canvas</title>
-    <!-- Se cargan las fuentes para que el canvas pueda intentar usarlas -->
+    <title>Jorge Luis González - Estrategia y Crecimiento</title>
+    <!-- Se carga la nueva fuente "Nunito" -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -17,6 +17,7 @@
         }
         canvas {
             display: block; /* Elimina el espacio extra debajo del canvas */
+            cursor: default; /* Cambia el cursor por defecto */
         }
     </style>
 </head>
@@ -29,58 +30,92 @@
         const canvas = document.getElementById('websiteCanvas');
         const ctx = canvas.getContext('2d');
 
-        // Paleta de colores y fuentes del diseño original
+        // Paleta de colores actualizada para alto contraste
         const COLORS = {
-            background: '#f8f8f8',
-            textDark: '#333',
-            textMedium: '#555',
-            textLight: '#f8f8f8',
-            headerBg: '#ffffff',
-            heroBg: '#e0f2f7',
-            primaryBlue: '#007bff',
-            primaryOrange: '#ff9900',
-            darkOrange: '#e68a00',
-            footerBg: '#333',
+            background: '#FFFFFF',
+            darkSectionBg: '#1A1A1A', // Negro carbón para fondos oscuros
+            textDark: '#1A1A1A',      // Negro para texto sobre fondos claros
+            textLight: '#FFFFFF',     // Blanco para texto sobre fondos oscuros
+            headerBg: '#FFFFFF',
+            primaryBlue: '#264495',   // Azul oscuro SOLO para títulos
+            primaryOrange: '#F27C26', // Naranja para botones y acentos
+            footerBg: '#1A1A1A',      // Footer oscuro
             cardShadow: 'rgba(0,0,0,0.08)',
-            sectionGray: '#f0f0f0',
-            inputBorder: '#ddd'
         };
 
         const FONTS = {
-            body: "'Poppins', sans-serif",
-            heading: "'Montserrat', sans-serif"
+            body: "'Nunito', sans-serif",
+            heading: "'Nunito', sans-serif"
         };
         
-        // Contenido de texto extraído del HTML
+        // --- Contenido (sin cambios) ---
         const CONTENT = {
-            tagline: "Xperience, Xpansion, Growth",
-            navLinks: ["Inicio", "Experiencia 4D", "Crecimiento", "Contacto"],
-            heroTitle: "Jorge Luis González",
-            heroSubtitle: "Estrategia y Crecimiento para transformar su negocio. Potenciamos resultados tangibles a través de una visión 4D de la experiencia.",
-            heroButton: "Conecta con Jorge",
-            section1Title: "La Experiencia es un Fenómeno 4D",
-            section1Text: "En 2XG, entendemos que el éxito empresarial se forja en la gestión estratégica de múltiples dimensiones. Cada una de ellas es crucial para un crecimiento sostenido y una ventaja competitiva.",
+            tagline: "ESTRATEGIA & CRECIMIENTO",
+            navLinks: ["Inicio", "Mi Visión", "Trayectoria", "Memorias", "Cursos", "Hablemos"],
+            heroTitle: "Hola, soy Jorge Luis González.",
+            heroSubtitle: "Más que un consultor, soy tu aliado estratégico. Mi misión es simple: llevar tu negocio al siguiente nivel aplicando una visión integral que conecta finanzas, operaciones, equipo y clientes.",
+            heroButton: "Iniciemos una conversación",
+            section1Title: "Tu Negocio es un Ecosistema de 4 Dimensiones",
+            section1Text: "El éxito no es casualidad. Nace de la armonía entre cuatro áreas clave. Yo te ayudo a orquestarlas para que no solo crezcas, sino que te expandas de forma sólida y sostenible.",
             cards: [
-                { icon: "📈", title: "1. Dimensión Financiera", text: "Todo negocio es un negocio financiero. Alineamos estrategias y operaciones a objetivos financieros claros para maximizar la rentabilidad y el valor." },
-                { icon: "⚙️", title: "2. Dimensión de Operaciones", text: "Una estrategia brillante no funciona sin una ejecución impecable. Optimizamos procesos y sistemas para una eficiencia operativa sin precedentes." },
-                { icon: "👥", title: "3. Dimensión Humana", text: "La cultura, las políticas y la gestión de la remuneración son el motor de su empresa. Fomentamos un entorno que potencia el talento y la productividad." },
-                { icon: "🎯", title: "4. Dimensión de Cara al Cliente", text: "Cada interacción es una oportunidad. Desde la prospección hasta la retención, transformamos cada \"touch point\" en una ventaja competitiva." }
+                { icon: "💰", title: "1. Finanzas Claras", text: "La rentabilidad es el oxígeno de tu empresa. Analizamos tus números para encontrar oportunidades ocultas y asegurar que cada decisión estratégica fortalezca tu futuro financiero." },
+                { icon: "⚙️", title: "2. Operaciones Eficientes", text: "Una gran idea sin una ejecución impecable se queda en el aire. Optimizamos tus procesos para que tu operación sea una verdadera máquina de generar valor." },
+                { icon: "🤝", title: "3. Equipo Comprometido", text: "Tu gente es tu mayor activo. Creamos una cultura y sistemas de compensación que atraen, retienen e inspiran al talento a dar lo mejor de sí cada día." },
+                { icon: "🎯", title: "4. Clientes Leales", text: "Cada interacción cuenta. Transformamos cada punto de contacto, desde el primer 'hola' hasta el servicio postventa, en una poderosa herramienta para construir lealtad." }
             ],
-            section2Title: "Crecimiento Estratégico y Expansión",
-            section2Text1: "La suma estratégicamente gestionada de estas 4 dimensiones no solo produce un crecimiento, sino que detona una expansión integral.",
-            section2Text2: "Cuando el crecimiento supera los límites actuales, es el momento de buscar nuevas oportunidades de mercado, ampliar el portafolio de productos y servicios, explorar nuevos territorios y diversificar los negocios del grupo. En 2XG, te guiamos en este camino de evolución constante.",
-            contactTitle: "Conecta con Jorge Luis González",
-            contactText1: "¿Listo para llevar tu estrategia y crecimiento al siguiente nivel? Contáctanos para una conversación personalizada sobre cómo podemos transformar tu negocio.",
-            contactText2: "También puedes contactar directamente a través de:",
-            contactInfo: "info@2xg.com | +XX XXX XXX XXXX",
-            footerText1: "© 2023 Jorge Luis González - 2XG. Todos los derechos reservados.",
-            footerText2: "Potenciando Xperience, Xpansion, Growth.",
+            profileTitle: "Más de 20 Años de Trayectoria",
+            profileEntries: [
+                { role: "Consultor de Estrategia / Coach", company: "Profesional Independiente", period: "2021 - Presente", description: "Acompaño a empresas y líderes a navegar la complejidad del mercado, transformando retos en oportunidades de crecimiento sostenible y rentabilidad." },
+                { role: "Gerente Comercial", company: "Corinne Guatemala", period: "2019 - 2021", description: "Lideré la expansión de 2 a 7 unidades de negocio, triplicando las ventas totales de la compañía en 3 años mediante la diversificación de servicios y canales." },
+                { role: "Sales & Operation Manager", company: "Saul E Mendez", period: "2014 - 2019", description: "Responsable de la rentabilización y expansión de la división de moda, logrando eficiencias operativas y cumpliendo metas anuales de rentabilidad y flujo de caja." },
+            ],
+            memoriesTitle: "Memorias: Ideas y Experiencias",
+            memoriesEntries: [
+                { title: "El mito del 'jefe' y el poder del líder-coach", snippet: "En mis años de experiencia, he visto cómo el simple cambio de mentalidad de 'dar órdenes' a 'hacer preguntas' puede transformar un equipo estancado en un motor de innovación..." },
+                { title: "H2H: Por qué debemos olvidar el B2B y B2C", snippet: "Las empresas no le venden a otras empresas o a consumidores. Al final del día, siempre es un ser humano conectando con otro. Esa es la clave de la lealtad y el crecimiento a largo plazo..." },
+                { title: "Tu operación es un reflejo de tu estrategia (o la falta de ella)", snippet: "Muchos se enfocan en un plan estratégico brillante, pero olvidan que la magia ocurre en el día a día. Una operación caótica siempre saboteará la mejor de las estrategias..." },
+            ],
+            coursesTitle: "Potencia tu Productividad con IA",
+            coursesText: "Como parte del ecosistema ANT-ARA, te invito a explorar nuestros programas diseñados para transformar tu manera de trabajar y liderar en la era digital.",
+            course1Button: "Curso Champion en IA",
+            course2Button: "Programa de Cursos IA",
+            contactTitle: "Hablemos de tu Proyecto",
+            contactText1: "¿Listo para trazar el mapa hacia el futuro de tu empresa? Conversemos sobre tus metas y cómo mi visión 4D puede ayudarte a alcanzarlas.",
+            contactInfo: "hola@2xg-estragegia.com | +502 3660 1135",
+            footerText1: "© 2025 Jorge Luis González. Todos los derechos reservados.",
+            footerText2: "Un aliado para tu Expansión y Crecimiento. Parte del ecosistema ANT-ARA.COM.",
         };
 
+        // --- MANEJO DE IMÁGENES Y LINKS ---
+        let clickableAreas = [];
+        const images = {};
+        const imageUrls = {
+            logoJLG: 'https://i.imgur.com/K1C8gZJ.png',
+            logoAntAra: 'https://i.imgur.com/HrAjlBl.png',
+            logoICA: 'https://i.imgur.com/U1mRq72.png'
+        };
+
+        function loadImages(callback) {
+            let loadedImages = 0;
+            const numImages = Object.keys(imageUrls).length;
+            for (const key in imageUrls) {
+                images[key] = new Image();
+                images[key].src = imageUrls[key];
+                images[key].onload = () => {
+                    if (++loadedImages >= numImages) {
+                        callback();
+                    }
+                };
+                 images[key].onerror = () => {
+                    console.error(`Error loading image: ${key}`);
+                     if (++loadedImages >= numImages) {
+                        callback();
+                    }
+                }
+            }
+        }
 
         // --- FUNCIONES DE AYUDA (HELPERS) ---
-
-        // Dibuja un rectángulo con bordes redondeados
         function drawRoundRect(x, y, width, height, radius) {
             ctx.beginPath();
             ctx.moveTo(x + radius, y);
@@ -88,7 +123,7 @@
             ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
             ctx.lineTo(x + width, y + height - radius);
             ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-            ctx.lineTo(x + radius, y + height);
+            ctx.lineTo(x, y + height);
             ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
             ctx.lineTo(x, y + radius);
             ctx.quadraticCurveTo(x, y, x + radius, y);
@@ -96,16 +131,14 @@
             ctx.fill();
         }
 
-        // Dibuja texto con ajuste de línea automático
         function drawWrappedText(text, x, y, maxWidth, lineHeight, font, color, align = 'left') {
             ctx.font = font;
             ctx.fillStyle = color;
             ctx.textAlign = align;
-
+            ctx.textBaseline = 'top';
             const words = text.split(' ');
             let line = '';
             let currentY = y;
-
             for (let n = 0; n < words.length; n++) {
                 const testLine = line + words[n] + ' ';
                 const metrics = ctx.measureText(testLine);
@@ -121,11 +154,11 @@
                     line = testLine;
                 }
             }
-             let lineX = x;
+            let lineX = x;
             if (align === 'center') lineX = x + maxWidth / 2;
             if (align === 'right') lineX = x + maxWidth;
-            ctx.fillText(line, lineX, currentY);
-            return currentY + lineHeight; // Devuelve la posición Y final para el siguiente elemento
+            ctx.fillText(line.trim(), lineX, currentY);
+            return currentY + lineHeight;
         }
 
         // --- FUNCIONES DE DIBUJO POR SECCIÓN ---
@@ -133,38 +166,30 @@
         function drawHeader(width) {
             const height = 100;
             const padding = width > 768 ? 50 : 20;
-
-            // Fondo del header
             ctx.fillStyle = COLORS.headerBg;
             ctx.shadowColor = 'rgba(0,0,0,0.05)';
             ctx.shadowBlur = 10;
             ctx.shadowOffsetY = 2;
             ctx.fillRect(0, 0, width, height);
-            ctx.shadowColor = 'transparent'; // Resetear sombra
+            ctx.shadowColor = 'transparent';
 
-            // Logo placeholder
-            ctx.fillStyle = COLORS.primaryBlue;
-            ctx.font = `bold 30px ${FONTS.heading}`;
-            ctx.textAlign = 'left';
-            ctx.fillText("2XG", padding, 50);
-
-            // Tagline
-            ctx.fillStyle = '#666';
-            ctx.font = `300 12px ${FONTS.heading}`;
-            ctx.fillText(CONTENT.tagline, padding, 70);
-
-            // Navegación
-            if (width > 768) {
-                ctx.fillStyle = COLORS.textMedium;
-                ctx.font = `500 16px ${FONTS.body}`;
+            if (images.logoJLG && images.logoJLG.complete) {
+                const logoHeight = 60;
+                const logoWidth = images.logoJLG.width * (logoHeight / images.logoJLG.height);
+                ctx.drawImage(images.logoJLG, padding, (height - logoHeight) / 2, logoWidth, logoHeight);
+            }
+            
+            if (width > 992) {
+                ctx.fillStyle = COLORS.textDark;
+                ctx.font = `600 16px ${FONTS.body}`;
                 ctx.textAlign = 'right';
+                ctx.textBaseline = 'middle';
                 let currentX = width - padding;
                 CONTENT.navLinks.slice().reverse().forEach(link => {
-                    ctx.fillText(link, currentX, height / 2 + 8);
-                    currentX -= ctx.measureText(link).width + 30;
+                    ctx.fillText(link, currentX, height / 2);
+                    currentX -= ctx.measureText(link).width + 35;
                 });
             } else {
-                // Icono de menú hamburguesa para móviles
                  ctx.fillStyle = COLORS.textDark;
                  for(let i=0; i<3; i++) {
                      ctx.fillRect(width - padding - 30, height/2 - 10 + (i*8), 30, 3);
@@ -172,219 +197,287 @@
             }
             return height;
         }
-
+        
         function drawHero(startY, width) {
-            const height = 350;
+            const height = 400;
             const padding = 20;
-            
-            // Fondo
-            ctx.fillStyle = COLORS.heroBg;
+            ctx.fillStyle = COLORS.darkSectionBg; // Fondo oscuro
             ctx.fillRect(0, startY, width, height);
             
             const contentWidth = Math.min(width - padding * 2, 800);
             const contentX = (width - contentWidth) / 2;
             let currentY = startY + 80;
 
-            // Título principal
-            currentY = drawWrappedText(CONTENT.heroTitle, contentX, currentY, contentWidth, 50, `bold 3em ${FONTS.heading}`, COLORS.primaryBlue, 'center') - 20;
+            currentY = drawWrappedText(CONTENT.heroTitle, contentX, currentY, contentWidth, 55, `800 3em ${FONTS.heading}`, COLORS.primaryBlue, 'center'); // Título en Azul
+            currentY = drawWrappedText(CONTENT.heroSubtitle, contentX, currentY, contentWidth, 28, `1.2em ${FONTS.body}`, COLORS.textLight, 'center'); // Subtítulo en Blanco
 
-            // Subtítulo
-            currentY = drawWrappedText(CONTENT.heroSubtitle, contentX, currentY, contentWidth, 28, `1.2em ${FONTS.body}`, COLORS.textDark, 'center');
-
-            // Botón
-            const btnWidth = 200;
-            const btnHeight = 50;
+            const btnWidth = 260;
+            const btnHeight = 55;
             const btnX = (width - btnWidth) / 2;
-            const btnY = currentY + 10;
+            const btnY = currentY + 15;
             ctx.fillStyle = COLORS.primaryOrange;
-            drawRoundRect(btnX, btnY, btnWidth, btnHeight, 5);
-
+            drawRoundRect(btnX, btnY, btnWidth, btnHeight, 8);
             ctx.fillStyle = COLORS.textLight;
-            ctx.font = `600 1em ${FONTS.body}`;
+            ctx.font = `bold 1em ${FONTS.body}`;
             ctx.textAlign = 'center';
-            ctx.fillText(CONTENT.heroButton, width / 2, btnY + btnHeight / 2 + 6);
-            
+            ctx.textBaseline = 'middle';
+            ctx.fillText(CONTENT.heroButton, width / 2, btnY + btnHeight / 2);
             return startY + height;
         }
 
         function draw4DSection(startY, width) {
-            const paddingTop = 80;
+            const paddingTop = 100;
             const paddingX = width > 768 ? 50 : 20;
             const contentWidth = width - paddingX * 2;
-            
             let currentY = startY + paddingTop;
 
-            // Título de la sección
-            currentY = drawWrappedText(CONTENT.section1Title, paddingX, currentY, contentWidth, 40, `600 2.2em ${FONTS.heading}`, COLORS.textDark, 'center') + 10;
-
-            // Párrafo introductorio
+            currentY = drawWrappedText(CONTENT.section1Title, paddingX, currentY, contentWidth, 44, `800 2.5em ${FONTS.heading}`, COLORS.primaryBlue, 'center'); // Título en Azul
             const introWidth = Math.min(contentWidth, 800);
-            currentY = drawWrappedText(CONTENT.section1Text, (width - introWidth)/2, currentY, introWidth, 25, `1em ${FONTS.body}`, COLORS.textMedium, 'center') + 30;
+            currentY = drawWrappedText(CONTENT.section1Text, (width - introWidth)/2, currentY, introWidth, 28, `1.1em ${FONTS.body}`, COLORS.textDark, 'center'); // Texto en Negro
 
-            // Grid de cards
             const isMobile = width < 768;
             const gap = 30;
             const cols = isMobile ? 1 : 4;
+            const cardHeight = 400; 
             const cardWidth = (contentWidth - (gap * (cols - 1))) / cols;
-            
             CONTENT.cards.forEach((card, i) => {
                 const col = i % cols;
                 const row = Math.floor(i / cols);
                 const cardX = paddingX + col * (cardWidth + gap);
-                const cardY = currentY + row * (400 + gap); // Altura fija para simplicidad
-
-                // Dibujar la card
+                const cardY = currentY + row * (cardHeight + gap);
                 ctx.fillStyle = '#fff';
                 ctx.shadowColor = COLORS.cardShadow;
-                ctx.shadowBlur = 15;
-                ctx.shadowOffsetY = 4;
-                drawRoundRect(cardX, cardY, cardWidth, 380, 8);
+                ctx.shadowBlur = 20;
+                ctx.shadowOffsetY = 5;
+                drawRoundRect(cardX, cardY, cardWidth, cardHeight, 12);
                 ctx.shadowColor = 'transparent';
-
-                let cardContentY = cardY + 40;
-                
-                // Icono
-                ctx.font = '3em sans-serif'; // Emojis usan la fuente del sistema
+                let cardContentY = cardY + 30;
+                ctx.font = '3em sans-serif';
                 ctx.textAlign = 'center';
-                ctx.fillText(card.icon, cardX + cardWidth/2, cardContentY + 20);
+                ctx.fillText(card.icon, cardX + cardWidth/2, cardContentY + 10);
                 cardContentY += 80;
-
-                // Título de la card
-                cardContentY = drawWrappedText(card.title, cardX + 20, cardContentY, cardWidth - 40, 30, `600 1.5em ${FONTS.heading}`, COLORS.primaryBlue, 'center');
-
-                // Texto de la card
-                drawWrappedText(card.text, cardX + 20, cardContentY, cardWidth - 40, 24, `1em ${FONTS.body}`, COLORS.textMedium, 'center');
+                cardContentY = drawWrappedText(card.title, cardX + 25, cardContentY, cardWidth - 50, 32, `800 1.6em ${FONTS.heading}`, COLORS.primaryBlue, 'center'); // Título de card en Azul
+                drawWrappedText(card.text, cardX + 25, cardContentY + 10, cardWidth - 50, 26, `1.05em ${FONTS.body}`, COLORS.textDark, 'center'); // Texto de card en Negro
             });
-
             const gridRows = Math.ceil(CONTENT.cards.length / cols);
-            const totalGridHeight = gridRows * 380 + (gridRows - 1) * gap;
-            
-            return currentY + totalGridHeight + 80; // Espacio al final
+            const totalGridHeight = gridRows * cardHeight + (gridRows - 1) * gap;
+            return currentY + totalGridHeight + 100;
         }
 
-        function drawGrowthSection(startY, width) {
-            const height = 300;
-             // Fondo
-            ctx.fillStyle = COLORS.sectionGray;
-            ctx.fillRect(0, startY, width, height);
-
+        function drawProfileSection(startY, width) {
+            const paddingTop = 100;
             const paddingX = width > 768 ? 50 : 20;
-            const contentWidth = Math.min(width - paddingX * 2, 800);
-            let currentY = startY + 60;
+            const contentWidth = Math.min(width - paddingX * 2, 900);
+            const contentX = (width - contentWidth)/2;
+            
+            let measureY = startY + paddingTop;
+            // Medición de altura
+            measureY = drawWrappedText(CONTENT.profileTitle, contentX, measureY, contentWidth, 44, `800 2.5em ${FONTS.heading}`, 'black', 'center') + 40; // 'black' temporal para medir
+            CONTENT.profileEntries.forEach(entry => {
+                measureY += 35 + 30;
+                measureY = drawWrappedText(entry.description, contentX, measureY, contentWidth, 26, `1.05em ${FONTS.body}`, 'black') + 25;
+                 if (entry !== CONTENT.profileEntries[CONTENT.profileEntries.length -1]) { measureY += 25; }
+            });
+            const finalHeight = measureY - startY + 100;
 
-            // Título
-            currentY = drawWrappedText(CONTENT.section2Title, (width-contentWidth)/2, currentY, contentWidth, 40, `600 2.2em ${FONTS.heading}`, COLORS.textDark, 'center') + 10;
-            // Párrafos
-            currentY = drawWrappedText(CONTENT.section2Text1, (width-contentWidth)/2, currentY, contentWidth, 27, `1em ${FONTS.body}`, COLORS.textMedium, 'center');
-            drawWrappedText(CONTENT.section2Text2, (width-contentWidth)/2, currentY, contentWidth, 27, `1em ${FONTS.body}`, COLORS.textMedium, 'center');
+            ctx.fillStyle = COLORS.darkSectionBg; // Fondo oscuro
+            ctx.fillRect(0, startY, width, finalHeight);
 
-            return startY + height + 60;
+            // Dibujado real
+            let currentY = drawWrappedText(CONTENT.profileTitle, contentX, startY + paddingTop, contentWidth, 44, `800 2.5em ${FONTS.heading}`, COLORS.primaryBlue, 'center') + 40; // Título en Azul
+            CONTENT.profileEntries.forEach(entry => {
+                ctx.textAlign = 'left';
+                drawWrappedText(entry.role, contentX, currentY, contentWidth, 30, `800 1.4em ${FONTS.heading}`, COLORS.textLight); // Rol en Blanco
+                ctx.textAlign = 'right';
+                drawWrappedText(entry.period, contentX, currentY+5, contentWidth, 20, `600 1em ${FONTS.body}`, 'rgba(255,255,255,0.7)'); // Periodo en Blanco tenue
+                currentY += 35;
+                ctx.textAlign = 'left';
+                drawWrappedText(entry.company, contentX, currentY, contentWidth, 24, `700 1.1em ${FONTS.body}`, COLORS.primaryOrange); // Compañía en Naranja
+                currentY += 30;
+                currentY = drawWrappedText(entry.description, contentX, currentY, contentWidth, 26, `1.05em ${FONTS.body}`, COLORS.textLight) + 25; // Descripción en Blanco
+                 if (entry !== CONTENT.profileEntries[CONTENT.profileEntries.length -1]) {
+                    ctx.fillStyle = 'rgba(255,255,255,0.2)';
+                    ctx.fillRect(contentX + contentWidth/4, currentY, contentWidth/2, 1);
+                    currentY += 25;
+                 }
+            });
+            return startY + finalHeight;
+        }
+        
+        function drawMemoriesSection(startY, width) {
+            const paddingTop = 100;
+            const paddingX = width > 768 ? 50 : 20;
+            const contentWidth = width - paddingX * 2;
+            let currentY = startY + paddingTop;
+            currentY = drawWrappedText(CONTENT.memoriesTitle, paddingX, currentY, contentWidth, 44, `800 2.5em ${FONTS.heading}`, COLORS.primaryBlue, 'center') + 50; // Título en Azul
+            const isMobile = width < 900;
+            const gap = 30;
+            const cols = isMobile ? 1 : 3;
+            const cardHeight = 280;
+            const cardWidth = (contentWidth - (gap * (cols - 1))) / cols;
+            CONTENT.memoriesEntries.forEach((entry, i) => {
+                 const col = i % cols;
+                const row = Math.floor(i / cols);
+                const cardX = paddingX + col * (cardWidth + gap);
+                const cardY = currentY + row * (cardHeight + gap);
+                ctx.fillStyle = '#fff';
+                ctx.shadowColor = COLORS.cardShadow;
+                ctx.shadowBlur = 20;
+                ctx.shadowOffsetY = 5;
+                drawRoundRect(cardX, cardY, cardWidth, cardHeight, 12);
+                ctx.shadowColor = 'transparent';
+                let cardContentY = cardY + 25;
+                cardContentY = drawWrappedText(entry.title, cardX + 25, cardContentY, cardWidth - 50, 28, `800 1.3em ${FONTS.heading}`, COLORS.primaryBlue, 'left') + 10; // Título de card en Azul
+                drawWrappedText(entry.snippet, cardX + 25, cardContentY, cardWidth - 50, 24, `1em ${FONTS.body}`, COLORS.textDark, 'left'); // Texto de card en Negro
+            });
+            const gridRows = Math.ceil(CONTENT.memoriesEntries.length / cols);
+            const totalGridHeight = gridRows * cardHeight + (gridRows - 1) * gap;
+            return currentY + totalGridHeight + 100;
+        }
+
+        function drawCoursesSection(startY, width) {
+             ctx.fillStyle = COLORS.darkSectionBg; // Fondo oscuro
+             let sectionHeight = 400;
+             if (width < 768) sectionHeight = 500;
+             ctx.fillRect(0, startY, width, sectionHeight);
+
+             const paddingTop = 80;
+             const paddingX = width > 768 ? 50 : 20;
+             let currentY = startY + paddingTop;
+             const contentWidth = Math.min(width - paddingX * 2, 800);
+             const contentX = (width - contentWidth) / 2;
+             currentY = drawWrappedText(CONTENT.coursesTitle, contentX, currentY, contentWidth, 44, `800 2.5em ${FONTS.heading}`, COLORS.primaryBlue, 'center') + 10; // Título en Azul
+             currentY = drawWrappedText(CONTENT.coursesText, contentX, currentY, contentWidth, 28, `1.1em ${FONTS.body}`, COLORS.textLight, 'center') + 40; // Texto en Blanco
+             const isMobile = width < 768;
+             const btnWidth = 280;
+             const btnHeight = 55;
+             const btnGap = 20;
+             const totalBtnsWidth = isMobile ? btnWidth : (btnWidth * 2 + btnGap);
+             let btn1X = (width - totalBtnsWidth) / 2;
+             let btn2X = btn1X + btnWidth + btnGap;
+             let btn1Y = currentY;
+             let btn2Y = currentY;
+             if (isMobile) {
+                btn1X = (width - btnWidth) / 2;
+                btn2X = btn1X;
+                btn2Y = btn1Y + btnHeight + btnGap;
+             }
+             
+             ctx.fillStyle = COLORS.primaryOrange;
+             drawRoundRect(btn1X, btn1Y, btnWidth, btnHeight, 8);
+             ctx.fillStyle = COLORS.textLight;
+             ctx.font = `bold 1em ${FONTS.body}`;
+             ctx.textAlign = 'center';
+             ctx.textBaseline = 'middle';
+             ctx.fillText(CONTENT.course1Button, btn1X + btnWidth/2, btn1Y + btnHeight/2);
+             clickableAreas.push({ x: btn1X, y: btn1Y, width: btnWidth, height: btnHeight, url: 'https://innovacionconalejandro.github.io/course-lp-comercial-power/' });
+             
+             ctx.fillStyle = COLORS.primaryBlue;
+             drawRoundRect(btn2X, btn2Y, btnWidth, btnHeight, 8);
+             ctx.fillStyle = COLORS.textLight;
+             ctx.fillText(CONTENT.course2Button, btn2X + btnWidth/2, btn2Y + btnHeight/2);
+             clickableAreas.push({ x: btn2X, y: btn2Y, width: btnWidth, height: btnHeight, url: 'https://innovacionconalejandro.github.io/PaginaCursosVersi-n2/' });
+             
+             return startY + sectionHeight;
         }
 
         function drawContactSection(startY, width) {
-            const paddingTop = 80;
+            const paddingTop = 100;
             const paddingX = width > 768 ? 50 : 20;
-            const formWidth = Math.min(width - paddingX * 2, 500);
-            const formX = (width - formWidth) / 2;
-            
             let currentY = startY + paddingTop;
-
-            // Título y texto
             const textWidth = Math.min(width - paddingX * 2, 800);
-            currentY = drawWrappedText(CONTENT.contactTitle, (width-textWidth)/2, currentY, textWidth, 40, `600 2.2em ${FONTS.heading}`, COLORS.textDark, 'center') + 10;
-            currentY = drawWrappedText(CONTENT.contactText1, (width-textWidth)/2, currentY, textWidth, 27, `1em ${FONTS.body}`, COLORS.textMedium, 'center') + 40;
-
-            // Formulario (visual)
-            const inputHeight = 50;
-            const inputMargin = 20;
-            
-            // Campo Nombre
-            ctx.strokeStyle = COLORS.inputBorder;
-            ctx.lineWidth = 1;
-            ctx.strokeRect(formX, currentY, formWidth, inputHeight);
-            drawWrappedText("Tu Nombre", formX + 15, currentY + 32, formWidth - 30, 20, `1em ${FONTS.body}`, '#aaa');
-            currentY += inputHeight + inputMargin;
-
-            // Campo Email
-            ctx.strokeRect(formX, currentY, formWidth, inputHeight);
-            drawWrappedText("Tu Correo Electrónico", formX + 15, currentY + 32, formWidth - 30, 20, `1em ${FONTS.body}`, '#aaa');
-            currentY += inputHeight + inputMargin;
-
-            // Campo Mensaje
-            const textAreaHeight = 120;
-            ctx.strokeRect(formX, currentY, formWidth, textAreaHeight);
-            drawWrappedText("Tu Mensaje", formX + 15, currentY + 32, formWidth - 30, 20, `1em ${FONTS.body}`, '#aaa');
-            currentY += textAreaHeight + inputMargin;
-            
-            // Botón Enviar
-            ctx.fillStyle = COLORS.primaryOrange;
-            ctx.fillRect(formX, currentY, formWidth, inputHeight);
-            drawWrappedText("Enviar Mensaje", formX, currentY + 32, formWidth, 20, `600 1em ${FONTS.body}`, COLORS.textLight, 'center');
-            currentY += inputHeight + 40;
-
-            // Info de contacto final
-            currentY = drawWrappedText(CONTENT.contactText2, (width-textWidth)/2, currentY, textWidth, 20, `0.9em ${FONTS.body}`, COLORS.textMedium, 'center');
-            currentY = drawWrappedText(CONTENT.contactInfo, (width-textWidth)/2, currentY, textWidth, 20, `600 1.1em ${FONTS.body}`, COLORS.textDark, 'center');
-            
-            return currentY + 80;
+            const textX = (width - textWidth)/2;
+            currentY = drawWrappedText(CONTENT.contactTitle, textX, currentY, textWidth, 44, `800 2.5em ${FONTS.heading}`, COLORS.primaryBlue, 'center'); // Título en Azul
+            currentY = drawWrappedText(CONTENT.contactText1, textX, currentY, textWidth, 28, `1.1em ${FONTS.body}`, COLORS.textDark, 'center') + 30; // Texto en Negro
+            currentY = drawWrappedText(CONTENT.contactInfo, textX, currentY, textWidth, 30, `700 1.3em ${FONTS.body}`, COLORS.textDark, 'center'); // Contacto en Negro
+            return currentY + 100;
         }
 
         function drawFooter(startY, width) {
-            const height = 120;
+            const height = 250;
             ctx.fillStyle = COLORS.footerBg;
             ctx.fillRect(0, startY, width, height);
-
             let currentY = startY + 40;
-            currentY = drawWrappedText(CONTENT.footerText1, 0, currentY, width, 20, `0.9em ${FONTS.heading}`, COLORS.textLight, 'center');
-            drawWrappedText(CONTENT.footerText2, 0, currentY, width, 20, `0.9em ${FONTS.heading}`, COLORS.textLight, 'center');
-
+            const logoHeight = 40;
+            const logoGap = 30;
+            const logos = [images.logoJLG, images.logoAntAra, images.logoICA];
+            let totalLogosWidth = -logoGap;
+            const logoData = logos.map(img => {
+                if (!img || !img.complete) return null;
+                const w = img.width * (logoHeight / img.height);
+                totalLogosWidth += w + logoGap;
+                return { img, w, h: logoHeight };
+            }).filter(Boolean);
+            let logoX = (width - totalLogosWidth) / 2;
+            logoData.forEach((data, index) => {
+                ctx.drawImage(data.img, logoX, currentY, data.w, data.h);
+                let url = '#';
+                if(index === 1) url = 'https://ant-ara.com';
+                if(index === 2) url = 'https://innovacionconalejandro.github.io/PaginaCursosVersi-n2/';
+                clickableAreas.push({ x: logoX, y: currentY, width: data.w, height: data.h, url: url });
+                logoX += data.w + logoGap;
+            });
+            currentY += logoHeight + 30;
+            currentY = drawWrappedText(CONTENT.footerText1, 0, currentY, width, 22, `1em ${FONTS.body}`, COLORS.textLight, 'center');
+            drawWrappedText(CONTENT.footerText2, 0, currentY, width, 22, `0.9em ${FONTS.body}`, 'rgba(255,255,255,0.7)', 'center');
             return startY + height;
         }
 
-
         // --- FUNCIÓN PRINCIPAL DE DIBUJADO ---
+        let totalHeight = 4000;
         function drawWebsite() {
-            // Limpiar el canvas
+            canvas.height = totalHeight;
+            clickableAreas = [];
             ctx.fillStyle = COLORS.background;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            // Dibujar cada sección secuencialmente, pasando la coordenada Y final de la anterior
             let currentY = 0;
             currentY = drawHeader(canvas.width);
             currentY = drawHero(currentY, canvas.width);
             currentY = draw4DSection(currentY, canvas.width);
-            currentY = drawGrowthSection(currentY, canvas.width);
+            currentY = drawProfileSection(currentY, canvas.width);
+            currentY = drawMemoriesSection(currentY, canvas.width);
+            currentY = drawCoursesSection(currentY, canvas.width);
             currentY = drawContactSection(currentY, canvas.width);
             currentY = drawFooter(currentY, canvas.width);
-            
-            // Ajustar la altura total del canvas para que todo el contenido sea visible
-            canvas.height = currentY;
-            
-            // Volver a dibujar todo con la altura correcta
-            ctx.fillStyle = COLORS.background;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            currentY = 0;
-            currentY = drawHeader(canvas.width);
-            currentY = drawHero(currentY, canvas.width);
-            currentY = draw4DSection(currentY, canvas.width);
-            currentY = drawGrowthSection(currentY, canvas.width);
-            currentY = drawContactSection(currentY, canvas.width);
-            currentY = drawFooter(currentY, canvas.width);
+            if (totalHeight !== currentY) {
+                totalHeight = currentY;
+                setTimeout(drawWebsite, 0); 
+            }
         }
 
-        // --- MANEJO DEL TAMAÑO Y REDIBUJADO ---
         function resizeAndDraw() {
-            // Ajustar el ancho del canvas al de la ventana
             canvas.width = window.innerWidth;
-            // La altura se calculará dinámicamente
             drawWebsite();
         }
 
-        // Cargar las fuentes y luego dibujar
-        // Usamos un pequeño retraso para dar tiempo a que las fuentes se carguen. 
-        // Una solución más robusta usaría la FontFaceSet API.
+        // --- MANEJO DE EVENTOS ---
+        canvas.addEventListener('click', (event) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            for (const area of clickableAreas) {
+                if (x >= area.x && x <= area.x + area.width && y >= area.y && y <= area.y + area.height) {
+                    window.open(area.url, '_blank');
+                    return;
+                }
+            }
+        });
+        canvas.addEventListener('mousemove', (event) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            let onLink = false;
+            for (const area of clickableAreas) {
+                if (x >= area.x && x <= area.x + area.width && y >= area.y && y <= area.y + area.height) {
+                    onLink = true;
+                    break;
+                }
+            }
+            canvas.style.cursor = onLink ? 'pointer' : 'default';
+        });
+
         window.onload = () => {
-             setTimeout(resizeAndDraw, 200);
+             loadImages(resizeAndDraw);
         };
         window.addEventListener('resize', resizeAndDraw);
 
