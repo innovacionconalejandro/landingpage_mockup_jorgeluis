@@ -3,725 +3,391 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2X Growth - Jorge Luis | Estratega Comercial</title>
-    <meta name="description" content="Coaching comercial y estrategias de crecimiento para PYMEs. En alianza con Ant-Ara.">
-    
-    <!-- Fonts -->
+    <title>Jorge Luis González - Renderizado en Canvas</title>
+    <!-- Se cargan las fuentes para que el canvas pueda intentar usarlas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            /* Colores Base */
-            --primary-blue: #1E40AF;
-            --primary-blue-dark: #1E3A8A;
-            --secondary-blue: #3B82F6;
-            --light-blue: #DBEAFE;
-            
-            /* Grises */
-            --gray-dark: #1F2937;
-            --gray-medium: #6B7280;
-            --gray-light: #F3F4F6;
-            --gray-border: #E5E7EB;
-            
-            /* Acento */
-            --accent: #10B981;
-            
-            /* Neutros */
-            --white: #FFFFFF;
-            --black: #111827;
-        }
-
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: #f8f8f8;
+            overflow-x: hidden; /* Evita el scroll horizontal */
         }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--gray-dark);
-            background: var(--white);
-        }
-
-        /* Header */
-        .header {
-            background: var(--white);
-            border-bottom: 1px solid var(--gray-border);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-menu a {
-            color: var(--gray-medium);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            color: var(--primary-blue);
-        }
-
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
-            padding: 6rem 0;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0 auto 2rem;
-            border: 4px solid var(--primary-blue);
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.2);
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--gray-dark);
-            margin-bottom: 1rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .hero-description {
-            font-size: 1.125rem;
-            color: var(--gray-medium);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .partnership {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: var(--white);
-            border: 1px solid var(--gray-border);
-            border-radius: 50px;
-            font-size: 0.875rem;
-            color: var(--gray-medium);
-            margin-bottom: 2rem;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: var(--white);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: #059669;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
-        }
-
-        .btn-secondary {
-            background: var(--white);
-            color: var(--primary-blue);
-            border: 2px solid var(--primary-blue);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary-blue);
-            color: var(--white);
-        }
-
-        .cta-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Section */
-        .section {
-            padding: 5rem 0;
-        }
-
-        .section-gray {
-            background: var(--gray-light);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            text-align: center;
-            color: var(--gray-dark);
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray-medium);
-            font-size: 1.125rem;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Stats */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 12px;
-            border: 1px solid var(--gray-border);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--gray-medium);
-            margin-top: 0.5rem;
-        }
-
-        /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            border: 1px solid var(--gray-border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-            border-color: var(--primary-blue);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--light-blue);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--gray-dark);
-            margin-bottom: 1rem;
-        }
-
-        .service-description {
-            color: var(--gray-medium);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-price {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-        }
-
-        /* Ecosystem */
-        .ecosystem {
-            background: var(--light-blue);
-            padding: 3rem;
-            border-radius: 16px;
-            margin: 3rem auto;
-            max-width: 900px;
-        }
-
-        .ecosystem-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--gray-dark);
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .ecosystem-flow {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .ecosystem-item {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary-blue);
-        }
-
-        .ecosystem-item.active {
-            border-left-color: var(--accent);
-            background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, var(--white) 100%);
-        }
-
-        .ecosystem-label {
-            font-weight: 600;
-            color: var(--primary-blue);
-            font-size: 0.875rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .ecosystem-name {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: var(--gray-dark);
-            margin-bottom: 0.25rem;
-        }
-
-        .ecosystem-desc {
-            color: var(--gray-medium);
-            font-size: 0.95rem;
-        }
-
-        /* Testimonials */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial-card {
-            background: var(--white);
-            border: 1px solid var(--gray-border);
-            border-radius: 12px;
-            padding: 2rem;
-        }
-
-        .testimonial-text {
-            color: var(--gray-medium);
-            font-style: italic;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--gray-dark);
-        }
-
-        .testimonial-role {
-            color: var(--gray-medium);
-            font-size: 0.875rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--gray-dark);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            margin-bottom: 2rem;
-        }
-
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .footer-partners {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .footer-partners span {
-            opacity: 0.7;
-        }
-
-        .footer-contact {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-item {
-            opacity: 0.8;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-            opacity: 0.7;
-            font-size: 0.875rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.25rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .nav-menu {
-                display: none;
-            }
-
-            .ecosystem-flow {
-                gap: 0.5rem;
-            }
+        canvas {
+            display: block; /* Elimina el espacio extra debajo del canvas */
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <a href="#" class="logo">2X GROWTH</a>
-            <ul class="nav-menu">
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#ecosistema">Ecosistema</a></li>
-                <li><a href="#casos">Casos de Éxito</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <img src="https://i.imgur.com/QPvB7cL.jpeg" alt="Jorge Luis" class="profile-image">
-            
-            <h1 class="hero-title">Jorge Luis</h1>
-            <p class="hero-subtitle">Estratega Comercial</p>
-            
-            <div class="partnership">
-                🤝 Respaldado por Ant-Ara
-            </div>
-            
-            <p class="hero-description">
-                Convierto estrategia en resultados multiplicados. Trabajo de forma independiente 
-                con el respaldo del ecosistema Ant-Ara para ofrecer coaching comercial y 
-                ejecución que realmente transforma negocios.
-            </p>
-            
-            <div class="cta-group">
-                <a href="#contacto" class="btn btn-primary">📅 Agendar Sesión Estratégica</a>
-                <a href="#servicios" class="btn btn-secondary">Ver Servicios</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">15+</span>
-                    <span class="stat-label">Años de experiencia</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Empresas transformadas</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">2X</span>
-                    <span class="stat-label">Crecimiento promedio</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Enfoque en resultados</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section id="servicios" class="section section-gray">
-        <div class="container">
-            <h2 class="section-title">Servicios</h2>
-            <p class="section-subtitle">
-                Trabajo de forma independiente con el respaldo operativo de Ant-Ara
-            </p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <h3 class="service-title">Coaching Comercial 1-a-1</h3>
-                    <p class="service-description">
-                        Sesiones personalizadas para acelerar tu ciclo de ventas y multiplicar 
-                        tus resultados. Enfoque práctico y orientado a la acción.
-                    </p>
-                    <p class="service-price">A consultar</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">📈</div>
-                    <h3 class="service-title">Estrategia de Crecimiento</h3>
-                    <p class="service-description">
-                        Plan personalizado a 90 días para transformar tu operación comercial. 
-                        Diagnóstico, ejecución y medición de resultados.
-                    </p>
-                    <p class="service-price">A consultar</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">👥</div>
-                    <h3 class="service-title">Gestión de Proyectos</h3>
-                    <p class="service-description">
-                        Liderazgo y ejecución de proyectos estratégicos con metodologías 
-                        probadas y respaldo del equipo Ant-Ara.
-                    </p>
-                    <p class="service-price">A consultar</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ecosystem -->
-    <section id="ecosistema" class="section">
-        <div class="container">
-            <h2 class="section-title">¿Por qué trabajo en equipo?</h2>
-            <p class="section-subtitle">
-                Como consultor independiente podría trabajar solo. Pero elegí aliarme 
-                estratégicamente con Ant-Ara porque mis clientes obtienen más que coaching: 
-                acceden a un ecosistema completo.
-            </p>
-            
-            <div class="ecosystem">
-                <h3 class="ecosystem-title">Cómo Funciona el Ecosistema</h3>
-                
-                <div class="ecosystem-flow">
-                    <div class="ecosystem-item">
-                        <div class="ecosystem-label">PASO 1</div>
-                        <div class="ecosystem-name">Innovar con Alejandro</div>
-                        <div class="ecosystem-desc">Diseño estratégico y transformación integral</div>
-                    </div>
-                    
-                    <div class="ecosystem-item active">
-                        <div class="ecosystem-label">PASO 2 - ESTÁS AQUÍ</div>
-                        <div class="ecosystem-name">2X Growth (Jorge Luis)</div>
-                        <div class="ecosystem-desc">Ejecución comercial y coaching estratégico</div>
-                    </div>
-                    
-                    <div class="ecosystem-item">
-                        <div class="ecosystem-label">PASO 3</div>
-                        <div class="ecosystem-name">Ant-Ara</div>
-                        <div class="ecosystem-desc">Implementación operativa y estructura</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="casos" class="section section-gray">
-        <div class="container">
-            <h2 class="section-title">Casos de Éxito</h2>
-            <p class="section-subtitle">
-                Resultados reales de empresas que confiaron en el proceso
-            </p>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        "Jorge Luis nos ayudó a estructurar nuestra operación comercial. 
-                        En 6 meses aumentamos nuestras ventas en 45% y mejoramos 
-                        significativamente nuestro proceso de cierre."
-                    </p>
-                    <div class="testimonial-author">María González</div>
-                    <div class="testimonial-role">Gerente General, PYME Textil</div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        "El coaching fue transformador. No solo mejoré mis habilidades 
-                        comerciales, sino que todo mi equipo adoptó la metodología. 
-                        Resultados medibles desde el primer mes."
-                    </p>
-                    <div class="testimonial-author">Carlos Méndez</div>
-                    <div class="testimonial-role">Director Comercial, Empresa de Servicios</div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
-                        "Trabajar con Jorge Luis y el respaldo de Ant-Ara nos dio la 
-                        confianza para escalar. Duplicamos nuestra operación en 9 meses 
-                        sin perder calidad."
-                    </p>
-                    <div class="testimonial-author">Ana Rodríguez</div>
-                    <div class="testimonial-role">CEO, Startup Tecnológica</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section id="contacto" class="section">
-        <div class="container" style="text-align: center;">
-            <h2 class="section-title">¿Listo para 2X tu negocio?</h2>
-            <p class="section-subtitle">
-                Agenda una sesión estratégica gratuita de 30 minutos y descubre 
-                cómo podemos multiplicar tus resultados.
-            </p>
-            
-            <div class="cta-group">
-                <a href="#" class="btn btn-primary" style="font-size: 1.125rem; padding: 1.25rem 2.5rem;">
-                    📅 Agendar Ahora
-                </a>
-                <a href="https://wa.me/50212345678" class="btn btn-secondary" style="font-size: 1.125rem; padding: 1.25rem 2.5rem;">
-                    💬 WhatsApp
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">2X GROWTH</div>
-                <p>Jorge Luis - Estratega Comercial Independiente</p>
-                
-                <div class="footer-partners">
-                    <span>En alianza estratégica con</span>
-                    <strong>Ant-Ara</strong>
-                    <span>·</span>
-                    <strong>Innovar con Alejandro</strong>
-                </div>
-                
-                <div class="footer-contact">
-                    <div class="contact-item">
-                        <strong>📧 Email</strong><br>
-                        jorgeluis@ant-ara.com
-                    </div>
-                    <div class="contact-item">
-                        <strong>💬 WhatsApp</strong><br>
-                        +502 1234 5678
-                    </div>
-                    <div class="contact-item">
-                        <strong>🌐 Web</strong><br>
-                        ant-ara.com
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                © 2024 Jorge Luis · 2X Growth | En alianza con Ant-Ara<br>
-                Transformando PYMEs en Guatemala 🇬🇹
-            </div>
-        </div>
-    </footer>
+    <canvas id="websiteCanvas"></canvas>
 
     <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // --- CONFIGURACIÓN INICIAL ---
+        const canvas = document.getElementById('websiteCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Paleta de colores y fuentes del diseño original
+        const COLORS = {
+            background: '#f8f8f8',
+            textDark: '#333',
+            textMedium: '#555',
+            textLight: '#f8f8f8',
+            headerBg: '#ffffff',
+            heroBg: '#e0f2f7',
+            primaryBlue: '#007bff',
+            primaryOrange: '#ff9900',
+            darkOrange: '#e68a00',
+            footerBg: '#333',
+            cardShadow: 'rgba(0,0,0,0.08)',
+            sectionGray: '#f0f0f0',
+            inputBorder: '#ddd'
+        };
+
+        const FONTS = {
+            body: "'Poppins', sans-serif",
+            heading: "'Montserrat', sans-serif"
+        };
+        
+        // Contenido de texto extraído del HTML
+        const CONTENT = {
+            tagline: "Xperience, Xpansion, Growth",
+            navLinks: ["Inicio", "Experiencia 4D", "Crecimiento", "Contacto"],
+            heroTitle: "Jorge Luis González",
+            heroSubtitle: "Estrategia y Crecimiento para transformar su negocio. Potenciamos resultados tangibles a través de una visión 4D de la experiencia.",
+            heroButton: "Conecta con Jorge",
+            section1Title: "La Experiencia es un Fenómeno 4D",
+            section1Text: "En 2XG, entendemos que el éxito empresarial se forja en la gestión estratégica de múltiples dimensiones. Cada una de ellas es crucial para un crecimiento sostenido y una ventaja competitiva.",
+            cards: [
+                { icon: "📈", title: "1. Dimensión Financiera", text: "Todo negocio es un negocio financiero. Alineamos estrategias y operaciones a objetivos financieros claros para maximizar la rentabilidad y el valor." },
+                { icon: "⚙️", title: "2. Dimensión de Operaciones", text: "Una estrategia brillante no funciona sin una ejecución impecable. Optimizamos procesos y sistemas para una eficiencia operativa sin precedentes." },
+                { icon: "👥", title: "3. Dimensión Humana", text: "La cultura, las políticas y la gestión de la remuneración son el motor de su empresa. Fomentamos un entorno que potencia el talento y la productividad." },
+                { icon: "🎯", title: "4. Dimensión de Cara al Cliente", text: "Cada interacción es una oportunidad. Desde la prospección hasta la retención, transformamos cada \"touch point\" en una ventaja competitiva." }
+            ],
+            section2Title: "Crecimiento Estratégico y Expansión",
+            section2Text1: "La suma estratégicamente gestionada de estas 4 dimensiones no solo produce un crecimiento, sino que detona una expansión integral.",
+            section2Text2: "Cuando el crecimiento supera los límites actuales, es el momento de buscar nuevas oportunidades de mercado, ampliar el portafolio de productos y servicios, explorar nuevos territorios y diversificar los negocios del grupo. En 2XG, te guiamos en este camino de evolución constante.",
+            contactTitle: "Conecta con Jorge Luis González",
+            contactText1: "¿Listo para llevar tu estrategia y crecimiento al siguiente nivel? Contáctanos para una conversación personalizada sobre cómo podemos transformar tu negocio.",
+            contactText2: "También puedes contactar directamente a través de:",
+            contactInfo: "info@2xg.com | +XX XXX XXX XXXX",
+            footerText1: "© 2023 Jorge Luis González - 2XG. Todos los derechos reservados.",
+            footerText2: "Potenciando Xperience, Xpansion, Growth.",
+        };
+
+
+        // --- FUNCIONES DE AYUDA (HELPERS) ---
+
+        // Dibuja un rectángulo con bordes redondeados
+        function drawRoundRect(x, y, width, height, radius) {
+            ctx.beginPath();
+            ctx.moveTo(x + radius, y);
+            ctx.lineTo(x + width - radius, y);
+            ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+            ctx.lineTo(x + width, y + height - radius);
+            ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+            ctx.lineTo(x + radius, y + height);
+            ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+            ctx.lineTo(x, y + radius);
+            ctx.quadraticCurveTo(x, y, x + radius, y);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        // Dibuja texto con ajuste de línea automático
+        function drawWrappedText(text, x, y, maxWidth, lineHeight, font, color, align = 'left') {
+            ctx.font = font;
+            ctx.fillStyle = color;
+            ctx.textAlign = align;
+
+            const words = text.split(' ');
+            let line = '';
+            let currentY = y;
+
+            for (let n = 0; n < words.length; n++) {
+                const testLine = line + words[n] + ' ';
+                const metrics = ctx.measureText(testLine);
+                const testWidth = metrics.width;
+                if (testWidth > maxWidth && n > 0) {
+                    let lineX = x;
+                    if (align === 'center') lineX = x + maxWidth / 2;
+                    if (align === 'right') lineX = x + maxWidth;
+                    ctx.fillText(line, lineX, currentY);
+                    line = words[n] + ' ';
+                    currentY += lineHeight;
+                } else {
+                    line = testLine;
                 }
+            }
+             let lineX = x;
+            if (align === 'center') lineX = x + maxWidth / 2;
+            if (align === 'right') lineX = x + maxWidth;
+            ctx.fillText(line, lineX, currentY);
+            return currentY + lineHeight; // Devuelve la posición Y final para el siguiente elemento
+        }
+
+        // --- FUNCIONES DE DIBUJO POR SECCIÓN ---
+
+        function drawHeader(width) {
+            const height = 100;
+            const padding = width > 768 ? 50 : 20;
+
+            // Fondo del header
+            ctx.fillStyle = COLORS.headerBg;
+            ctx.shadowColor = 'rgba(0,0,0,0.05)';
+            ctx.shadowBlur = 10;
+            ctx.shadowOffsetY = 2;
+            ctx.fillRect(0, 0, width, height);
+            ctx.shadowColor = 'transparent'; // Resetear sombra
+
+            // Logo placeholder
+            ctx.fillStyle = COLORS.primaryBlue;
+            ctx.font = `bold 30px ${FONTS.heading}`;
+            ctx.textAlign = 'left';
+            ctx.fillText("2XG", padding, 50);
+
+            // Tagline
+            ctx.fillStyle = '#666';
+            ctx.font = `300 12px ${FONTS.heading}`;
+            ctx.fillText(CONTENT.tagline, padding, 70);
+
+            // Navegación
+            if (width > 768) {
+                ctx.fillStyle = COLORS.textMedium;
+                ctx.font = `500 16px ${FONTS.body}`;
+                ctx.textAlign = 'right';
+                let currentX = width - padding;
+                CONTENT.navLinks.slice().reverse().forEach(link => {
+                    ctx.fillText(link, currentX, height / 2 + 8);
+                    currentX -= ctx.measureText(link).width + 30;
+                });
+            } else {
+                // Icono de menú hamburguesa para móviles
+                 ctx.fillStyle = COLORS.textDark;
+                 for(let i=0; i<3; i++) {
+                     ctx.fillRect(width - padding - 30, height/2 - 10 + (i*8), 30, 3);
+                 }
+            }
+            return height;
+        }
+
+        function drawHero(startY, width) {
+            const height = 350;
+            const padding = 20;
+            
+            // Fondo
+            ctx.fillStyle = COLORS.heroBg;
+            ctx.fillRect(0, startY, width, height);
+            
+            const contentWidth = Math.min(width - padding * 2, 800);
+            const contentX = (width - contentWidth) / 2;
+            let currentY = startY + 80;
+
+            // Título principal
+            currentY = drawWrappedText(CONTENT.heroTitle, contentX, currentY, contentWidth, 50, `bold 3em ${FONTS.heading}`, COLORS.primaryBlue, 'center') - 20;
+
+            // Subtítulo
+            currentY = drawWrappedText(CONTENT.heroSubtitle, contentX, currentY, contentWidth, 28, `1.2em ${FONTS.body}`, COLORS.textDark, 'center');
+
+            // Botón
+            const btnWidth = 200;
+            const btnHeight = 50;
+            const btnX = (width - btnWidth) / 2;
+            const btnY = currentY + 10;
+            ctx.fillStyle = COLORS.primaryOrange;
+            drawRoundRect(btnX, btnY, btnWidth, btnHeight, 5);
+
+            ctx.fillStyle = COLORS.textLight;
+            ctx.font = `600 1em ${FONTS.body}`;
+            ctx.textAlign = 'center';
+            ctx.fillText(CONTENT.heroButton, width / 2, btnY + btnHeight / 2 + 6);
+            
+            return startY + height;
+        }
+
+        function draw4DSection(startY, width) {
+            const paddingTop = 80;
+            const paddingX = width > 768 ? 50 : 20;
+            const contentWidth = width - paddingX * 2;
+            
+            let currentY = startY + paddingTop;
+
+            // Título de la sección
+            currentY = drawWrappedText(CONTENT.section1Title, paddingX, currentY, contentWidth, 40, `600 2.2em ${FONTS.heading}`, COLORS.textDark, 'center') + 10;
+
+            // Párrafo introductorio
+            const introWidth = Math.min(contentWidth, 800);
+            currentY = drawWrappedText(CONTENT.section1Text, (width - introWidth)/2, currentY, introWidth, 25, `1em ${FONTS.body}`, COLORS.textMedium, 'center') + 30;
+
+            // Grid de cards
+            const isMobile = width < 768;
+            const gap = 30;
+            const cols = isMobile ? 1 : 4;
+            const cardWidth = (contentWidth - (gap * (cols - 1))) / cols;
+            
+            CONTENT.cards.forEach((card, i) => {
+                const col = i % cols;
+                const row = Math.floor(i / cols);
+                const cardX = paddingX + col * (cardWidth + gap);
+                const cardY = currentY + row * (400 + gap); // Altura fija para simplicidad
+
+                // Dibujar la card
+                ctx.fillStyle = '#fff';
+                ctx.shadowColor = COLORS.cardShadow;
+                ctx.shadowBlur = 15;
+                ctx.shadowOffsetY = 4;
+                drawRoundRect(cardX, cardY, cardWidth, 380, 8);
+                ctx.shadowColor = 'transparent';
+
+                let cardContentY = cardY + 40;
+                
+                // Icono
+                ctx.font = '3em sans-serif'; // Emojis usan la fuente del sistema
+                ctx.textAlign = 'center';
+                ctx.fillText(card.icon, cardX + cardWidth/2, cardContentY + 20);
+                cardContentY += 80;
+
+                // Título de la card
+                cardContentY = drawWrappedText(card.title, cardX + 20, cardContentY, cardWidth - 40, 30, `600 1.5em ${FONTS.heading}`, COLORS.primaryBlue, 'center');
+
+                // Texto de la card
+                drawWrappedText(card.text, cardX + 20, cardContentY, cardWidth - 40, 24, `1em ${FONTS.body}`, COLORS.textMedium, 'center');
             });
-        });
+
+            const gridRows = Math.ceil(CONTENT.cards.length / cols);
+            const totalGridHeight = gridRows * 380 + (gridRows - 1) * gap;
+            
+            return currentY + totalGridHeight + 80; // Espacio al final
+        }
+
+        function drawGrowthSection(startY, width) {
+            const height = 300;
+             // Fondo
+            ctx.fillStyle = COLORS.sectionGray;
+            ctx.fillRect(0, startY, width, height);
+
+            const paddingX = width > 768 ? 50 : 20;
+            const contentWidth = Math.min(width - paddingX * 2, 800);
+            let currentY = startY + 60;
+
+            // Título
+            currentY = drawWrappedText(CONTENT.section2Title, (width-contentWidth)/2, currentY, contentWidth, 40, `600 2.2em ${FONTS.heading}`, COLORS.textDark, 'center') + 10;
+            // Párrafos
+            currentY = drawWrappedText(CONTENT.section2Text1, (width-contentWidth)/2, currentY, contentWidth, 27, `1em ${FONTS.body}`, COLORS.textMedium, 'center');
+            drawWrappedText(CONTENT.section2Text2, (width-contentWidth)/2, currentY, contentWidth, 27, `1em ${FONTS.body}`, COLORS.textMedium, 'center');
+
+            return startY + height + 60;
+        }
+
+        function drawContactSection(startY, width) {
+            const paddingTop = 80;
+            const paddingX = width > 768 ? 50 : 20;
+            const formWidth = Math.min(width - paddingX * 2, 500);
+            const formX = (width - formWidth) / 2;
+            
+            let currentY = startY + paddingTop;
+
+            // Título y texto
+            const textWidth = Math.min(width - paddingX * 2, 800);
+            currentY = drawWrappedText(CONTENT.contactTitle, (width-textWidth)/2, currentY, textWidth, 40, `600 2.2em ${FONTS.heading}`, COLORS.textDark, 'center') + 10;
+            currentY = drawWrappedText(CONTENT.contactText1, (width-textWidth)/2, currentY, textWidth, 27, `1em ${FONTS.body}`, COLORS.textMedium, 'center') + 40;
+
+            // Formulario (visual)
+            const inputHeight = 50;
+            const inputMargin = 20;
+            
+            // Campo Nombre
+            ctx.strokeStyle = COLORS.inputBorder;
+            ctx.lineWidth = 1;
+            ctx.strokeRect(formX, currentY, formWidth, inputHeight);
+            drawWrappedText("Tu Nombre", formX + 15, currentY + 32, formWidth - 30, 20, `1em ${FONTS.body}`, '#aaa');
+            currentY += inputHeight + inputMargin;
+
+            // Campo Email
+            ctx.strokeRect(formX, currentY, formWidth, inputHeight);
+            drawWrappedText("Tu Correo Electrónico", formX + 15, currentY + 32, formWidth - 30, 20, `1em ${FONTS.body}`, '#aaa');
+            currentY += inputHeight + inputMargin;
+
+            // Campo Mensaje
+            const textAreaHeight = 120;
+            ctx.strokeRect(formX, currentY, formWidth, textAreaHeight);
+            drawWrappedText("Tu Mensaje", formX + 15, currentY + 32, formWidth - 30, 20, `1em ${FONTS.body}`, '#aaa');
+            currentY += textAreaHeight + inputMargin;
+            
+            // Botón Enviar
+            ctx.fillStyle = COLORS.primaryOrange;
+            ctx.fillRect(formX, currentY, formWidth, inputHeight);
+            drawWrappedText("Enviar Mensaje", formX, currentY + 32, formWidth, 20, `600 1em ${FONTS.body}`, COLORS.textLight, 'center');
+            currentY += inputHeight + 40;
+
+            // Info de contacto final
+            currentY = drawWrappedText(CONTENT.contactText2, (width-textWidth)/2, currentY, textWidth, 20, `0.9em ${FONTS.body}`, COLORS.textMedium, 'center');
+            currentY = drawWrappedText(CONTENT.contactInfo, (width-textWidth)/2, currentY, textWidth, 20, `600 1.1em ${FONTS.body}`, COLORS.textDark, 'center');
+            
+            return currentY + 80;
+        }
+
+        function drawFooter(startY, width) {
+            const height = 120;
+            ctx.fillStyle = COLORS.footerBg;
+            ctx.fillRect(0, startY, width, height);
+
+            let currentY = startY + 40;
+            currentY = drawWrappedText(CONTENT.footerText1, 0, currentY, width, 20, `0.9em ${FONTS.heading}`, COLORS.textLight, 'center');
+            drawWrappedText(CONTENT.footerText2, 0, currentY, width, 20, `0.9em ${FONTS.heading}`, COLORS.textLight, 'center');
+
+            return startY + height;
+        }
+
+
+        // --- FUNCIÓN PRINCIPAL DE DIBUJADO ---
+        function drawWebsite() {
+            // Limpiar el canvas
+            ctx.fillStyle = COLORS.background;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Dibujar cada sección secuencialmente, pasando la coordenada Y final de la anterior
+            let currentY = 0;
+            currentY = drawHeader(canvas.width);
+            currentY = drawHero(currentY, canvas.width);
+            currentY = draw4DSection(currentY, canvas.width);
+            currentY = drawGrowthSection(currentY, canvas.width);
+            currentY = drawContactSection(currentY, canvas.width);
+            currentY = drawFooter(currentY, canvas.width);
+            
+            // Ajustar la altura total del canvas para que todo el contenido sea visible
+            canvas.height = currentY;
+            
+            // Volver a dibujar todo con la altura correcta
+            ctx.fillStyle = COLORS.background;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            currentY = 0;
+            currentY = drawHeader(canvas.width);
+            currentY = drawHero(currentY, canvas.width);
+            currentY = draw4DSection(currentY, canvas.width);
+            currentY = drawGrowthSection(currentY, canvas.width);
+            currentY = drawContactSection(currentY, canvas.width);
+            currentY = drawFooter(currentY, canvas.width);
+        }
+
+        // --- MANEJO DEL TAMAÑO Y REDIBUJADO ---
+        function resizeAndDraw() {
+            // Ajustar el ancho del canvas al de la ventana
+            canvas.width = window.innerWidth;
+            // La altura se calculará dinámicamente
+            drawWebsite();
+        }
+
+        // Cargar las fuentes y luego dibujar
+        // Usamos un pequeño retraso para dar tiempo a que las fuentes se carguen. 
+        // Una solución más robusta usaría la FontFaceSet API.
+        window.onload = () => {
+             setTimeout(resizeAndDraw, 200);
+        };
+        window.addEventListener('resize', resizeAndDraw);
+
     </script>
 </body>
 </html>
